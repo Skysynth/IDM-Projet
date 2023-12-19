@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ressourceGraphique" nsURI="http://www.example.org/ressourceGraphique"
+    nsPrefix="ressourceGraphique">
+  <eClassifiers xsi:type="ecore:EClass" name="RessourceGraphique"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Bloc"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Fonction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Fichier"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Constante"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RefColonne"/>
+</ecore:EPackage>
