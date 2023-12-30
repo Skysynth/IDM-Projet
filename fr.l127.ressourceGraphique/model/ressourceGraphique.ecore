@@ -2,10 +2,54 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ressourceGraphique" nsURI="http://www.example.org/ressourceGraphique"
     nsPrefix="ressourceGraphique">
-  <eClassifiers xsi:type="ecore:EClass" name="RessourceGraphique"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Bloc"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Fonction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Fichier"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Constante"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RefColonne"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RessourceGraphique">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bloc" upperBound="-1" eType="#//Bloc"
+        eOpposite="#//Bloc/ressourcegraphique"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Bloc" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ressourcegraphique" eType="#//RessourceGraphique"
+        eOpposite="#//RessourceGraphique/bloc"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FonctionUnaire" abstract="true" interface="true"
+      eSuperTypes="#//BlocUnaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FichierBinaire" eSuperTypes="#//BlocBinaire">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chemin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constante" eSuperTypes="#//BlocUnaire">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valeur" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RefColonne" eSuperTypes="#//Bloc">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sortie" lowerBound="1"
+        eType="#//Bloc"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperateurUnaire" abstract="true" interface="true"
+      eSuperTypes="#//BlocUnaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Negation" eSuperTypes="#//OperateurUnaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sinus" eSuperTypes="#//FonctionUnaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BlocUnaire" abstract="true" interface="true"
+      eSuperTypes="#//BlocIntermediaire">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entree" lowerBound="1"
+        eType="#//Bloc"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperateurBinaire" abstract="true" interface="true"
+      eSuperTypes="#//BlocBinaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BlocBinaire" abstract="true" interface="true"
+      eSuperTypes="#//BlocIntermediaire">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entree" lowerBound="2"
+        upperBound="2" eType="#//Bloc"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Addition" eSuperTypes="#//OperateurBinaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Multiplication" eSuperTypes="#//OperateurBinaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FichierUnaire" eSuperTypes="#//BlocUnaire">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chemin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BlocIntermediaire" abstract="true" interface="true"
+      eSuperTypes="#//Bloc">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sortie" lowerBound="1"
+        eType="#//Bloc"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Resultat" eSuperTypes="#//Bloc">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entree" lowerBound="1"
+        eType="#//Bloc"/>
+  </eClassifiers>
 </ecore:EPackage>

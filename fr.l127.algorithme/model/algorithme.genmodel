@@ -11,12 +11,36 @@
   <genPackages prefix="Algorithme" basePackage="fr.l127" disposableProviderFactory="true"
       ecorePackage="algorithme.ecore#/">
     <genClasses ecoreClass="algorithme.ecore#//Algorithme">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute algorithme.ecore#//Algorithme/entrees"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute algorithme.ecore#//Algorithme/sorties"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference algorithme.ecore#//Algorithme/entrees"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference algorithme.ecore#//Algorithme/sorties"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithme.ecore#//Algorithme/entrées"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithme.ecore#//Algorithme/ressource"/>
     </genClasses>
-    <genClasses ecoreClass="algorithme.ecore#//Ressource"/>
+    <genClasses ecoreClass="algorithme.ecore#//Ressource">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithme.ecore#//Ressource/algorithme"/>
+    </genClasses>
     <genClasses ecoreClass="algorithme.ecore#//Fichier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute algorithme.ecore#//Fichier/chemin"/>
     </genClasses>
+    <genClasses ecoreClass="algorithme.ecore#//RessourceGraphique(mettreLienAvecAutrreEcoree"/>
+  </genPackages>
+  <genPackages prefix="SchemaTable" ecorePackage="../../fr.l127.schemaTable/model/schemaTable.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../fr.l127.schemaTable/model/schemaTable.ecore#//TypeColonne">
+      <genEnumLiterals ecoreEnumLiteral="../../fr.l127.schemaTable/model/schemaTable.ecore#//TypeColonne/ChaineCaracteres"/>
+      <genEnumLiterals ecoreEnumLiteral="../../fr.l127.schemaTable/model/schemaTable.ecore#//TypeColonne/Nombre"/>
+    </genEnums>
+    <genClasses ecoreClass="../../fr.l127.schemaTable/model/schemaTable.ecore#//SchemaTable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../fr.l127.schemaTable/model/schemaTable.ecore#//SchemaTable/table"/>
+    </genClasses>
+    <genClasses ecoreClass="../../fr.l127.schemaTable/model/schemaTable.ecore#//Table">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../fr.l127.schemaTable/model/schemaTable.ecore#//Table/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../fr.l127.schemaTable/model/schemaTable.ecore#//Table/colonne"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../fr.l127.schemaTable/model/schemaTable.ecore#//Colonne">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../fr.l127.schemaTable/model/schemaTable.ecore#//Colonne/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../fr.l127.schemaTable/model/schemaTable.ecore#//Colonne/typeColonne"/>
+    </genClasses>
+    <genClasses ecoreClass="../../fr.l127.schemaTable/model/schemaTable.ecore#//ColonneSpeciale"/>
+    <genClasses ecoreClass="../../fr.l127.schemaTable/model/schemaTable.ecore#//ColonneNormal"/>
   </genPackages>
 </genmodel:GenModel>
