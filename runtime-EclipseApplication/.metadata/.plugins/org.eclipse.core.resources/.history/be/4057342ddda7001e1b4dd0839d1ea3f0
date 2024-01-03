@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ressourceGraphique:RessourceGraphique xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ressourceGraphique="http://www.example.org/ressourceGraphique">
+  <bloc xsi:type="ressourceGraphique:Sinus"/>
+  <bloc xsi:type="ressourceGraphique:RefColonne" sortie="//@bloc.2"/>
+  <bloc xsi:type="ressourceGraphique:Resultat"/>
+</ressourceGraphique:RessourceGraphique>
