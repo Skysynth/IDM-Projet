@@ -1,6 +1,6 @@
 /**
  */
-package fr.l127.ressourceGraphique.presentation;
+package fr.l127.RessourceGraphique.presentation;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -179,7 +179,7 @@ public class RessourceGraphiqueActionBarContributor extends EditingDomainActionB
 
 		IMenuManager submenuManager = new MenuManager(
 				RessourceGraphiqueEditorPlugin.INSTANCE.getString("_UI_RessourceGraphiqueEditor_menu"),
-				"fr.l127.ressourceGraphiqueMenuID");
+				"fr.l127.RessourceGraphiqueMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));
@@ -201,6 +201,7 @@ public class RessourceGraphiqueActionBarContributor extends EditingDomainActionB
 		// Force an update because Eclipse hides empty menus now.
 		//
 		submenuManager.addMenuListener(new IMenuListener() {
+			@Override
 			public void menuAboutToShow(IMenuManager menuManager) {
 				menuManager.updateAll(true);
 			}
@@ -247,6 +248,7 @@ public class RessourceGraphiqueActionBarContributor extends EditingDomainActionB
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void selectionChanged(SelectionChangedEvent event) {
 		// Remove any menu items for old selection.
 		//

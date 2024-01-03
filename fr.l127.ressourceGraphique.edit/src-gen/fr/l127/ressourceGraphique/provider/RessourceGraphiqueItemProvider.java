@@ -1,10 +1,10 @@
 /**
  */
-package fr.l127.ressourceGraphique.provider;
+package fr.l127.RessourceGraphique.provider;
 
-import fr.l127.ressourceGraphique.RessourceGraphique;
-import fr.l127.ressourceGraphique.RessourceGraphiqueFactory;
-import fr.l127.ressourceGraphique.RessourceGraphiquePackage;
+import fr.l127.RessourceGraphique.RessourceGraphique;
+import fr.l127.RessourceGraphique.RessourceGraphiqueFactory;
+import fr.l127.RessourceGraphique.RessourceGraphiquePackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -25,7 +26,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link fr.l127.ressourceGraphique.RessourceGraphique} object.
+ * This is the item provider adapter for a {@link fr.l127.RessourceGraphique.RessourceGraphique} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -150,25 +151,10 @@ public class RessourceGraphiqueItemProvider extends ItemProviderAdapter implemen
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
-				RessourceGraphiqueFactory.eINSTANCE.createBloc()));
-
-		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
-				RessourceGraphiqueFactory.eINSTANCE.createFichierBinaire()));
-
-		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
-				RessourceGraphiqueFactory.eINSTANCE.createConstante()));
-
-		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
-				RessourceGraphiqueFactory.eINSTANCE.createRefColonne()));
-
-		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
-				RessourceGraphiqueFactory.eINSTANCE.createNegation()));
+				RessourceGraphiqueFactory.eINSTANCE.createResultat()));
 
 		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
 				RessourceGraphiqueFactory.eINSTANCE.createSinus()));
-
-		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
-				RessourceGraphiqueFactory.eINSTANCE.createAddition()));
 
 		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
 				RessourceGraphiqueFactory.eINSTANCE.createMultiplication()));
@@ -177,7 +163,40 @@ public class RessourceGraphiqueItemProvider extends ItemProviderAdapter implemen
 				RessourceGraphiqueFactory.eINSTANCE.createFichierUnaire()));
 
 		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
-				RessourceGraphiqueFactory.eINSTANCE.createResultat()));
+				RessourceGraphiqueFactory.eINSTANCE.createAddition()));
+
+		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
+				RessourceGraphiqueFactory.eINSTANCE.createMinimun()));
+
+		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
+				RessourceGraphiqueFactory.eINSTANCE.createMaximun()));
+
+		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
+				RessourceGraphiqueFactory.eINSTANCE.createCosinus()));
+
+		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
+				RessourceGraphiqueFactory.eINSTANCE.createRacineCarree()));
+
+		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
+				RessourceGraphiqueFactory.eINSTANCE.createSoustraction()));
+
+		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
+				RessourceGraphiqueFactory.eINSTANCE.createDivision()));
+
+		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
+				RessourceGraphiqueFactory.eINSTANCE.createNegation()));
+
+		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
+				RessourceGraphiqueFactory.eINSTANCE.createInverse()));
+
+		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
+				RessourceGraphiqueFactory.eINSTANCE.createFichierBinaire()));
+
+		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
+				RessourceGraphiqueFactory.eINSTANCE.createRefColonne()));
+
+		newChildDescriptors.add(createChildParameter(RessourceGraphiquePackage.Literals.RESSOURCE_GRAPHIQUE__BLOC,
+				RessourceGraphiqueFactory.eINSTANCE.createConstante()));
 	}
 
 	/**

@@ -1,6 +1,6 @@
 /**
  */
-package fr.l127.ressourceGraphique;
+package fr.l127.RessourceGraphique;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -10,8 +10,8 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see fr.l127.ressourceGraphique.RessourceGraphiquePackage#getBloc()
- * @model
+ * @see fr.l127.RessourceGraphique.RessourceGraphiquePackage#getBloc()
+ * @model abstract="true"
  * @generated
  */
 public interface Bloc extends EObject {

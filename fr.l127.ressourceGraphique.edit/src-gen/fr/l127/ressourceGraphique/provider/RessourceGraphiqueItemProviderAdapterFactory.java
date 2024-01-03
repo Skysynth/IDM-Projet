@@ -1,8 +1,8 @@
 /**
  */
-package fr.l127.ressourceGraphique.provider;
+package fr.l127.RessourceGraphique.provider;
 
-import fr.l127.ressourceGraphique.util.RessourceGraphiqueAdapterFactory;
+import fr.l127.RessourceGraphique.util.RessourceGraphiqueAdapterFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -73,7 +73,7 @@ public class RessourceGraphiqueItemProviderAdapterFactory extends RessourceGraph
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.l127.ressourceGraphique.RessourceGraphique} instances.
+	 * This keeps track of the one adapter used for all {@link fr.l127.RessourceGraphique.RessourceGraphique} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -81,7 +81,7 @@ public class RessourceGraphiqueItemProviderAdapterFactory extends RessourceGraph
 	protected RessourceGraphiqueItemProvider ressourceGraphiqueItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link fr.l127.ressourceGraphique.RessourceGraphique}.
+	 * This creates an adapter for a {@link fr.l127.RessourceGraphique.RessourceGraphique}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -96,214 +96,7 @@ public class RessourceGraphiqueItemProviderAdapterFactory extends RessourceGraph
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.l127.ressourceGraphique.Bloc} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BlocItemProvider blocItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.l127.ressourceGraphique.Bloc}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBlocAdapter() {
-		if (blocItemProvider == null) {
-			blocItemProvider = new BlocItemProvider(this);
-		}
-
-		return blocItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.l127.ressourceGraphique.FichierBinaire} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected FichierBinaireItemProvider fichierBinaireItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.l127.ressourceGraphique.FichierBinaire}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createFichierBinaireAdapter() {
-		if (fichierBinaireItemProvider == null) {
-			fichierBinaireItemProvider = new FichierBinaireItemProvider(this);
-		}
-
-		return fichierBinaireItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.l127.ressourceGraphique.Constante} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ConstanteItemProvider constanteItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.l127.ressourceGraphique.Constante}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createConstanteAdapter() {
-		if (constanteItemProvider == null) {
-			constanteItemProvider = new ConstanteItemProvider(this);
-		}
-
-		return constanteItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.l127.ressourceGraphique.RefColonne} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RefColonneItemProvider refColonneItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.l127.ressourceGraphique.RefColonne}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRefColonneAdapter() {
-		if (refColonneItemProvider == null) {
-			refColonneItemProvider = new RefColonneItemProvider(this);
-		}
-
-		return refColonneItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.l127.ressourceGraphique.Negation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NegationItemProvider negationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.l127.ressourceGraphique.Negation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNegationAdapter() {
-		if (negationItemProvider == null) {
-			negationItemProvider = new NegationItemProvider(this);
-		}
-
-		return negationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.l127.ressourceGraphique.Sinus} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SinusItemProvider sinusItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.l127.ressourceGraphique.Sinus}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSinusAdapter() {
-		if (sinusItemProvider == null) {
-			sinusItemProvider = new SinusItemProvider(this);
-		}
-
-		return sinusItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.l127.ressourceGraphique.Addition} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AdditionItemProvider additionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.l127.ressourceGraphique.Addition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAdditionAdapter() {
-		if (additionItemProvider == null) {
-			additionItemProvider = new AdditionItemProvider(this);
-		}
-
-		return additionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.l127.ressourceGraphique.Multiplication} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MultiplicationItemProvider multiplicationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.l127.ressourceGraphique.Multiplication}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMultiplicationAdapter() {
-		if (multiplicationItemProvider == null) {
-			multiplicationItemProvider = new MultiplicationItemProvider(this);
-		}
-
-		return multiplicationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.l127.ressourceGraphique.FichierUnaire} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected FichierUnaireItemProvider fichierUnaireItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.l127.ressourceGraphique.FichierUnaire}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createFichierUnaireAdapter() {
-		if (fichierUnaireItemProvider == null) {
-			fichierUnaireItemProvider = new FichierUnaireItemProvider(this);
-		}
-
-		return fichierUnaireItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.l127.ressourceGraphique.Resultat} instances.
+	 * This keeps track of the one adapter used for all {@link fr.l127.RessourceGraphique.Resultat} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -311,7 +104,7 @@ public class RessourceGraphiqueItemProviderAdapterFactory extends RessourceGraph
 	protected ResultatItemProvider resultatItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link fr.l127.ressourceGraphique.Resultat}.
+	 * This creates an adapter for a {@link fr.l127.RessourceGraphique.Resultat}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -326,11 +119,357 @@ public class RessourceGraphiqueItemProviderAdapterFactory extends RessourceGraph
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.l127.RessourceGraphique.Sinus} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SinusItemProvider sinusItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.l127.RessourceGraphique.Sinus}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSinusAdapter() {
+		if (sinusItemProvider == null) {
+			sinusItemProvider = new SinusItemProvider(this);
+		}
+
+		return sinusItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.l127.RessourceGraphique.Multiplication} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MultiplicationItemProvider multiplicationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.l127.RessourceGraphique.Multiplication}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMultiplicationAdapter() {
+		if (multiplicationItemProvider == null) {
+			multiplicationItemProvider = new MultiplicationItemProvider(this);
+		}
+
+		return multiplicationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.l127.RessourceGraphique.FichierUnaire} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FichierUnaireItemProvider fichierUnaireItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.l127.RessourceGraphique.FichierUnaire}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFichierUnaireAdapter() {
+		if (fichierUnaireItemProvider == null) {
+			fichierUnaireItemProvider = new FichierUnaireItemProvider(this);
+		}
+
+		return fichierUnaireItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.l127.RessourceGraphique.Addition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AdditionItemProvider additionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.l127.RessourceGraphique.Addition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAdditionAdapter() {
+		if (additionItemProvider == null) {
+			additionItemProvider = new AdditionItemProvider(this);
+		}
+
+		return additionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.l127.RessourceGraphique.Minimun} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MinimunItemProvider minimunItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.l127.RessourceGraphique.Minimun}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMinimunAdapter() {
+		if (minimunItemProvider == null) {
+			minimunItemProvider = new MinimunItemProvider(this);
+		}
+
+		return minimunItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.l127.RessourceGraphique.Maximun} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MaximunItemProvider maximunItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.l127.RessourceGraphique.Maximun}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMaximunAdapter() {
+		if (maximunItemProvider == null) {
+			maximunItemProvider = new MaximunItemProvider(this);
+		}
+
+		return maximunItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.l127.RessourceGraphique.Cosinus} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CosinusItemProvider cosinusItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.l127.RessourceGraphique.Cosinus}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCosinusAdapter() {
+		if (cosinusItemProvider == null) {
+			cosinusItemProvider = new CosinusItemProvider(this);
+		}
+
+		return cosinusItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.l127.RessourceGraphique.RacineCarree} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RacineCarreeItemProvider racineCarreeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.l127.RessourceGraphique.RacineCarree}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRacineCarreeAdapter() {
+		if (racineCarreeItemProvider == null) {
+			racineCarreeItemProvider = new RacineCarreeItemProvider(this);
+		}
+
+		return racineCarreeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.l127.RessourceGraphique.Soustraction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SoustractionItemProvider soustractionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.l127.RessourceGraphique.Soustraction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSoustractionAdapter() {
+		if (soustractionItemProvider == null) {
+			soustractionItemProvider = new SoustractionItemProvider(this);
+		}
+
+		return soustractionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.l127.RessourceGraphique.Division} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DivisionItemProvider divisionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.l127.RessourceGraphique.Division}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDivisionAdapter() {
+		if (divisionItemProvider == null) {
+			divisionItemProvider = new DivisionItemProvider(this);
+		}
+
+		return divisionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.l127.RessourceGraphique.Negation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NegationItemProvider negationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.l127.RessourceGraphique.Negation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNegationAdapter() {
+		if (negationItemProvider == null) {
+			negationItemProvider = new NegationItemProvider(this);
+		}
+
+		return negationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.l127.RessourceGraphique.Inverse} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InverseItemProvider inverseItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.l127.RessourceGraphique.Inverse}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInverseAdapter() {
+		if (inverseItemProvider == null) {
+			inverseItemProvider = new InverseItemProvider(this);
+		}
+
+		return inverseItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.l127.RessourceGraphique.FichierBinaire} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FichierBinaireItemProvider fichierBinaireItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.l127.RessourceGraphique.FichierBinaire}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFichierBinaireAdapter() {
+		if (fichierBinaireItemProvider == null) {
+			fichierBinaireItemProvider = new FichierBinaireItemProvider(this);
+		}
+
+		return fichierBinaireItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.l127.RessourceGraphique.RefColonne} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RefColonneItemProvider refColonneItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.l127.RessourceGraphique.RefColonne}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRefColonneAdapter() {
+		if (refColonneItemProvider == null) {
+			refColonneItemProvider = new RefColonneItemProvider(this);
+		}
+
+		return refColonneItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.l127.RessourceGraphique.Constante} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConstanteItemProvider constanteItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.l127.RessourceGraphique.Constante}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConstanteAdapter() {
+		if (constanteItemProvider == null) {
+			constanteItemProvider = new ConstanteItemProvider(this);
+		}
+
+		return constanteItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -341,6 +480,7 @@ public class RessourceGraphiqueItemProviderAdapterFactory extends RessourceGraph
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -389,6 +529,7 @@ public class RessourceGraphiqueItemProviderAdapterFactory extends RessourceGraph
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -399,6 +540,7 @@ public class RessourceGraphiqueItemProviderAdapterFactory extends RessourceGraph
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -409,6 +551,7 @@ public class RessourceGraphiqueItemProviderAdapterFactory extends RessourceGraph
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -423,29 +566,42 @@ public class RessourceGraphiqueItemProviderAdapterFactory extends RessourceGraph
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
 		if (ressourceGraphiqueItemProvider != null)
 			ressourceGraphiqueItemProvider.dispose();
-		if (blocItemProvider != null)
-			blocItemProvider.dispose();
-		if (fichierBinaireItemProvider != null)
-			fichierBinaireItemProvider.dispose();
-		if (constanteItemProvider != null)
-			constanteItemProvider.dispose();
-		if (refColonneItemProvider != null)
-			refColonneItemProvider.dispose();
-		if (negationItemProvider != null)
-			negationItemProvider.dispose();
+		if (resultatItemProvider != null)
+			resultatItemProvider.dispose();
 		if (sinusItemProvider != null)
 			sinusItemProvider.dispose();
-		if (additionItemProvider != null)
-			additionItemProvider.dispose();
 		if (multiplicationItemProvider != null)
 			multiplicationItemProvider.dispose();
 		if (fichierUnaireItemProvider != null)
 			fichierUnaireItemProvider.dispose();
-		if (resultatItemProvider != null)
-			resultatItemProvider.dispose();
+		if (additionItemProvider != null)
+			additionItemProvider.dispose();
+		if (minimunItemProvider != null)
+			minimunItemProvider.dispose();
+		if (maximunItemProvider != null)
+			maximunItemProvider.dispose();
+		if (cosinusItemProvider != null)
+			cosinusItemProvider.dispose();
+		if (racineCarreeItemProvider != null)
+			racineCarreeItemProvider.dispose();
+		if (soustractionItemProvider != null)
+			soustractionItemProvider.dispose();
+		if (divisionItemProvider != null)
+			divisionItemProvider.dispose();
+		if (negationItemProvider != null)
+			negationItemProvider.dispose();
+		if (inverseItemProvider != null)
+			inverseItemProvider.dispose();
+		if (fichierBinaireItemProvider != null)
+			fichierBinaireItemProvider.dispose();
+		if (refColonneItemProvider != null)
+			refColonneItemProvider.dispose();
+		if (constanteItemProvider != null)
+			constanteItemProvider.dispose();
 	}
 
 }

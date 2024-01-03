@@ -1,6 +1,6 @@
 /**
  */
-package fr.l127.ressourceGraphique.presentation;
+package fr.l127.RessourceGraphique.presentation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -68,9 +68,9 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
-import fr.l127.ressourceGraphique.RessourceGraphiqueFactory;
-import fr.l127.ressourceGraphique.RessourceGraphiquePackage;
-import fr.l127.ressourceGraphique.provider.RessourceGraphiqueEditPlugin;
+import fr.l127.RessourceGraphique.RessourceGraphiqueFactory;
+import fr.l127.RessourceGraphique.RessourceGraphiquePackage;
+import fr.l127.RessourceGraphique.provider.RessourceGraphiqueEditPlugin;
 
 import org.eclipse.core.runtime.Path;
 
@@ -171,6 +171,7 @@ public class RessourceGraphiqueModelWizard extends Wizard implements INewWizard 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
@@ -275,6 +276,7 @@ public class RessourceGraphiqueModelWizard extends Wizard implements INewWizard 
 			if (activePart instanceof ISetSelectionTarget) {
 				final ISelection targetSelection = new StructuredSelection(modelFile);
 				getShell().getDisplay().asyncExec(new Runnable() {
+					@Override
 					public void run() {
 						((ISetSelectionTarget) activePart).selectReveal(targetSelection);
 					}
@@ -391,6 +393,7 @@ public class RessourceGraphiqueModelWizard extends Wizard implements INewWizard 
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
+		@Override
 		public void createControl(Composite parent) {
 			Composite composite = new Composite(parent, SWT.NONE);
 			{
@@ -465,6 +468,7 @@ public class RessourceGraphiqueModelWizard extends Wizard implements INewWizard 
 		 * @generated
 		 */
 		protected ModifyListener validator = new ModifyListener() {
+			@Override
 			public void modifyText(ModifyEvent e) {
 				setPageComplete(validatePage());
 			}

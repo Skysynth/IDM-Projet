@@ -1,16 +1,23 @@
 /**
  */
-package fr.l127.ressourceGraphique.provider;
+package fr.l127.RessourceGraphique.provider;
+
+import fr.l127.RessourceGraphique.RefColonne;
+import fr.l127.RessourceGraphique.RessourceGraphiquePackage;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link fr.l127.ressourceGraphique.RefColonne} object.
+ * This is the item provider adapter for a {@link fr.l127.RessourceGraphique.RefColonne} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -37,8 +44,25 @@ public class RefColonneItemProvider extends BlocItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addIdColonnePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Id Colonne feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIdColonnePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_RefColonne_idColonne_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_RefColonne_idColonne_feature",
+								"_UI_RefColonne_type"),
+						RessourceGraphiquePackage.Literals.REF_COLONNE__ID_COLONNE, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -70,7 +94,8 @@ public class RefColonneItemProvider extends BlocItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_RefColonne_type");
+		RefColonne refColonne = (RefColonne) object;
+		return getString("_UI_RefColonne_type") + " " + refColonne.getIdColonne();
 	}
 
 	/**
@@ -83,6 +108,12 @@ public class RefColonneItemProvider extends BlocItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(RefColonne.class)) {
+		case RessourceGraphiquePackage.REF_COLONNE__ID_COLONNE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 

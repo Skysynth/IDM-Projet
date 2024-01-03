@@ -1,6 +1,6 @@
 /**
  */
-package fr.l127.ressourceGraphique;
+package fr.l127.RessourceGraphique;
 
 /**
  * <!-- begin-user-doc -->
@@ -11,10 +11,10 @@ package fr.l127.ressourceGraphique;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.l127.ressourceGraphique.BlocUnaire#getEntree <em>Entree</em>}</li>
+ *   <li>{@link fr.l127.RessourceGraphique.BlocUnaire#getEntree <em>Entree</em>}</li>
  * </ul>
  *
- * @see fr.l127.ressourceGraphique.RessourceGraphiquePackage#getBlocUnaire()
+ * @see fr.l127.RessourceGraphique.RessourceGraphiquePackage#getBlocUnaire()
  * @model interface="true" abstract="true"
  * @generated
  */
@@ -25,14 +25,14 @@ public interface BlocUnaire extends BlocIntermediaire {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Entree</em>' reference.
 	 * @see #setEntree(Bloc)
-	 * @see fr.l127.ressourceGraphique.RessourceGraphiquePackage#getBlocUnaire_Entree()
+	 * @see fr.l127.RessourceGraphique.RessourceGraphiquePackage#getBlocUnaire_Entree()
 	 * @model required="true"
 	 * @generated
 	 */
 	Bloc getEntree();
 
 	/**
-	 * Sets the value of the '{@link fr.l127.ressourceGraphique.BlocUnaire#getEntree <em>Entree</em>}' reference.
+	 * Sets the value of the '{@link fr.l127.RessourceGraphique.BlocUnaire#getEntree <em>Entree</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Entree</em>' reference.

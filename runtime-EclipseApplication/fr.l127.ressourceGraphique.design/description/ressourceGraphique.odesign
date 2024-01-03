@@ -1,38 +1,285 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="ressourceGraphique" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="ressourceGraphique" version="12.0.0.2017041100">
   <ownedViewpoints name="ressourceGraphique" modelFileExtension="ressourcegraphique">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="RessourceGraphique" domainClass="ressourceGraphique::RessourceGraphique" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="RessourceGraphique" domainClass="RessourceGraphique::RessourceGraphique" enablePopupBars="true">
       <metamodel href="http://www.example.org/ressourceGraphique#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="Sinus" domainClass="ressourceGraphique::Sinus">
+        <nodeMappings name="Sinus" domainClass="RessourceGraphique::Sinus">
           <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Sinus" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="refColonne" domainClass="ressourceGraphique::RefColonne">
-          <style xsi:type="style:DotDescription" labelSize="12" labelExpression="" labelPosition="node" resizeKind="NSEW">
+        <nodeMappings name="Resultat" domainClass="RessourceGraphique::Resultat">
+          <style xsi:type="style:DotDescription" labelSize="12" labelExpression="Resultat" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="Resultat" domainClass="ressourceGraphique::Resultat">
-          <style xsi:type="style:DotDescription" labelSize="12" labelExpression="" labelPosition="node" resizeKind="NSEW">
+        <nodeMappings name="Multiplication" domainClass="RessourceGraphique::Multiplication">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Multiplication" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="LienColonneSinus" sourceMapping="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Sinus']" targetMapping="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='refColonne']" targetFinderExpression="feature:entree">
-          <style sizeComputationExpression="2">
+        <nodeMappings name="Division" domainClass="RessourceGraphique::Division">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Division" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Cosinus" domainClass="RessourceGraphique::Cosinus">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Cosinus" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Minimun" domainClass="RessourceGraphique::Minimun">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Min" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Maximun" domainClass="RessourceGraphique::Maximun">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Max" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Negation" domainClass="RessourceGraphique::Negation">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Negation" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Inverse" domainClass="RessourceGraphique::Inverse">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Inverse" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="RacineCarree" domainClass="RessourceGraphique::RacineCarree">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Racine Carrée" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="FichierUnaire" domainClass="RessourceGraphique::FichierUnaire">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="feature:chemin" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="RefColonne" domainClass="RessourceGraphique::RefColonne">
+          <style xsi:type="style:EllipseNodeDescription" labelSize="12" labelExpression="feature:idColonne" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="FichierBinaire" domainClass="RessourceGraphique::FichierBinaire">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="feature:chemin" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Constante" domainClass="RessourceGraphique::Constante">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="feature:valeur" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Addition" domainClass="RessourceGraphique::Addition">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Addition" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Soustraction" domainClass="RessourceGraphique::Soustraction">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Soustraction" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="Lien" sourceMapping="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Resultat'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Sinus'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Multiplication'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Division'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Addition'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Cosinus'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='FichierBinaire'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='FichierUnaire'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Inverse'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Maximun'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Minimun'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Negation'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='RacineCarree'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Soustraction']" targetMapping="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Sinus'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Multiplication'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Division'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Addition'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Cosinus'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='FichierBinaire'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='FichierUnaire'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Constante'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Inverse'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Maximun'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Minimun'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Negation'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='RacineCarree'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Soustraction'] //@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='RefColonne']" targetFinderExpression="feature:entree">
+          <style sourceArrow="InputArrow" targetArrow="OutputArrow" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
+        <toolSections name="Entree/Sortie">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ResultatCreation" nodeMappings="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Resultat']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/].">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="RessourceGraphique::Resultat" referenceName="bloc"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ConstanteCreation" nodeMappings="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Constante']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/].">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="RessourceGraphique::Constante" referenceName="bloc"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="RefColonneCreation" nodeMappings="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='RefColonne']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/].">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="RessourceGraphique::RefColonne" referenceName="bloc"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Fonction Unaire">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="SinusCreation" nodeMappings="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Sinus']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/].">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="RessourceGraphique::Sinus" referenceName="bloc"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CosinusCreation" nodeMappings="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Cosinus']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/].">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="RessourceGraphique::Cosinus" referenceName="bloc"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="RacineCarreeCreation" nodeMappings="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='RacineCarree']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/].">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="RessourceGraphique::RacineCarree" referenceName="bloc"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Operateur Unaire">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="NegationCreation" nodeMappings="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Negation']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/].">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="RessourceGraphique::Negation" referenceName="bloc"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="InverseCreation" nodeMappings="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Inverse']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/].">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="RessourceGraphique::Inverse" referenceName="bloc"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Operateur Binaire">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="AdditionCreation" nodeMappings="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Addition']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/].">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="RessourceGraphique::Addition" referenceName="bloc"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="MultiplicationCreation" nodeMappings="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Multiplication']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/].">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="RessourceGraphique::Multiplication" referenceName="bloc"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="DivisionCreation" nodeMappings="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Division']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/].">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="RessourceGraphique::Division" referenceName="bloc"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="SoustractionCreation" nodeMappings="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Soustraction']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/].">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="RessourceGraphique::Soustraction" referenceName="bloc"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Fonction Binaire">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="MinimunCreation" nodeMappings="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Minimun']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/].">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="RessourceGraphique::Minimun" referenceName="bloc"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="MaximunCreation" nodeMappings="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='Maximun']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/].">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="RessourceGraphique::Maximun" referenceName="bloc"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Fichier">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="FichierUnaireCreation" nodeMappings="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='FichierUnaire']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/].">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="RessourceGraphique::FichierUnaire" referenceName="bloc"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="FichierBinaireCreation" nodeMappings="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@nodeMappings[name='FichierBinaire']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/].">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="RessourceGraphique::FichierBinaire" referenceName="bloc"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="fr.l127.ressourceGraphique.design.Services"/>

@@ -1,22 +1,16 @@
 /**
  */
-package fr.l127.ressourceGraphique.impl;
+package fr.l127.RessourceGraphique.impl;
 
-import fr.l127.ressourceGraphique.Bloc;
-import fr.l127.ressourceGraphique.RessourceGraphique;
-import fr.l127.ressourceGraphique.RessourceGraphiquePackage;
-
+import fr.l127.RessourceGraphique.Bloc;
+import fr.l127.RessourceGraphique.RessourceGraphique;
+import fr.l127.RessourceGraphique.RessourceGraphiquePackage;
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -28,7 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.l127.ressourceGraphique.impl.RessourceGraphiqueImpl#getBloc <em>Bloc</em>}</li>
+ *   <li>{@link fr.l127.RessourceGraphique.impl.RessourceGraphiqueImpl#getBloc <em>Bloc</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +62,7 @@ public class RessourceGraphiqueImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Bloc> getBloc() {
 		if (bloc == null) {
 			bloc = new EObjectContainmentEList<Bloc>(Bloc.class, this,

@@ -10,7 +10,7 @@
       <!-- @generated ressourceGraphique -->
       <package
             uri="http://www.example.org/ressourceGraphique"
-            class="fr.l127.ressourceGraphique.RessourceGraphiquePackage"
+            class="fr.l127.RessourceGraphique.RessourceGraphiquePackage"
             genModel="model/ressourceGraphique.genmodel"/>
    </extension>
 

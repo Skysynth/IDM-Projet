@@ -1,6 +1,6 @@
 /**
  */
-package fr.l127.ressourceGraphique;
+package fr.l127.RessourceGraphique;
 
 /**
  * <!-- begin-user-doc -->
@@ -8,7 +8,7 @@ package fr.l127.ressourceGraphique;
  * <!-- end-user-doc -->
  *
  *
- * @see fr.l127.ressourceGraphique.RessourceGraphiquePackage#getOperateurBinaire()
+ * @see fr.l127.RessourceGraphique.RessourceGraphiquePackage#getOperateurBinaire()
  * @model interface="true" abstract="true"
  * @generated
  */

@@ -1,15 +1,17 @@
 /**
  */
-package fr.l127.ressourceGraphique.impl;
+package fr.l127.RessourceGraphique.impl;
 
-import fr.l127.ressourceGraphique.Addition;
-import fr.l127.ressourceGraphique.Bloc;
-import fr.l127.ressourceGraphique.RessourceGraphiquePackage;
+import fr.l127.RessourceGraphique.Addition;
+import fr.l127.RessourceGraphique.Bloc;
+import fr.l127.RessourceGraphique.RessourceGraphiquePackage;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -20,7 +22,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.l127.ressourceGraphique.impl.AdditionImpl#getEntree <em>Entree</em>}</li>
+ *   <li>{@link fr.l127.RessourceGraphique.impl.AdditionImpl#getEntree <em>Entree</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,6 +62,7 @@ public class AdditionImpl extends BlocImpl implements Addition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Bloc> getEntree() {
 		if (entree == null) {
 			entree = new EObjectResolvingEList<Bloc>(Bloc.class, this, RessourceGraphiquePackage.ADDITION__ENTREE);

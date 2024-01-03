@@ -1,12 +1,13 @@
 /**
  */
-package fr.l127.ressourceGraphique.impl;
+package fr.l127.RessourceGraphique.impl;
 
-import fr.l127.ressourceGraphique.Bloc;
-import fr.l127.ressourceGraphique.FichierUnaire;
-import fr.l127.ressourceGraphique.RessourceGraphiquePackage;
+import fr.l127.RessourceGraphique.Bloc;
+import fr.l127.RessourceGraphique.FichierUnaire;
+import fr.l127.RessourceGraphique.RessourceGraphiquePackage;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -20,8 +21,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.l127.ressourceGraphique.impl.FichierUnaireImpl#getEntree <em>Entree</em>}</li>
- *   <li>{@link fr.l127.ressourceGraphique.impl.FichierUnaireImpl#getChemin <em>Chemin</em>}</li>
+ *   <li>{@link fr.l127.RessourceGraphique.impl.FichierUnaireImpl#getEntree <em>Entree</em>}</li>
+ *   <li>{@link fr.l127.RessourceGraphique.impl.FichierUnaireImpl#getChemin <em>Chemin</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,6 +82,7 @@ public class FichierUnaireImpl extends BlocImpl implements FichierUnaire {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Bloc getEntree() {
 		if (entree != null && entree.eIsProxy()) {
 			InternalEObject oldEntree = (InternalEObject) entree;
@@ -108,6 +110,7 @@ public class FichierUnaireImpl extends BlocImpl implements FichierUnaire {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEntree(Bloc newEntree) {
 		Bloc oldEntree = entree;
 		entree = newEntree;
@@ -121,6 +124,7 @@ public class FichierUnaireImpl extends BlocImpl implements FichierUnaire {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getChemin() {
 		return chemin;
 	}
@@ -130,6 +134,7 @@ public class FichierUnaireImpl extends BlocImpl implements FichierUnaire {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setChemin(String newChemin) {
 		String oldChemin = chemin;
 		chemin = newChemin;

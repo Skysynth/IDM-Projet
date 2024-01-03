@@ -1,6 +1,6 @@
 /**
  */
-package fr.l127.ressourceGraphique;
+package fr.l127.RessourceGraphique;
 
 /**
  * <!-- begin-user-doc -->
@@ -8,7 +8,7 @@ package fr.l127.ressourceGraphique;
  * <!-- end-user-doc -->
  *
  *
- * @see fr.l127.ressourceGraphique.RessourceGraphiquePackage#getNegation()
+ * @see fr.l127.RessourceGraphique.RessourceGraphiquePackage#getNegation()
  * @model
  * @generated
  */

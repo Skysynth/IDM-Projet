@@ -1,18 +1,21 @@
 /**
  */
-package fr.l127.ressourceGraphique.impl;
+package fr.l127.RessourceGraphique.impl;
 
-import fr.l127.ressourceGraphique.Bloc;
-import fr.l127.ressourceGraphique.FichierBinaire;
-import fr.l127.ressourceGraphique.RessourceGraphiquePackage;
+import fr.l127.RessourceGraphique.Bloc;
+import fr.l127.RessourceGraphique.FichierBinaire;
+import fr.l127.RessourceGraphique.RessourceGraphiquePackage;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -23,8 +26,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.l127.ressourceGraphique.impl.FichierBinaireImpl#getEntree <em>Entree</em>}</li>
- *   <li>{@link fr.l127.ressourceGraphique.impl.FichierBinaireImpl#getChemin <em>Chemin</em>}</li>
+ *   <li>{@link fr.l127.RessourceGraphique.impl.FichierBinaireImpl#getEntree <em>Entree</em>}</li>
+ *   <li>{@link fr.l127.RessourceGraphique.impl.FichierBinaireImpl#getChemin <em>Chemin</em>}</li>
  * </ul>
  *
  * @generated
@@ -84,6 +87,7 @@ public class FichierBinaireImpl extends BlocImpl implements FichierBinaire {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Bloc> getEntree() {
 		if (entree == null) {
 			entree = new EObjectResolvingEList<Bloc>(Bloc.class, this,
@@ -97,6 +101,7 @@ public class FichierBinaireImpl extends BlocImpl implements FichierBinaire {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getChemin() {
 		return chemin;
 	}
@@ -106,6 +111,7 @@ public class FichierBinaireImpl extends BlocImpl implements FichierBinaire {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setChemin(String newChemin) {
 		String oldChemin = chemin;
 		chemin = newChemin;

@@ -1,6 +1,6 @@
 /**
  */
-package fr.l127.ressourceGraphique;
+package fr.l127.RessourceGraphique;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -13,21 +13,21 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.l127.ressourceGraphique.BlocBinaire#getEntree <em>Entree</em>}</li>
+ *   <li>{@link fr.l127.RessourceGraphique.BlocBinaire#getEntree <em>Entree</em>}</li>
  * </ul>
  *
- * @see fr.l127.ressourceGraphique.RessourceGraphiquePackage#getBlocBinaire()
+ * @see fr.l127.RessourceGraphique.RessourceGraphiquePackage#getBlocBinaire()
  * @model interface="true" abstract="true"
  * @generated
  */
 public interface BlocBinaire extends BlocIntermediaire {
 	/**
 	 * Returns the value of the '<em><b>Entree</b></em>' reference list.
-	 * The list contents are of type {@link fr.l127.ressourceGraphique.Bloc}.
+	 * The list contents are of type {@link fr.l127.RessourceGraphique.Bloc}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Entree</em>' reference list.
-	 * @see fr.l127.ressourceGraphique.RessourceGraphiquePackage#getBlocBinaire_Entree()
+	 * @see fr.l127.RessourceGraphique.RessourceGraphiquePackage#getBlocBinaire_Entree()
 	 * @model lower="2" upper="2"
 	 * @generated
 	 */

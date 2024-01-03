@@ -1,6 +1,6 @@
 /**
  */
-package fr.l127.ressourceGraphique;
+package fr.l127.RessourceGraphique;
 
 /**
  * <!-- begin-user-doc -->
@@ -11,10 +11,10 @@ package fr.l127.ressourceGraphique;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.l127.ressourceGraphique.FichierBinaire#getChemin <em>Chemin</em>}</li>
+ *   <li>{@link fr.l127.RessourceGraphique.FichierBinaire#getChemin <em>Chemin</em>}</li>
  * </ul>
  *
- * @see fr.l127.ressourceGraphique.RessourceGraphiquePackage#getFichierBinaire()
+ * @see fr.l127.RessourceGraphique.RessourceGraphiquePackage#getFichierBinaire()
  * @model
  * @generated
  */
@@ -25,14 +25,14 @@ public interface FichierBinaire extends BlocBinaire {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Chemin</em>' attribute.
 	 * @see #setChemin(String)
-	 * @see fr.l127.ressourceGraphique.RessourceGraphiquePackage#getFichierBinaire_Chemin()
+	 * @see fr.l127.RessourceGraphique.RessourceGraphiquePackage#getFichierBinaire_Chemin()
 	 * @model
 	 * @generated
 	 */
 	String getChemin();
 
 	/**
-	 * Sets the value of the '{@link fr.l127.ressourceGraphique.FichierBinaire#getChemin <em>Chemin</em>}' attribute.
+	 * Sets the value of the '{@link fr.l127.RessourceGraphique.FichierBinaire#getChemin <em>Chemin</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Chemin</em>' attribute.

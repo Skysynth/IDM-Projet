@@ -1,12 +1,10 @@
 /**
  */
-package fr.l127.ressourceGraphique.impl;
+package fr.l127.RessourceGraphique.impl;
 
-import fr.l127.ressourceGraphique.Bloc;
-import fr.l127.ressourceGraphique.RessourceGraphiquePackage;
-
+import fr.l127.RessourceGraphique.Bloc;
+import fr.l127.RessourceGraphique.RessourceGraphiquePackage;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
@@ -16,7 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class BlocImpl extends MinimalEObjectImpl.Container implements Bloc {
+public abstract class BlocImpl extends MinimalEObjectImpl.Container implements Bloc {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

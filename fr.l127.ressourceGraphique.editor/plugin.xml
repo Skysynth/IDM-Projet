@@ -12,9 +12,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="fr.l127.ressourceGraphique.presentation.RessourceGraphiqueModelWizardID"
+            id="fr.l127.RessourceGraphique.presentation.RessourceGraphiqueModelWizardID"
             name="%_UI_RessourceGraphiqueModelWizard_label"
-            class="fr.l127.ressourceGraphique.presentation.RessourceGraphiqueModelWizard"
+            class="fr.l127.RessourceGraphique.presentation.RessourceGraphiqueModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/RessourceGraphiqueModelFile.gif">
          <description>%_UI_RessourceGraphiqueModelWizard_description</description>
@@ -25,12 +25,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated ressourceGraphique -->
       <editor
-            id="fr.l127.ressourceGraphique.presentation.RessourceGraphiqueEditorID"
+            id="fr.l127.RessourceGraphique.presentation.RessourceGraphiqueEditorID"
             name="%_UI_RessourceGraphiqueEditor_label"
             icon="icons/full/obj16/RessourceGraphiqueModelFile.gif"
             extensions="ressourcegraphique"
-            class="fr.l127.ressourceGraphique.presentation.RessourceGraphiqueEditor"
-            contributorClass="fr.l127.ressourceGraphique.presentation.RessourceGraphiqueActionBarContributor">
+            class="fr.l127.RessourceGraphique.presentation.RessourceGraphiqueEditor"
+            contributorClass="fr.l127.RessourceGraphique.presentation.RessourceGraphiqueActionBarContributor">
       </editor>
    </extension>
 

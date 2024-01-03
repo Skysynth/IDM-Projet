@@ -1,6 +1,6 @@
 /**
  */
-package fr.l127.ressourceGraphique.presentation;
+package fr.l127.RessourceGraphique.presentation;
 
 import org.eclipse.emf.common.EMFPlugin;
 
