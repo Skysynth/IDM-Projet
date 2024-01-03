@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated ressourceGraphique -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="fr.l127.ressourceGraphique.presentation.RessourceGraphiqueModelWizardID"
+            name="%_UI_RessourceGraphiqueModelWizard_label"
+            class="fr.l127.ressourceGraphique.presentation.RessourceGraphiqueModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/RessourceGraphiqueModelFile.gif">
+         <description>%_UI_RessourceGraphiqueModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated ressourceGraphique -->
+      <editor
+            id="fr.l127.ressourceGraphique.presentation.RessourceGraphiqueEditorID"
+            name="%_UI_RessourceGraphiqueEditor_label"
+            icon="icons/full/obj16/RessourceGraphiqueModelFile.gif"
+            extensions="ressourcegraphique"
+            class="fr.l127.ressourceGraphique.presentation.RessourceGraphiqueEditor"
+            contributorClass="fr.l127.ressourceGraphique.presentation.RessourceGraphiqueActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

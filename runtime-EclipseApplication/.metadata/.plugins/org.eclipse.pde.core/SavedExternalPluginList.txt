@@ -1,4 +1,4 @@
-# List of external plug-in models previously loaded. Timestamp: 1703934781593
+# List of external plug-in models previously loaded. Timestamp: 1704281144026
 file:/C:/Users/Loïc/eclipse-2023-03/eclipse/plugins/bcpg_1.76.0.jar
 file:/C:/Users/Loïc/eclipse-2023-03/eclipse/plugins/bcpkix_1.76.0.jar
 file:/C:/Users/Loïc/eclipse-2023-03/eclipse/plugins/bcprov_1.76.0.jar
@@ -21,7 +21,10 @@ file:/C:/Users/Loïc/eclipse-2023-03/eclipse/plugins/com.sun.jna_5.13.0.v2023081
 file:/C:/Users/Loïc/eclipse-2023-03/eclipse/plugins/com.sun.jna.platform_5.13.0.jar
 file:/C:/Users/Loïc/Documents/2A%20SN/github/IDM-Projet/fr.l127.algorithme/
 file:/C:/Users/Loïc/Documents/2A%20SN/github/IDM-Projet/fr.l127.ressourceGraphique/
+file:/C:/Users/Loïc/Documents/2A%20SN/github/IDM-Projet/fr.l127.ressourceGraphique.edit/
+file:/C:/Users/Loïc/Documents/2A%20SN/github/IDM-Projet/fr.l127.ressourceGraphique.editor/
 file:/C:/Users/Loïc/Documents/2A%20SN/github/IDM-Projet/fr.l127.schemaTable/
+file:/C:/Users/Loïc/Documents/2A%20SN/github/N7-2A-Logiciel/IDM/mini-projet/mp.petrinet.toTINA/
 file:/C:/Users/Loïc/eclipse-2023-03/eclipse/plugins/io.github.classgraph_4.8.149.v20220915-0556.jar
 file:/C:/Users/Loïc/eclipse-2023-03/eclipse/plugins/jakarta.inject.jakarta.inject-api_2.0.1.jar
 file:/C:/Users/Loïc/eclipse-2023-03/eclipse/plugins/jakarta.servlet-api_4.0.0.jar
@@ -43,6 +46,15 @@ file:/C:/Users/Loïc/eclipse-2023-03/eclipse/plugins/junit-platform-suite-common
 file:/C:/Users/Loïc/eclipse-2023-03/eclipse/plugins/junit-platform-suite-engine_1.10.0.jar
 file:/C:/Users/Loïc/eclipse-2023-03/eclipse/plugins/junit-vintage-engine_5.10.0.jar
 file:/C:/Users/Loïc/eclipse-2023-03/eclipse/plugins/lpg.runtime.java_2.0.17.v201004271640.jar
+file:/C:/Users/Loïc/Documents/2A%20SN/github/N7-2A-Logiciel/IDM/mini-projet/mp.pdl1/
+file:/C:/Users/Loïc/Documents/2A%20SN/github/N7-2A-Logiciel/IDM/mini-projet/mp.pdl1.ide/
+file:/C:/Users/Loïc/Documents/2A%20SN/github/N7-2A-Logiciel/IDM/mini-projet/mp.pdl1.tests/
+file:/C:/Users/Loïc/Documents/2A%20SN/github/N7-2A-Logiciel/IDM/mini-projet/mp.pdl1.ui/
+file:/C:/Users/Loïc/Documents/2A%20SN/github/N7-2A-Logiciel/IDM/mini-projet/mp.pdl1.ui.tests/
+file:/C:/Users/Loïc/Documents/2A%20SN/github/N7-2A-Logiciel/IDM/mini-projet/mp.petrinet/
+file:/C:/Users/Loïc/Documents/2A%20SN/github/N7-2A-Logiciel/IDM/mini-projet/mp.petrinet.fromSimplePDL.EMFJAVA/
+file:/C:/Users/Loïc/Documents/2A%20SN/github/N7-2A-Logiciel/IDM/mini-projet/mp.simplePDL/
+file:/C:/Users/Loïc/Documents/2A%20SN/github/N7-2A-Logiciel/IDM/mini-projet/mp.simplePDL.LTL/
 file:/C:/Users/Loïc/eclipse-2023-03/eclipse/plugins/net.i2p.crypto.eddsa_0.3.0.v20220506-1020.jar
 file:/C:/Users/Loïc/eclipse-2023-03/eclipse/plugins/org.antlr.runtime_4.7.2.v20221112-0806.jar
 file:/C:/Users/Loïc/eclipse-2023-03/eclipse/plugins/org.antlr.runtime_3.2.0.v20220404-1927.jar

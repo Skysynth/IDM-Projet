@@ -11,11 +11,9 @@
   <genPackages prefix="RessourceGraphique" basePackage="fr.l127" disposableProviderFactory="true"
       ecorePackage="ressourceGraphique.ecore#/">
     <genClasses ecoreClass="ressourceGraphique.ecore#//RessourceGraphique">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ressourceGraphique.ecore#//RessourceGraphique/bloc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ressourceGraphique.ecore#//RessourceGraphique/bloc"/>
     </genClasses>
-    <genClasses ecoreClass="ressourceGraphique.ecore#//Bloc">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ressourceGraphique.ecore#//Bloc/ressourcegraphique"/>
-    </genClasses>
+    <genClasses ecoreClass="ressourceGraphique.ecore#//Bloc"/>
     <genClasses ecoreClass="ressourceGraphique.ecore#//FonctionUnaire"/>
     <genClasses ecoreClass="ressourceGraphique.ecore#//FichierBinaire">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ressourceGraphique.ecore#//FichierBinaire/chemin"/>
@@ -23,9 +21,7 @@
     <genClasses ecoreClass="ressourceGraphique.ecore#//Constante">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ressourceGraphique.ecore#//Constante/valeur"/>
     </genClasses>
-    <genClasses ecoreClass="ressourceGraphique.ecore#//RefColonne">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ressourceGraphique.ecore#//RefColonne/sortie"/>
-    </genClasses>
+    <genClasses ecoreClass="ressourceGraphique.ecore#//RefColonne"/>
     <genClasses ecoreClass="ressourceGraphique.ecore#//OperateurUnaire"/>
     <genClasses ecoreClass="ressourceGraphique.ecore#//Negation"/>
     <genClasses ecoreClass="ressourceGraphique.ecore#//Sinus"/>
@@ -41,9 +37,7 @@
     <genClasses ecoreClass="ressourceGraphique.ecore#//FichierUnaire">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ressourceGraphique.ecore#//FichierUnaire/chemin"/>
     </genClasses>
-    <genClasses ecoreClass="ressourceGraphique.ecore#//BlocIntermediaire">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ressourceGraphique.ecore#//BlocIntermediaire/sortie"/>
-    </genClasses>
+    <genClasses ecoreClass="ressourceGraphique.ecore#//BlocIntermediaire"/>
     <genClasses ecoreClass="ressourceGraphique.ecore#//Resultat">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ressourceGraphique.ecore#//Resultat/entree"/>
     </genClasses>
