@@ -4,7 +4,7 @@
     <semanticResources>ressourceGraphique.ressourcegraphique</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_fvbu4KpNEe6JJ_ZCWJc8jg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/fr.l127.ressourceGraphique.design/description/ressourceGraphique.odesign#//@ownedViewpoints[name='ressourceGraphique']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_2Y6_EKpfEe6cH6IFeC9Bng" name="RessourceGraphiqueDiag" repPath="#_2Y5w8KpfEe6cH6IFeC9Bng" changeId="1704323824480">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_2Y6_EKpfEe6cH6IFeC9Bng" name="RessourceGraphiqueDiag" repPath="#_2Y5w8KpfEe6cH6IFeC9Bng" changeId="1704540034026">
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/fr.l127.ressourceGraphique.design/description/ressourceGraphique.odesign#//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']"/>
         <target xmi:type="ressourceGraphique:RessourceGraphique" href="ressourceGraphique.ressourcegraphique#/"/>
       </ownedRepresentationDescriptors>

@@ -1,0 +1,13 @@
+[query public getEntree(res : Resultat) : OrderedSet(Bloc) =
+		select( e | res.entree = e  )
+		->collect( e | res.entree = e) 
+		->asOrderedSet()
+/]
+
+def [aRessourceGraphique.name] (*colonnes) :
+	return [let resultats : OrderedSet(Resultat) = aRessourceGraphique.getResultats()]
+				[for (res : Resultat | resultats) res.entree.getNameMethod() (
+					[let entrees : OrderedSet(Bloc) = res.entree.getEntree()]
+					[for (entree : Bloc | entrees)  entree.getNameMethod(),] )
+					
+				]

@@ -357,6 +357,16 @@ public class RessourceGraphiquePackageImpl extends EPackageImpl implements Resso
 	 * @generated
 	 */
 	@Override
+	public EAttribute getResultat_IdColonne() {
+		return (EAttribute) resultatEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getEntree() {
 		return entreeEClass;
 	}
@@ -670,6 +680,7 @@ public class RessourceGraphiquePackageImpl extends EPackageImpl implements Resso
 
 		resultatEClass = createEClass(RESULTAT);
 		createEReference(resultatEClass, RESULTAT__ENTREE);
+		createEAttribute(resultatEClass, RESULTAT__ID_COLONNE);
 
 		entreeEClass = createEClass(ENTREE);
 
@@ -793,6 +804,8 @@ public class RessourceGraphiquePackageImpl extends EPackageImpl implements Resso
 		initEReference(getResultat_Entree(), this.getBloc(), null, "entree", null, 1, 1, Resultat.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEAttribute(getResultat_IdColonne(), ecorePackage.getEInt(), "idColonne", null, 0, 1, Resultat.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(entreeEClass, Entree.class, "Entree", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

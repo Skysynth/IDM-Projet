@@ -169,13 +169,22 @@ public interface RessourceGraphiquePackage extends EPackage {
 	int RESULTAT__ENTREE = BLOC_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Id Colonne</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULTAT__ID_COLONNE = BLOC_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Resultat</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULTAT_FEATURE_COUNT = BLOC_FEATURE_COUNT + 1;
+	int RESULTAT_FEATURE_COUNT = BLOC_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Resultat</em>' class.
@@ -1072,6 +1081,17 @@ public interface RessourceGraphiquePackage extends EPackage {
 	EReference getResultat_Entree();
 
 	/**
+	 * Returns the meta object for the attribute '{@link fr.l127.RessourceGraphique.Resultat#getIdColonne <em>Id Colonne</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id Colonne</em>'.
+	 * @see fr.l127.RessourceGraphique.Resultat#getIdColonne()
+	 * @see #getResultat()
+	 * @generated
+	 */
+	EAttribute getResultat_IdColonne();
+
+	/**
 	 * Returns the meta object for class '{@link fr.l127.RessourceGraphique.Entree <em>Entree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1435,6 +1455,14 @@ public interface RessourceGraphiquePackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESULTAT__ENTREE = eINSTANCE.getResultat_Entree();
+
+		/**
+		 * The meta object literal for the '<em><b>Id Colonne</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESULTAT__ID_COLONNE = eINSTANCE.getResultat_IdColonne();
 
 		/**
 		 * The meta object literal for the '{@link fr.l127.RessourceGraphique.Entree <em>Entree</em>}' class.
