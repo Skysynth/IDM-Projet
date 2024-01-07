@@ -110,7 +110,7 @@ public class FichierBinaireItemProvider extends BlocItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((FichierBinaire) object).getChemin();
+		String label = ((FichierBinaire) object).getNom();
 		return label == null || label.length() == 0 ? getString("_UI_FichierBinaire_type")
 				: getString("_UI_FichierBinaire_type") + " " + label;
 	}

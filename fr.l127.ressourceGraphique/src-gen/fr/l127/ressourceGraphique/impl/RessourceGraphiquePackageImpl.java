@@ -317,8 +317,28 @@ public class RessourceGraphiquePackageImpl extends EPackageImpl implements Resso
 	 * @generated
 	 */
 	@Override
+	public EAttribute getRessourceGraphique_Nom() {
+		return (EAttribute) ressourceGraphiqueEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getBloc() {
 		return blocEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBloc_Nom() {
+		return (EAttribute) blocEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -673,8 +693,10 @@ public class RessourceGraphiquePackageImpl extends EPackageImpl implements Resso
 		// Create classes and their features
 		ressourceGraphiqueEClass = createEClass(RESSOURCE_GRAPHIQUE);
 		createEReference(ressourceGraphiqueEClass, RESSOURCE_GRAPHIQUE__BLOC);
+		createEAttribute(ressourceGraphiqueEClass, RESSOURCE_GRAPHIQUE__NOM);
 
 		blocEClass = createEClass(BLOC);
+		createEAttribute(blocEClass, BLOC__NOM);
 
 		blocIntermediaireEClass = createEClass(BLOC_INTERMEDIAIRE);
 
@@ -793,8 +815,13 @@ public class RessourceGraphiquePackageImpl extends EPackageImpl implements Resso
 		initEReference(getRessourceGraphique_Bloc(), this.getBloc(), null, "bloc", null, 0, -1,
 				RessourceGraphique.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRessourceGraphique_Nom(), ecorePackage.getEString(), "nom", null, 0, 1,
+				RessourceGraphique.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(blocEClass, Bloc.class, "Bloc", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBloc_Nom(), ecorePackage.getEString(), "nom", null, 0, 1, Bloc.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(blocIntermediaireEClass, BlocIntermediaire.class, "BlocIntermediaire", IS_ABSTRACT, IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

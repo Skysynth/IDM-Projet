@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link fr.l127.RessourceGraphique.RessourceGraphique#getBloc <em>Bloc</em>}</li>
+ *   <li>{@link fr.l127.RessourceGraphique.RessourceGraphique#getNom <em>Nom</em>}</li>
  * </ul>
  *
  * @see fr.l127.RessourceGraphique.RessourceGraphiquePackage#getRessourceGraphique()
@@ -34,5 +35,27 @@ public interface RessourceGraphique extends EObject {
 	 * @generated
 	 */
 	EList<Bloc> getBloc();
+
+	/**
+	 * Returns the value of the '<em><b>Nom</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Nom</em>' attribute.
+	 * @see #setNom(String)
+	 * @see fr.l127.RessourceGraphique.RessourceGraphiquePackage#getRessourceGraphique_Nom()
+	 * @model
+	 * @generated
+	 */
+	String getNom();
+
+	/**
+	 * Sets the value of the '{@link fr.l127.RessourceGraphique.RessourceGraphique#getNom <em>Nom</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Nom</em>' attribute.
+	 * @see #getNom()
+	 * @generated
+	 */
+	void setNom(String value);
 
 } // RessourceGraphique

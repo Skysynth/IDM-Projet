@@ -2,6 +2,7 @@
  */
 package fr.l127.RessourceGraphique.provider;
 
+import fr.l127.RessourceGraphique.Addition;
 import fr.l127.RessourceGraphique.RessourceGraphiquePackage;
 
 import java.util.Collection;
@@ -90,7 +91,9 @@ public class AdditionItemProvider extends BlocItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Addition_type");
+		String label = ((Addition) object).getNom();
+		return label == null || label.length() == 0 ? getString("_UI_Addition_type")
+				: getString("_UI_Addition_type") + " " + label;
 	}
 
 	/**

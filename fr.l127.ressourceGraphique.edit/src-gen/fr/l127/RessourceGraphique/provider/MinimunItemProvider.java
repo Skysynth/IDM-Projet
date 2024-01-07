@@ -2,6 +2,7 @@
  */
 package fr.l127.RessourceGraphique.provider;
 
+import fr.l127.RessourceGraphique.Minimun;
 import fr.l127.RessourceGraphique.RessourceGraphiquePackage;
 
 import java.util.Collection;
@@ -90,7 +91,9 @@ public class MinimunItemProvider extends BlocItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Minimun_type");
+		String label = ((Minimun) object).getNom();
+		return label == null || label.length() == 0 ? getString("_UI_Minimun_type")
+				: getString("_UI_Minimun_type") + " " + label;
 	}
 
 	/**

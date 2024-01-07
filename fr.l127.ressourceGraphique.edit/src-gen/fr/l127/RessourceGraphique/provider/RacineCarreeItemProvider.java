@@ -2,6 +2,7 @@
  */
 package fr.l127.RessourceGraphique.provider;
 
+import fr.l127.RessourceGraphique.RacineCarree;
 import fr.l127.RessourceGraphique.RessourceGraphiquePackage;
 
 import java.util.Collection;
@@ -90,7 +91,9 @@ public class RacineCarreeItemProvider extends BlocItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_RacineCarree_type");
+		String label = ((RacineCarree) object).getNom();
+		return label == null || label.length() == 0 ? getString("_UI_RacineCarree_type")
+				: getString("_UI_RacineCarree_type") + " " + label;
 	}
 
 	/**

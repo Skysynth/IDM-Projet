@@ -110,8 +110,9 @@ public class ResultatItemProvider extends BlocItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Resultat resultat = (Resultat) object;
-		return getString("_UI_Resultat_type") + " " + resultat.getIdColonne();
+		String label = ((Resultat) object).getNom();
+		return label == null || label.length() == 0 ? getString("_UI_Resultat_type")
+				: getString("_UI_Resultat_type") + " " + label;
 	}
 
 	/**

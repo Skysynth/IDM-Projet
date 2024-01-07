@@ -94,8 +94,9 @@ public class RefColonneItemProvider extends BlocItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		RefColonne refColonne = (RefColonne) object;
-		return getString("_UI_RefColonne_type") + " " + refColonne.getIdColonne();
+		String label = ((RefColonne) object).getNom();
+		return label == null || label.length() == 0 ? getString("_UI_RefColonne_type")
+				: getString("_UI_RefColonne_type") + " " + label;
 	}
 
 	/**

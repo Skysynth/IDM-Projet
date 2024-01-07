@@ -110,7 +110,7 @@ public class FichierUnaireItemProvider extends BlocItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((FichierUnaire) object).getChemin();
+		String label = ((FichierUnaire) object).getNom();
 		return label == null || label.length() == 0 ? getString("_UI_FichierUnaire_type")
 				: getString("_UI_FichierUnaire_type") + " " + label;
 	}

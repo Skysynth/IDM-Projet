@@ -1,0 +1,36 @@
+[comment encoding = UTF-8 /]
+[module toPython('http://www.example.org/ressourceGraphique')]
+
+[template public generateElement(aRessourceGraphique : RessourceGraphique)]
+[comment @main/] 
+in the template used as the entry point of the generation. 
+[file (aRessourceGraphique.nom +'.py', false, 'UTF-8')]
+def aRessourceGraphique.nom (*colonnes) :
+return [let resultats : OrderedSet(Resultat) = aRessourceGraphique.getResultats()]
+
+[for (res : Resultat | resultats)] [generateFunctionCall(res)/][/for]
+[/let]
+[/file]
+[/template]
+
+
+[template public generateFunctionCall(bloc: Bloc)] : String =
+    if (bloc.entreeBloc->notEmpty()) then
+            bloc.nom & "(" & bloc.entreeBloc->collect(generateFunctionCall)->asSequence()->sep(", ") & ")"
+    else
+        bloc.nom
+    endif
+[/template]
+
+[query public getResultats(rg : RessourceGraphique) : OrderedSet(Resultat) =
+    rg.bloc->select(e | e.oclIsTypeOf(Resultat))->asOrderedSet()
+/]
+
+
+[for (entree : Bloc | entrees )] [generateFunctionCallBloc(entree)/][/for]
+
+
+
+
+
+

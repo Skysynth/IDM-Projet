@@ -94,8 +94,9 @@ public class ConstanteItemProvider extends BlocItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Constante constante = (Constante) object;
-		return getString("_UI_Constante_type") + " " + constante.getValeur();
+		String label = ((Constante) object).getNom();
+		return label == null || label.length() == 0 ? getString("_UI_Constante_type")
+				: getString("_UI_Constante_type") + " " + label;
 	}
 
 	/**

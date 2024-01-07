@@ -4,6 +4,7 @@ package fr.l127.RessourceGraphique.provider;
 
 import fr.l127.RessourceGraphique.RessourceGraphiquePackage;
 
+import fr.l127.RessourceGraphique.Soustraction;
 import java.util.Collection;
 import java.util.List;
 
@@ -90,7 +91,9 @@ public class SoustractionItemProvider extends BlocItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Soustraction_type");
+		String label = ((Soustraction) object).getNom();
+		return label == null || label.length() == 0 ? getString("_UI_Soustraction_type")
+				: getString("_UI_Soustraction_type") + " " + label;
 	}
 
 	/**
