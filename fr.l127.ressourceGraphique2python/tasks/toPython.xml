@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="toPython" name="fr.l127.ressourceGraphique2python">
     <property name="ECLIPSE_HOME" value="../../../../../../eclipse-2023-03/eclipse"/>
-    <property name="ECLIPSE_WORKSPACE" value="../.."/>
+    <property name="ECLIPSE_WORKSPACE" value="../../runtime-EclipseApplication"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="fr.l127.ressourceGraphique2python.libraryclasspath">

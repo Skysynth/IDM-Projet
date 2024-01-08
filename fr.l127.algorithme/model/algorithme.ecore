@@ -14,6 +14,4 @@
   <eClassifiers xsi:type="ecore:EClass" name="Fichier" eSuperTypes="#//Ressource">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="chemin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RessourceGraphique(mettreLienAvecAutrreEcoree"
-      eSuperTypes="#//Ressource"/>
 </ecore:EPackage>

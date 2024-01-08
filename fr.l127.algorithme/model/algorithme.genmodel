@@ -22,7 +22,6 @@
     <genClasses ecoreClass="algorithme.ecore#//Fichier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute algorithme.ecore#//Fichier/chemin"/>
     </genClasses>
-    <genClasses ecoreClass="algorithme.ecore#//RessourceGraphique(mettreLienAvecAutrreEcoree"/>
   </genPackages>
   <genPackages prefix="SchemaTable" ecorePackage="../../fr.l127.schemaTable/model/schemaTable.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../fr.l127.schemaTable/model/schemaTable.ecore#//TypeColonne">
