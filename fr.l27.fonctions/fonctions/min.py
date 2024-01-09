@@ -1,5 +1,11 @@
 def min(*colonnes):
-    resultat = min(colonnes[0])
-    for colonne in colonnes[1:]:
-        resultat = min(resultat, min(colonne))
+    nb_ligne = len(colonnes[0])
+    nb_colonne = len(colonnes)
+    resultat = [0] * nb_ligne
+    copy = list(colonnes)
+    for i in range(nb_colonne):
+        if len(copy[i]) == 1:
+            copy[i] = copy[i] * nb_ligne
+    for i in range(nb_ligne):
+        resultat[i] = min(copy_i[i] for copy_i in copy)
     return resultat
