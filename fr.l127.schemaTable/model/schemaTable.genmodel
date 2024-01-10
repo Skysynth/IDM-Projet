@@ -24,8 +24,13 @@
     <genClasses ecoreClass="schemaTable.ecore#//Colonne">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schemaTable.ecore#//Colonne/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schemaTable.ecore#//Colonne/typeColonne"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference schemaTable.ecore#//Colonne/contrainte"/>
     </genClasses>
     <genClasses ecoreClass="schemaTable.ecore#//ColonneSpeciale"/>
     <genClasses ecoreClass="schemaTable.ecore#//ColonneNormal"/>
+    <genClasses ecoreClass="schemaTable.ecore#//Contrainte">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schemaTable.ecore#//Contrainte/nom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schemaTable.ecore#//Contrainte/args"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

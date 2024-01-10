@@ -340,9 +340,6 @@ public class ToPython extends AbstractAcceleoGenerator {
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
-        if (!isInWorkspace(fr.l127.RessourceGraphique.RessourceGraphiquePackage.class)) {
-            resourceSet.getPackageRegistry().put(fr.l127.RessourceGraphique.RessourceGraphiquePackage.eINSTANCE.getNsURI(), fr.l127.RessourceGraphique.RessourceGraphiquePackage.eINSTANCE);
-        }
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"
