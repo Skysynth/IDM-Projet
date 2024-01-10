@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemaTable:SchemaTable
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaTable="http://www.example.org/schemaTable"
+    xsi:schemaLocation="http://www.example.org/schemaTable ../../fr.l127.schemaTable/model/schemaTable.ecore">
+  <table>
+    <colonne
+        xsi:type="schemaTable:ColonneNormal">
+      <contrainte
+          nom="beginBy">
+        <args>a</args>
+      </contrainte>
+    </colonne>
+    <colonne
+        xsi:type="schemaTable:ColonneNormal"
+        id="1"/>
+  </table>
+  <table id="1">
+    <colonne
+        xsi:type="schemaTable:ColonneNormal"
+        id="2"/>
+    <colonne
+        xsi:type="schemaTable:ColonneNormal"
+        id="3"/>
+  </table>
+</schemaTable:SchemaTable>
