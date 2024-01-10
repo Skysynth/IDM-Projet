@@ -4,6 +4,7 @@
     <semanticResources>algorithme.ecore</semanticResources>
     <semanticResources>algorithme.genmodel</semanticResources>
     <semanticResources>platform:/resource/fr.l127.schemaTable/model/schemaTable.ecore</semanticResources>
+    <semanticResources>platform:/resource/fr.l127.schemaTable/model/schemaTable.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_yY8woJ55Ee6wo56aJYoRJw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_yaNU4J55Ee6wo56aJYoRJw" name="algorithme" repPath="#_yaBusJ55Ee6wo56aJYoRJw" changeId="1704738393959">

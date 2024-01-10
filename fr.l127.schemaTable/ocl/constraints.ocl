@@ -1,0 +1,9 @@
+import '../model/schemaTable.ecore'
+
+package schemaTable
+
+context SchemaTable
+inv ColumnShouldHaveUniqueId:
+    self.table.colonne->forAll(p1, p2 | p1 <> p2 implies p1.id <> p2.id)
+
+endpackage
