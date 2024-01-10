@@ -50,7 +50,7 @@ public interface Librairie extends EObject
 
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-   * The list contents are of type {@link fr.l127.lA.LibrairieElement}.
+   * The list contents are of type {@link fr.l127.lA.Algorithme}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Elements</em>' containment reference list.
@@ -58,6 +58,6 @@ public interface Librairie extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<LibrairieElement> getElements();
+  EList<Algorithme> getElements();
 
 } // Librairie

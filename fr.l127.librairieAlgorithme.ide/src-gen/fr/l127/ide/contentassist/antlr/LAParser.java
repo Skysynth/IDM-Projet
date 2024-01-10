@@ -39,6 +39,8 @@ public class LAParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAlgorithmeAccess().getEntreesAssignment_5(), "rule__Algorithme__EntreesAssignment_5");
 			builder.put(grammarAccess.getAlgorithmeAccess().getSortiesAssignment_9(), "rule__Algorithme__SortiesAssignment_9");
 			builder.put(grammarAccess.getAlgorithmeAccess().getCheminAssignment_12(), "rule__Algorithme__CheminAssignment_12");
+			builder.put(grammarAccess.getEntreeAccess().getIdColonneAssignment(), "rule__Entree__IdColonneAssignment");
+			builder.put(grammarAccess.getSortieAccess().getIdColonneAssignment(), "rule__Sortie__IdColonneAssignment");
 		}
 	}
 	

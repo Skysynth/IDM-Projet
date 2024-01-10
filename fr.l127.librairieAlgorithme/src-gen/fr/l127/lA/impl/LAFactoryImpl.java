@@ -66,8 +66,9 @@ public class LAFactoryImpl extends EFactoryImpl implements LAFactory
     switch (eClass.getClassifierID())
     {
       case LAPackage.LIBRAIRIE: return createLibrairie();
-      case LAPackage.LIBRAIRIE_ELEMENT: return createLibrairieElement();
       case LAPackage.ALGORITHME: return createAlgorithme();
+      case LAPackage.ENTREE: return createEntree();
+      case LAPackage.SORTIE: return createSortie();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -91,10 +92,10 @@ public class LAFactoryImpl extends EFactoryImpl implements LAFactory
    * @generated
    */
   @Override
-  public LibrairieElement createLibrairieElement()
+  public Algorithme createAlgorithme()
   {
-    LibrairieElementImpl librairieElement = new LibrairieElementImpl();
-    return librairieElement;
+    AlgorithmeImpl algorithme = new AlgorithmeImpl();
+    return algorithme;
   }
 
   /**
@@ -103,10 +104,22 @@ public class LAFactoryImpl extends EFactoryImpl implements LAFactory
    * @generated
    */
   @Override
-  public Algorithme createAlgorithme()
+  public Entree createEntree()
   {
-    AlgorithmeImpl algorithme = new AlgorithmeImpl();
-    return algorithme;
+    EntreeImpl entree = new EntreeImpl();
+    return entree;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Sortie createSortie()
+  {
+    SortieImpl sortie = new SortieImpl();
+    return sortie;
   }
 
   /**
