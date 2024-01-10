@@ -1,0 +1,44 @@
+[query public getEntree(res : Resultat) : OrderedSet(Bloc) =
+		select( e | res.entree = e  )
+		->collect( e | res.entree = e) 
+		->asOrderedSet()
+/]
+
+def [aRessourceGraphique.name] (*colonnes) :
+	return [let resultats : OrderedSet(Resultat) = aRessourceGraphique.getResultats()]
+				[for (res : Resultat | resultats) res.entree.getNameMethod() (
+					[let entrees : OrderedSet(Bloc) = res.entree.getEntree()]
+					[for (entree : Bloc | entrees)  entree.getNameMethod(),] )
+					
+				]
+				
+[template public generateElement(aRessourceGraphique : RessourceGraphique)]
+
+[file (aRessourceGraphique.nom + '.py', false, 'UTF-8')]
+def [aRessourceGraphique.nom/] (*colonnes) :
+return [let resultats : OrderedSet(Resultat) = aRessourceGraphique.getResultats()]
+
+[for (res : Resultat | resultats)] res.generateCodeForResultat()[/for]
+[/let]
+[/file]
+[/template]
+[query public getResultats(rg : RessourceGraphique) : OrderedSet(Resultat) =
+    rg.bloc->select(e | e.oclIsTypeOf(Resultat))->asOrderedSet()
+/]
+
+
+
+
+
+[query public generateCodeForResultat(resultat: Resultat) : String = resultat.getFunctionCall()
+/]
+
+
+[query public getFunctionCall(bloc: Bloc) : String = if (bloc.entreeBloc->notEmpty()) then
+        bloc.nom & "(" & bloc.entreeBloc->collect(getFunctionCall)->asSequence()->sep(", ") & ")"
+    else
+        bloc.nom
+    endif
+/]
+
+				
