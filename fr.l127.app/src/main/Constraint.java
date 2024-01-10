@@ -1,0 +1,69 @@
+package main;
+
+import java.lang.reflect.Method;
+import java.util.List;
+
+public class Constraint {
+	
+	String name;
+	
+	String[] arguments;
+	
+	Class<ConstraintsDefinition> classDC = ConstraintsDefinition.class;
+	
+	public Constraint(String name, String[] arguments) {
+		this.name = name;
+		this.arguments = arguments;
+		
+	}
+	
+	public <T> boolean checkColumn(Column c) {
+		
+		System.out.println("A");
+		
+		boolean result = true;
+		
+		try {
+            // On obtient la méthode par son nom
+            Method method = Tool.getMethodByName(classDC, name);
+            
+            List<T> datas = c.getDatas();
+            
+            for(T data : datas) {
+            	
+				String[] augmentedArguments = new String[arguments.length + 1];
+				
+				augmentedArguments[0] = (String)data;
+				
+				int i = 0;
+				while(i < arguments.length) {
+					augmentedArguments[i+1] = arguments[i];
+					i++;
+				}
+			
+            	
+				 Object[] objectArguments = Tool.convertArguments(augmentedArguments, method.getParameterTypes());
+				
+				 // Invocation de la méthode
+				     result = result && (boolean) method.invoke(null, objectArguments);
+				     
+				     i = 0;
+				     while(i < objectArguments.length) {
+				    	 System.out.println(objectArguments[i]);
+				    	 i++;
+				     }
+				  
+				     System.out.println("Coucou : " + result);
+             
+            }
+          
+		
+		} catch(Exception e) {
+			result = false;
+			e.printStackTrace();
+		}
+		
+		return result;
+	}	
+	
+}

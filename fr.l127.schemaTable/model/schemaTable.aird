@@ -9,7 +9,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="schemaTable.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_qZYiQK5BEe6mGo5AE4wwFg" name="schemaTable class diagram" repPath="#_qY-SkK5BEe6mGo5AE4wwFg" changeId="1704882821027">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_qZYiQK5BEe6mGo5AE4wwFg" name="schemaTable class diagram" repPath="#_qY-SkK5BEe6mGo5AE4wwFg" changeId="1704904179914">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="schemaTable.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -683,7 +683,7 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Fkky1q-jEe6MUbrWK18zgA" name="[0..1] contrainte" sourceNode="_riffYq5BEe6mGo5AE4wwFg" targetNode="_wMlhkK-iEe6MUbrWK18zgA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Fkky1q-jEe6MUbrWK18zgA" name="[0..*] contrainte" sourceNode="_riffYq5BEe6mGo5AE4wwFg" targetNode="_wMlhkK-iEe6MUbrWK18zgA">
       <target xmi:type="ecore:EReference" href="schemaTable.ecore#//Colonne/contrainte"/>
       <semanticElements xmi:type="ecore:EReference" href="schemaTable.ecore#//Colonne/contrainte"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_FklZ4K-jEe6MUbrWK18zgA" description="_ris6wK5BEe6mGo5AE4wwFg" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
