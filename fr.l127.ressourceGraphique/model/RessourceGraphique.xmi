@@ -4,8 +4,9 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ressourceGraphique="http://www.example.org/ressourceGraphique"
-    xsi:schemaLocation="http://www.example.org/ressourceGraphique ./ressourceGraphique.ecore"
-    nom="test">
+   	xsi:schemaLocation="http://www.example.org/ressourceGraphique ./ressourceGraphique.ecore"  
+    
+    nom="algo">
   <bloc xsi:type="ressourceGraphique:Resultat"
       entree="//@bloc.1"/>
   <bloc xsi:type="ressourceGraphique:Addition"
@@ -14,6 +15,9 @@
       idColonne="1"/>
   <bloc xsi:type="ressourceGraphique:Sinus"
       entree="//@bloc.4"/>
+  <bloc xsi:type="ressourceGraphique:FichierUnaire"
+      entree="//@bloc.5"
+      chemin="tan"/>
   <bloc xsi:type="ressourceGraphique:Constante"
       valeur="4"/>
 </ressourceGraphique:RessourceGraphique>

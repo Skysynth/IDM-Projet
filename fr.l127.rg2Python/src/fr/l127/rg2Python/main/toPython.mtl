@@ -4,6 +4,7 @@
 [template public generateElement(aRessourceGraphique : RessourceGraphique)]
 [comment @main/] 
 [file (aRessourceGraphique.nom +'.py', false, 'UTF-8')]
+from fonctions import *
 def [aRessourceGraphique.nom/] (*colonnes) :
 	return [let resultats : OrderedSet(Resultat) = aRessourceGraphique.getResultats()][for (res : Resultat | resultats)][generateFunctionCallResultat(res)/][/for][/let]
 [/file]
@@ -37,9 +38,9 @@ def [aRessourceGraphique.nom/] (*colonnes) :
       bloc.entree->asOrderedSet()
 /]
 
-[template public nameMethodPython(bloc: BlocUnaire)][if (bloc.oclIsTypeOf(Sinus))]sin[else][if (bloc.oclIsTypeOf(Cosinus))]cos[/if][/if]
+[template public nameMethodPython(bloc: BlocUnaire)][if (bloc.oclIsTypeOf(Sinus))]sin[else][if (bloc.oclIsTypeOf(Cosinus))]cos[else][if (bloc.oclIsTypeOf(FichierUnaire))][let fichierUnaire : FichierUnaire = bloc.oclAsType(FichierUnaire)][fichierUnaire.chemin/][/let][/if][/if][/if]
 [/template]
-[template public nameMethodPython(bloc: BlocBinaire)][if (bloc.oclIsTypeOf(Addition))]add[else][if (bloc.oclIsTypeOf(Multiplication))]multiply[/if][/if]
+[template public nameMethodPython(bloc: BlocBinaire)][if (bloc.oclIsTypeOf(Addition))]add[else][if (bloc.oclIsTypeOf(Multiplication))]multiply[else][if (bloc.oclIsTypeOf(FichierBinaire))][let fichierBinaire : FichierBinaire = bloc.oclAsType(FichierBinaire)][fichierBinaire.chemin/][/let][/if][/if][/if]
 [/template]
 
 

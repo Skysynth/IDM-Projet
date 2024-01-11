@@ -1,5 +1,5 @@
 #ok pour 2 colonnes
-def test(*colonnes):
+def modulo(*colonnes):
     longueur = len(colonnes[0])
     resultat = colonnes[0].copy()
     for colonne in colonnes[1:]:

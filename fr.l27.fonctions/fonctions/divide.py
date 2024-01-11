@@ -1,5 +1,5 @@
 #attention à la division par 0
-def multiply(*colonnes):
+def divide(*colonnes):
     longueur = len(colonnes[0])
     resultat = colonnes[0].copy()
     for colonne in colonnes[1:]:
