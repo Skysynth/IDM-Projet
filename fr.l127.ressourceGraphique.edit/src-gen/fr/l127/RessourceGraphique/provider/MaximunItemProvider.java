@@ -2,7 +2,6 @@
  */
 package fr.l127.RessourceGraphique.provider;
 
-import fr.l127.RessourceGraphique.Maximun;
 import fr.l127.RessourceGraphique.RessourceGraphiquePackage;
 
 import java.util.Collection;
@@ -91,9 +90,7 @@ public class MaximunItemProvider extends BlocItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Maximun) object).getNom();
-		return label == null || label.length() == 0 ? getString("_UI_Maximun_type")
-				: getString("_UI_Maximun_type") + " " + label;
+		return getString("_UI_Maximun_type");
 	}
 
 	/**

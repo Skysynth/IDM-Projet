@@ -7,15 +7,12 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Bloc" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Bloc" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="BlocIntermediaire" abstract="true" interface="true"
       eSuperTypes="#//Bloc"/>
   <eClassifiers xsi:type="ecore:EClass" name="Resultat" eSuperTypes="#//Bloc">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entree" lowerBound="1"
         eType="#//Bloc"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idColonne" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Entree" abstract="true" interface="true"
       eSuperTypes="#//Bloc"/>

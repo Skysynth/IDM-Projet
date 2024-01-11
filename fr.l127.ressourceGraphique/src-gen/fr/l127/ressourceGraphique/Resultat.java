@@ -12,7 +12,6 @@ package fr.l127.RessourceGraphique;
  * </p>
  * <ul>
  *   <li>{@link fr.l127.RessourceGraphique.Resultat#getEntree <em>Entree</em>}</li>
- *   <li>{@link fr.l127.RessourceGraphique.Resultat#getIdColonne <em>Id Colonne</em>}</li>
  * </ul>
  *
  * @see fr.l127.RessourceGraphique.RessourceGraphiquePackage#getResultat()
@@ -41,27 +40,5 @@ public interface Resultat extends Bloc {
 	 * @generated
 	 */
 	void setEntree(Bloc value);
-
-	/**
-	 * Returns the value of the '<em><b>Id Colonne</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id Colonne</em>' attribute.
-	 * @see #setIdColonne(int)
-	 * @see fr.l127.RessourceGraphique.RessourceGraphiquePackage#getResultat_IdColonne()
-	 * @model
-	 * @generated
-	 */
-	int getIdColonne();
-
-	/**
-	 * Sets the value of the '{@link fr.l127.RessourceGraphique.Resultat#getIdColonne <em>Id Colonne</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id Colonne</em>' attribute.
-	 * @see #getIdColonne()
-	 * @generated
-	 */
-	void setIdColonne(int value);
 
 } // Resultat

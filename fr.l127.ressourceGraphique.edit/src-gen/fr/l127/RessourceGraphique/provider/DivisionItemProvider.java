@@ -2,7 +2,6 @@
  */
 package fr.l127.RessourceGraphique.provider;
 
-import fr.l127.RessourceGraphique.Division;
 import fr.l127.RessourceGraphique.RessourceGraphiquePackage;
 
 import java.util.Collection;
@@ -91,9 +90,7 @@ public class DivisionItemProvider extends BlocItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Division) object).getNom();
-		return label == null || label.length() == 0 ? getString("_UI_Division_type")
-				: getString("_UI_Division_type") + " " + label;
+		return getString("_UI_Division_type");
 	}
 
 	/**

@@ -2,7 +2,6 @@
  */
 package fr.l127.RessourceGraphique.provider;
 
-import fr.l127.RessourceGraphique.Inverse;
 import fr.l127.RessourceGraphique.RessourceGraphiquePackage;
 
 import java.util.Collection;
@@ -91,9 +90,7 @@ public class InverseItemProvider extends BlocItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Inverse) object).getNom();
-		return label == null || label.length() == 0 ? getString("_UI_Inverse_type")
-				: getString("_UI_Inverse_type") + " " + label;
+		return getString("_UI_Inverse_type");
 	}
 
 	/**

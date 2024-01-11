@@ -113,22 +113,13 @@ public interface RessourceGraphiquePackage extends EPackage {
 	int BLOC = 1;
 
 	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOC__NOM = 0;
-
-	/**
 	 * The number of structural features of the '<em>Bloc</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BLOC_FEATURE_COUNT = 1;
+	int BLOC_FEATURE_COUNT = 0;
 
 	/**
 	 * The number of operations of the '<em>Bloc</em>' class.
@@ -148,15 +139,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	 * @generated
 	 */
 	int BLOC_INTERMEDIAIRE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOC_INTERMEDIAIRE__NOM = BLOC__NOM;
 
 	/**
 	 * The number of structural features of the '<em>Bloc Intermediaire</em>' class.
@@ -187,15 +169,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	int RESULTAT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESULTAT__NOM = BLOC__NOM;
-
-	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -205,22 +178,13 @@ public interface RessourceGraphiquePackage extends EPackage {
 	int RESULTAT__ENTREE = BLOC_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Id Colonne</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESULTAT__ID_COLONNE = BLOC_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Resultat</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULTAT_FEATURE_COUNT = BLOC_FEATURE_COUNT + 2;
+	int RESULTAT_FEATURE_COUNT = BLOC_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Resultat</em>' class.
@@ -240,15 +204,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	 * @generated
 	 */
 	int ENTREE = 4;
-
-	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTREE__NOM = BLOC__NOM;
 
 	/**
 	 * The number of structural features of the '<em>Entree</em>' class.
@@ -277,15 +232,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	 * @generated
 	 */
 	int BLOC_UNAIRE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOC_UNAIRE__NOM = BLOC_INTERMEDIAIRE__NOM;
 
 	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference.
@@ -325,15 +271,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	int BLOC_BINAIRE = 6;
 
 	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOC_BINAIRE__NOM = BLOC_INTERMEDIAIRE__NOM;
-
-	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -369,15 +306,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	 * @generated
 	 */
 	int FONCTION_UNAIRE = 7;
-
-	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FONCTION_UNAIRE__NOM = BLOC_UNAIRE__NOM;
 
 	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference.
@@ -417,15 +345,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	int SINUS = 8;
 
 	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINUS__NOM = FONCTION_UNAIRE__NOM;
-
-	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -463,15 +382,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	int OPERATEUR_BINAIRE = 9;
 
 	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATEUR_BINAIRE__NOM = BLOC_BINAIRE__NOM;
-
-	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -507,15 +417,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	 * @generated
 	 */
 	int MULTIPLICATION = 10;
-
-	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTIPLICATION__NOM = OPERATEUR_BINAIRE__NOM;
 
 	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference list.
@@ -565,15 +466,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	int FICHIER_UNAIRE = 11;
 
 	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FICHIER_UNAIRE__NOM = BLOC_UNAIRE__NOM;
-
-	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -620,15 +512,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	int ADDITION = 12;
 
 	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADDITION__NOM = OPERATEUR_BINAIRE__NOM;
-
-	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -664,15 +547,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	 * @generated
 	 */
 	int FONCTION_BINAIRE = 13;
-
-	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FONCTION_BINAIRE__NOM = BLOC_BINAIRE__NOM;
 
 	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference list.
@@ -712,15 +586,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	int MINIMUN = 14;
 
 	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINIMUN__NOM = FONCTION_BINAIRE__NOM;
-
-	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -756,15 +621,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	 * @generated
 	 */
 	int MAXIMUN = 15;
-
-	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAXIMUN__NOM = FONCTION_BINAIRE__NOM;
 
 	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference list.
@@ -804,15 +660,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	int COSINUS = 16;
 
 	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COSINUS__NOM = FONCTION_UNAIRE__NOM;
-
-	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -848,15 +695,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	 * @generated
 	 */
 	int RACINE_CARREE = 17;
-
-	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RACINE_CARREE__NOM = FONCTION_UNAIRE__NOM;
 
 	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference.
@@ -896,15 +734,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	int SOUSTRACTION = 18;
 
 	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOUSTRACTION__NOM = OPERATEUR_BINAIRE__NOM;
-
-	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -940,15 +769,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	 * @generated
 	 */
 	int DIVISION = 19;
-
-	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIVISION__NOM = OPERATEUR_BINAIRE__NOM;
 
 	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference list.
@@ -988,15 +808,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	int OPERATEUR_UNAIRE = 20;
 
 	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATEUR_UNAIRE__NOM = BLOC_UNAIRE__NOM;
-
-	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1032,15 +843,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	 * @generated
 	 */
 	int NEGATION = 21;
-
-	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEGATION__NOM = OPERATEUR_UNAIRE__NOM;
 
 	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference.
@@ -1080,15 +882,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	int INVERSE = 22;
 
 	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INVERSE__NOM = OPERATEUR_UNAIRE__NOM;
-
-	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1124,15 +917,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	 * @generated
 	 */
 	int FICHIER_BINAIRE = 23;
-
-	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FICHIER_BINAIRE__NOM = BLOC_BINAIRE__NOM;
 
 	/**
 	 * The feature id for the '<em><b>Entree</b></em>' reference list.
@@ -1181,15 +965,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	int REF_COLONNE = 24;
 
 	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REF_COLONNE__NOM = ENTREE__NOM;
-
-	/**
 	 * The feature id for the '<em><b>Id Colonne</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1215,15 +990,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	 * @ordered
 	 */
 	int REF_COLONNE_OPERATION_COUNT = ENTREE_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Nom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTANTE__NOM = ENTREE__NOM;
 
 	/**
 	 * The feature id for the '<em><b>Valeur</b></em>' attribute.
@@ -1295,17 +1061,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	EClass getBloc();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.l127.RessourceGraphique.Bloc#getNom <em>Nom</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Nom</em>'.
-	 * @see fr.l127.RessourceGraphique.Bloc#getNom()
-	 * @see #getBloc()
-	 * @generated
-	 */
-	EAttribute getBloc_Nom();
-
-	/**
 	 * Returns the meta object for class '{@link fr.l127.RessourceGraphique.BlocIntermediaire <em>Bloc Intermediaire</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1335,17 +1090,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getResultat_Entree();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.l127.RessourceGraphique.Resultat#getIdColonne <em>Id Colonne</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id Colonne</em>'.
-	 * @see fr.l127.RessourceGraphique.Resultat#getIdColonne()
-	 * @see #getResultat()
-	 * @generated
-	 */
-	EAttribute getResultat_IdColonne();
 
 	/**
 	 * Returns the meta object for class '{@link fr.l127.RessourceGraphique.Entree <em>Entree</em>}'.
@@ -1693,14 +1437,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 		EClass BLOC = eINSTANCE.getBloc();
 
 		/**
-		 * The meta object literal for the '<em><b>Nom</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BLOC__NOM = eINSTANCE.getBloc_Nom();
-
-		/**
 		 * The meta object literal for the '{@link fr.l127.RessourceGraphique.BlocIntermediaire <em>Bloc Intermediaire</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1727,14 +1463,6 @@ public interface RessourceGraphiquePackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESULTAT__ENTREE = eINSTANCE.getResultat_Entree();
-
-		/**
-		 * The meta object literal for the '<em><b>Id Colonne</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESULTAT__ID_COLONNE = eINSTANCE.getResultat_IdColonne();
 
 		/**
 		 * The meta object literal for the '{@link fr.l127.RessourceGraphique.Entree <em>Entree</em>}' class.

@@ -280,6 +280,17 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
+        <toolSections name="Lien">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="LienCreation" edgeMappings="//@ownedViewpoints[name='ressourceGraphique']/@ownedRepresentations[name='RessourceGraphique']/@defaultLayer/@edgeMappings[name='Lien']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="entree" valueExpression="[target/]"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="fr.l127.ressourceGraphique.design.Services"/>
