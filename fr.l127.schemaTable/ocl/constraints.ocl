@@ -2,8 +2,12 @@ import '../model/schemaTable.ecore'
 
 package schemaTable
 
-context SchemaTable
+context Colonne
 inv ColumnShouldHaveUniqueId:
-    self.table.colonne->forAll(p1, p2 | p1 <> p2 implies p1.id <> p2.id)
-
+    not Colonne.allInstances()->exists(c | c <> self and self.id = c.id)
+   
+context SchemaTable
+inv UniqueSpecialColumn:
+    self.table.colonne->select(c | c.oclIsTypeOf(ColonneSpeciale))->size() = 1
+	
 endpackage
