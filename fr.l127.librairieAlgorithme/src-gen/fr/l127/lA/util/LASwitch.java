@@ -80,18 +80,24 @@ public class LASwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LAPackage.LIBRAIRIE_ELEMENT:
-      {
-        LibrairieElement librairieElement = (LibrairieElement)theEObject;
-        T result = caseLibrairieElement(librairieElement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case LAPackage.ALGORITHME:
       {
         Algorithme algorithme = (Algorithme)theEObject;
         T result = caseAlgorithme(algorithme);
-        if (result == null) result = caseLibrairieElement(algorithme);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LAPackage.ENTREE:
+      {
+        Entree entree = (Entree)theEObject;
+        T result = caseEntree(entree);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LAPackage.SORTIE:
+      {
+        Sortie sortie = (Sortie)theEObject;
+        T result = caseSortie(sortie);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -116,22 +122,6 @@ public class LASwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Librairie Element</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Librairie Element</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLibrairieElement(LibrairieElement object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Algorithme</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -143,6 +133,38 @@ public class LASwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAlgorithme(Algorithme object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Entree</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Entree</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEntree(Entree object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Sortie</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sortie</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSortie(Sortie object)
   {
     return null;
   }

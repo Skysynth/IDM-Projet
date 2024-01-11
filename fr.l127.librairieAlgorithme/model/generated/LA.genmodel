@@ -10,12 +10,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LA.ecore#//Librairie/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LA.ecore#//Librairie/elements"/>
     </genClasses>
-    <genClasses ecoreClass="LA.ecore#//LibrairieElement"/>
     <genClasses ecoreClass="LA.ecore#//Algorithme">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LA.ecore#//Algorithme/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LA.ecore#//Algorithme/entrees"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LA.ecore#//Algorithme/sorties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LA.ecore#//Algorithme/entrees"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LA.ecore#//Algorithme/sorties"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LA.ecore#//Algorithme/chemin"/>
+    </genClasses>
+    <genClasses ecoreClass="LA.ecore#//Entree">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LA.ecore#//Entree/idColonne"/>
+    </genClasses>
+    <genClasses ecoreClass="LA.ecore#//Sortie">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LA.ecore#//Sortie/idColonne"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -4,10 +4,11 @@
 package fr.l127.lA.impl;
 
 import fr.l127.lA.Algorithme;
+import fr.l127.lA.Entree;
 import fr.l127.lA.LAFactory;
 import fr.l127.lA.LAPackage;
 import fr.l127.lA.Librairie;
-import fr.l127.lA.LibrairieElement;
+import fr.l127.lA.Sortie;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -36,14 +37,21 @@ public class LAPackageImpl extends EPackageImpl implements LAPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass librairieElementEClass = null;
+  private EClass algorithmeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass algorithmeEClass = null;
+  private EClass entreeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass sortieEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -146,17 +154,6 @@ public class LAPackageImpl extends EPackageImpl implements LAPackage
    * @generated
    */
   @Override
-  public EClass getLibrairieElement()
-  {
-    return librairieElementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getAlgorithme()
   {
     return algorithmeEClass;
@@ -179,9 +176,9 @@ public class LAPackageImpl extends EPackageImpl implements LAPackage
    * @generated
    */
   @Override
-  public EAttribute getAlgorithme_Entrees()
+  public EReference getAlgorithme_Entrees()
   {
-    return (EAttribute)algorithmeEClass.getEStructuralFeatures().get(1);
+    return (EReference)algorithmeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -190,9 +187,9 @@ public class LAPackageImpl extends EPackageImpl implements LAPackage
    * @generated
    */
   @Override
-  public EAttribute getAlgorithme_Sorties()
+  public EReference getAlgorithme_Sorties()
   {
-    return (EAttribute)algorithmeEClass.getEStructuralFeatures().get(2);
+    return (EReference)algorithmeEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -204,6 +201,50 @@ public class LAPackageImpl extends EPackageImpl implements LAPackage
   public EAttribute getAlgorithme_Chemin()
   {
     return (EAttribute)algorithmeEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getEntree()
+  {
+    return entreeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEntree_IdColonne()
+  {
+    return (EAttribute)entreeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSortie()
+  {
+    return sortieEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSortie_IdColonne()
+  {
+    return (EAttribute)sortieEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -241,13 +282,17 @@ public class LAPackageImpl extends EPackageImpl implements LAPackage
     createEAttribute(librairieEClass, LIBRAIRIE__NAME);
     createEReference(librairieEClass, LIBRAIRIE__ELEMENTS);
 
-    librairieElementEClass = createEClass(LIBRAIRIE_ELEMENT);
-
     algorithmeEClass = createEClass(ALGORITHME);
     createEAttribute(algorithmeEClass, ALGORITHME__NAME);
-    createEAttribute(algorithmeEClass, ALGORITHME__ENTREES);
-    createEAttribute(algorithmeEClass, ALGORITHME__SORTIES);
+    createEReference(algorithmeEClass, ALGORITHME__ENTREES);
+    createEReference(algorithmeEClass, ALGORITHME__SORTIES);
     createEAttribute(algorithmeEClass, ALGORITHME__CHEMIN);
+
+    entreeEClass = createEClass(ENTREE);
+    createEAttribute(entreeEClass, ENTREE__ID_COLONNE);
+
+    sortieEClass = createEClass(SORTIE);
+    createEAttribute(sortieEClass, SORTIE__ID_COLONNE);
   }
 
   /**
@@ -279,20 +324,23 @@ public class LAPackageImpl extends EPackageImpl implements LAPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    algorithmeEClass.getESuperTypes().add(this.getLibrairieElement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(librairieEClass, Librairie.class, "Librairie", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLibrairie_Name(), ecorePackage.getEString(), "name", null, 0, 1, Librairie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLibrairie_Elements(), this.getLibrairieElement(), null, "elements", null, 0, -1, Librairie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(librairieElementEClass, LibrairieElement.class, "LibrairieElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLibrairie_Elements(), this.getAlgorithme(), null, "elements", null, 0, -1, Librairie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(algorithmeEClass, Algorithme.class, "Algorithme", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAlgorithme_Name(), ecorePackage.getEString(), "name", null, 0, 1, Algorithme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAlgorithme_Entrees(), ecorePackage.getEString(), "entrees", null, 0, -1, Algorithme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAlgorithme_Sorties(), ecorePackage.getEString(), "sorties", null, 0, -1, Algorithme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAlgorithme_Entrees(), this.getEntree(), null, "entrees", null, 0, -1, Algorithme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAlgorithme_Sorties(), this.getSortie(), null, "sorties", null, 0, -1, Algorithme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAlgorithme_Chemin(), ecorePackage.getEString(), "chemin", null, 0, 1, Algorithme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(entreeEClass, Entree.class, "Entree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEntree_IdColonne(), ecorePackage.getEInt(), "idColonne", null, 0, 1, Entree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sortieEClass, Sortie.class, "Sortie", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSortie_IdColonne(), ecorePackage.getEInt(), "idColonne", null, 0, 1, Sortie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -3,9 +3,9 @@
  */
 package fr.l127.lA.impl;
 
+import fr.l127.lA.Algorithme;
 import fr.l127.lA.LAPackage;
 import fr.l127.lA.Librairie;
-import fr.l127.lA.LibrairieElement;
 
 import java.util.Collection;
 
@@ -67,7 +67,7 @@ public class LibrairieImpl extends MinimalEObjectImpl.Container implements Libra
    * @generated
    * @ordered
    */
-  protected EList<LibrairieElement> elements;
+  protected EList<Algorithme> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,11 +121,11 @@ public class LibrairieImpl extends MinimalEObjectImpl.Container implements Libra
    * @generated
    */
   @Override
-  public EList<LibrairieElement> getElements()
+  public EList<Algorithme> getElements()
   {
     if (elements == null)
     {
-      elements = new EObjectContainmentEList<LibrairieElement>(LibrairieElement.class, this, LAPackage.LIBRAIRIE__ELEMENTS);
+      elements = new EObjectContainmentEList<Algorithme>(Algorithme.class, this, LAPackage.LIBRAIRIE__ELEMENTS);
     }
     return elements;
   }
@@ -180,7 +180,7 @@ public class LibrairieImpl extends MinimalEObjectImpl.Container implements Libra
         return;
       case LAPackage.LIBRAIRIE__ELEMENTS:
         getElements().clear();
-        getElements().addAll((Collection<? extends LibrairieElement>)newValue);
+        getElements().addAll((Collection<? extends Algorithme>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

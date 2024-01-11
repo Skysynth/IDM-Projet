@@ -95,25 +95,6 @@ public interface LAPackage extends EPackage
   int LIBRAIRIE_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link fr.l127.lA.impl.LibrairieElementImpl <em>Librairie Element</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.l127.lA.impl.LibrairieElementImpl
-   * @see fr.l127.lA.impl.LAPackageImpl#getLibrairieElement()
-   * @generated
-   */
-  int LIBRAIRIE_ELEMENT = 1;
-
-  /**
-   * The number of structural features of the '<em>Librairie Element</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LIBRAIRIE_ELEMENT_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link fr.l127.lA.impl.AlgorithmeImpl <em>Algorithme</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -121,7 +102,7 @@ public interface LAPackage extends EPackage
    * @see fr.l127.lA.impl.LAPackageImpl#getAlgorithme()
    * @generated
    */
-  int ALGORITHME = 2;
+  int ALGORITHME = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -130,25 +111,25 @@ public interface LAPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ALGORITHME__NAME = LIBRAIRIE_ELEMENT_FEATURE_COUNT + 0;
+  int ALGORITHME__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Entrees</b></em>' attribute list.
+   * The feature id for the '<em><b>Entrees</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ALGORITHME__ENTREES = LIBRAIRIE_ELEMENT_FEATURE_COUNT + 1;
+  int ALGORITHME__ENTREES = 1;
 
   /**
-   * The feature id for the '<em><b>Sorties</b></em>' attribute list.
+   * The feature id for the '<em><b>Sorties</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ALGORITHME__SORTIES = LIBRAIRIE_ELEMENT_FEATURE_COUNT + 2;
+  int ALGORITHME__SORTIES = 2;
 
   /**
    * The feature id for the '<em><b>Chemin</b></em>' attribute.
@@ -157,7 +138,7 @@ public interface LAPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ALGORITHME__CHEMIN = LIBRAIRIE_ELEMENT_FEATURE_COUNT + 3;
+  int ALGORITHME__CHEMIN = 3;
 
   /**
    * The number of structural features of the '<em>Algorithme</em>' class.
@@ -166,7 +147,63 @@ public interface LAPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ALGORITHME_FEATURE_COUNT = LIBRAIRIE_ELEMENT_FEATURE_COUNT + 4;
+  int ALGORITHME_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link fr.l127.lA.impl.EntreeImpl <em>Entree</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.l127.lA.impl.EntreeImpl
+   * @see fr.l127.lA.impl.LAPackageImpl#getEntree()
+   * @generated
+   */
+  int ENTREE = 2;
+
+  /**
+   * The feature id for the '<em><b>Id Colonne</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTREE__ID_COLONNE = 0;
+
+  /**
+   * The number of structural features of the '<em>Entree</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTREE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link fr.l127.lA.impl.SortieImpl <em>Sortie</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.l127.lA.impl.SortieImpl
+   * @see fr.l127.lA.impl.LAPackageImpl#getSortie()
+   * @generated
+   */
+  int SORTIE = 3;
+
+  /**
+   * The feature id for the '<em><b>Id Colonne</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SORTIE__ID_COLONNE = 0;
+
+  /**
+   * The number of structural features of the '<em>Sortie</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SORTIE_FEATURE_COUNT = 1;
 
 
   /**
@@ -202,16 +239,6 @@ public interface LAPackage extends EPackage
   EReference getLibrairie_Elements();
 
   /**
-   * Returns the meta object for class '{@link fr.l127.lA.LibrairieElement <em>Librairie Element</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Librairie Element</em>'.
-   * @see fr.l127.lA.LibrairieElement
-   * @generated
-   */
-  EClass getLibrairieElement();
-
-  /**
    * Returns the meta object for class '{@link fr.l127.lA.Algorithme <em>Algorithme</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -233,26 +260,26 @@ public interface LAPackage extends EPackage
   EAttribute getAlgorithme_Name();
 
   /**
-   * Returns the meta object for the attribute list '{@link fr.l127.lA.Algorithme#getEntrees <em>Entrees</em>}'.
+   * Returns the meta object for the containment reference list '{@link fr.l127.lA.Algorithme#getEntrees <em>Entrees</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Entrees</em>'.
+   * @return the meta object for the containment reference list '<em>Entrees</em>'.
    * @see fr.l127.lA.Algorithme#getEntrees()
    * @see #getAlgorithme()
    * @generated
    */
-  EAttribute getAlgorithme_Entrees();
+  EReference getAlgorithme_Entrees();
 
   /**
-   * Returns the meta object for the attribute list '{@link fr.l127.lA.Algorithme#getSorties <em>Sorties</em>}'.
+   * Returns the meta object for the containment reference list '{@link fr.l127.lA.Algorithme#getSorties <em>Sorties</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Sorties</em>'.
+   * @return the meta object for the containment reference list '<em>Sorties</em>'.
    * @see fr.l127.lA.Algorithme#getSorties()
    * @see #getAlgorithme()
    * @generated
    */
-  EAttribute getAlgorithme_Sorties();
+  EReference getAlgorithme_Sorties();
 
   /**
    * Returns the meta object for the attribute '{@link fr.l127.lA.Algorithme#getChemin <em>Chemin</em>}'.
@@ -264,6 +291,48 @@ public interface LAPackage extends EPackage
    * @generated
    */
   EAttribute getAlgorithme_Chemin();
+
+  /**
+   * Returns the meta object for class '{@link fr.l127.lA.Entree <em>Entree</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Entree</em>'.
+   * @see fr.l127.lA.Entree
+   * @generated
+   */
+  EClass getEntree();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.l127.lA.Entree#getIdColonne <em>Id Colonne</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id Colonne</em>'.
+   * @see fr.l127.lA.Entree#getIdColonne()
+   * @see #getEntree()
+   * @generated
+   */
+  EAttribute getEntree_IdColonne();
+
+  /**
+   * Returns the meta object for class '{@link fr.l127.lA.Sortie <em>Sortie</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Sortie</em>'.
+   * @see fr.l127.lA.Sortie
+   * @generated
+   */
+  EClass getSortie();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.l127.lA.Sortie#getIdColonne <em>Id Colonne</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id Colonne</em>'.
+   * @see fr.l127.lA.Sortie#getIdColonne()
+   * @see #getSortie()
+   * @generated
+   */
+  EAttribute getSortie_IdColonne();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -315,16 +384,6 @@ public interface LAPackage extends EPackage
     EReference LIBRAIRIE__ELEMENTS = eINSTANCE.getLibrairie_Elements();
 
     /**
-     * The meta object literal for the '{@link fr.l127.lA.impl.LibrairieElementImpl <em>Librairie Element</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.l127.lA.impl.LibrairieElementImpl
-     * @see fr.l127.lA.impl.LAPackageImpl#getLibrairieElement()
-     * @generated
-     */
-    EClass LIBRAIRIE_ELEMENT = eINSTANCE.getLibrairieElement();
-
-    /**
      * The meta object literal for the '{@link fr.l127.lA.impl.AlgorithmeImpl <em>Algorithme</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -343,20 +402,20 @@ public interface LAPackage extends EPackage
     EAttribute ALGORITHME__NAME = eINSTANCE.getAlgorithme_Name();
 
     /**
-     * The meta object literal for the '<em><b>Entrees</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Entrees</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ALGORITHME__ENTREES = eINSTANCE.getAlgorithme_Entrees();
+    EReference ALGORITHME__ENTREES = eINSTANCE.getAlgorithme_Entrees();
 
     /**
-     * The meta object literal for the '<em><b>Sorties</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Sorties</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ALGORITHME__SORTIES = eINSTANCE.getAlgorithme_Sorties();
+    EReference ALGORITHME__SORTIES = eINSTANCE.getAlgorithme_Sorties();
 
     /**
      * The meta object literal for the '<em><b>Chemin</b></em>' attribute feature.
@@ -365,6 +424,42 @@ public interface LAPackage extends EPackage
      * @generated
      */
     EAttribute ALGORITHME__CHEMIN = eINSTANCE.getAlgorithme_Chemin();
+
+    /**
+     * The meta object literal for the '{@link fr.l127.lA.impl.EntreeImpl <em>Entree</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.l127.lA.impl.EntreeImpl
+     * @see fr.l127.lA.impl.LAPackageImpl#getEntree()
+     * @generated
+     */
+    EClass ENTREE = eINSTANCE.getEntree();
+
+    /**
+     * The meta object literal for the '<em><b>Id Colonne</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENTREE__ID_COLONNE = eINSTANCE.getEntree_IdColonne();
+
+    /**
+     * The meta object literal for the '{@link fr.l127.lA.impl.SortieImpl <em>Sortie</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.l127.lA.impl.SortieImpl
+     * @see fr.l127.lA.impl.LAPackageImpl#getSortie()
+     * @generated
+     */
+    EClass SORTIE = eINSTANCE.getSortie();
+
+    /**
+     * The meta object literal for the '<em><b>Id Colonne</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SORTIE__ID_COLONNE = eINSTANCE.getSortie_IdColonne();
 
   }
 

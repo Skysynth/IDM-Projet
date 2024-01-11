@@ -5,6 +5,8 @@ package fr.l127.lA;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Algorithme</b></em>'.
@@ -24,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Algorithme extends LibrairieElement
+public interface Algorithme extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -49,28 +51,28 @@ public interface Algorithme extends LibrairieElement
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Entrees</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Entrees</b></em>' containment reference list.
+   * The list contents are of type {@link fr.l127.lA.Entree}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Entrees</em>' attribute list.
+   * @return the value of the '<em>Entrees</em>' containment reference list.
    * @see fr.l127.lA.LAPackage#getAlgorithme_Entrees()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getEntrees();
+  EList<Entree> getEntrees();
 
   /**
-   * Returns the value of the '<em><b>Sorties</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Sorties</b></em>' containment reference list.
+   * The list contents are of type {@link fr.l127.lA.Sortie}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Sorties</em>' attribute list.
+   * @return the value of the '<em>Sorties</em>' containment reference list.
    * @see fr.l127.lA.LAPackage#getAlgorithme_Sorties()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getSorties();
+  EList<Sortie> getSorties();
 
   /**
    * Returns the value of the '<em><b>Chemin</b></em>' attribute.

@@ -4,19 +4,25 @@
 package fr.l127.lA.impl;
 
 import fr.l127.lA.Algorithme;
+import fr.l127.lA.Entree;
 import fr.l127.lA.LAPackage;
+import fr.l127.lA.Sortie;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +40,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  *
  * @generated
  */
-public class AlgorithmeImpl extends LibrairieElementImpl implements Algorithme
+public class AlgorithmeImpl extends MinimalEObjectImpl.Container implements Algorithme
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -57,24 +63,24 @@ public class AlgorithmeImpl extends LibrairieElementImpl implements Algorithme
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getEntrees() <em>Entrees</em>}' attribute list.
+   * The cached value of the '{@link #getEntrees() <em>Entrees</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getEntrees()
    * @generated
    * @ordered
    */
-  protected EList<String> entrees;
+  protected EList<Entree> entrees;
 
   /**
-   * The cached value of the '{@link #getSorties() <em>Sorties</em>}' attribute list.
+   * The cached value of the '{@link #getSorties() <em>Sorties</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getSorties()
    * @generated
    * @ordered
    */
-  protected EList<String> sorties;
+  protected EList<Sortie> sorties;
 
   /**
    * The default value of the '{@link #getChemin() <em>Chemin</em>}' attribute.
@@ -148,11 +154,11 @@ public class AlgorithmeImpl extends LibrairieElementImpl implements Algorithme
    * @generated
    */
   @Override
-  public EList<String> getEntrees()
+  public EList<Entree> getEntrees()
   {
     if (entrees == null)
     {
-      entrees = new EDataTypeEList<String>(String.class, this, LAPackage.ALGORITHME__ENTREES);
+      entrees = new EObjectContainmentEList<Entree>(Entree.class, this, LAPackage.ALGORITHME__ENTREES);
     }
     return entrees;
   }
@@ -163,11 +169,11 @@ public class AlgorithmeImpl extends LibrairieElementImpl implements Algorithme
    * @generated
    */
   @Override
-  public EList<String> getSorties()
+  public EList<Sortie> getSorties()
   {
     if (sorties == null)
     {
-      sorties = new EDataTypeEList<String>(String.class, this, LAPackage.ALGORITHME__SORTIES);
+      sorties = new EObjectContainmentEList<Sortie>(Sortie.class, this, LAPackage.ALGORITHME__SORTIES);
     }
     return sorties;
   }
@@ -195,6 +201,24 @@ public class AlgorithmeImpl extends LibrairieElementImpl implements Algorithme
     chemin = newChemin;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, LAPackage.ALGORITHME__CHEMIN, oldChemin, chemin));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case LAPackage.ALGORITHME__ENTREES:
+        return ((InternalEList<?>)getEntrees()).basicRemove(otherEnd, msgs);
+      case LAPackage.ALGORITHME__SORTIES:
+        return ((InternalEList<?>)getSorties()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -235,11 +259,11 @@ public class AlgorithmeImpl extends LibrairieElementImpl implements Algorithme
         return;
       case LAPackage.ALGORITHME__ENTREES:
         getEntrees().clear();
-        getEntrees().addAll((Collection<? extends String>)newValue);
+        getEntrees().addAll((Collection<? extends Entree>)newValue);
         return;
       case LAPackage.ALGORITHME__SORTIES:
         getSorties().clear();
-        getSorties().addAll((Collection<? extends String>)newValue);
+        getSorties().addAll((Collection<? extends Sortie>)newValue);
         return;
       case LAPackage.ALGORITHME__CHEMIN:
         setChemin((String)newValue);
@@ -309,10 +333,6 @@ public class AlgorithmeImpl extends LibrairieElementImpl implements Algorithme
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", entrees: ");
-    result.append(entrees);
-    result.append(", sorties: ");
-    result.append(sorties);
     result.append(", chemin: ");
     result.append(chemin);
     result.append(')');

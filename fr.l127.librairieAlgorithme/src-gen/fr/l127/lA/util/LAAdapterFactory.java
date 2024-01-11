@@ -81,14 +81,19 @@ public class LAAdapterFactory extends AdapterFactoryImpl
         return createLibrairieAdapter();
       }
       @Override
-      public Adapter caseLibrairieElement(LibrairieElement object)
-      {
-        return createLibrairieElementAdapter();
-      }
-      @Override
       public Adapter caseAlgorithme(Algorithme object)
       {
         return createAlgorithmeAdapter();
+      }
+      @Override
+      public Adapter caseEntree(Entree object)
+      {
+        return createEntreeAdapter();
+      }
+      @Override
+      public Adapter caseSortie(Sortie object)
+      {
+        return createSortieAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -128,21 +133,6 @@ public class LAAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.l127.lA.LibrairieElement <em>Librairie Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.l127.lA.LibrairieElement
-   * @generated
-   */
-  public Adapter createLibrairieElementAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link fr.l127.lA.Algorithme <em>Algorithme</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -153,6 +143,36 @@ public class LAAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAlgorithmeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.l127.lA.Entree <em>Entree</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.l127.lA.Entree
+   * @generated
+   */
+  public Adapter createEntreeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.l127.lA.Sortie <em>Sortie</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.l127.lA.Sortie
+   * @generated
+   */
+  public Adapter createSortieAdapter()
   {
     return null;
   }

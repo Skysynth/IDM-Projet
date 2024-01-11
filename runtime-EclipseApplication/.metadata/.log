@@ -15,6 +15,7 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+<<<<<<< HEAD
 !SESSION 2024-01-11 12:11:06.663 -----------------------------------------------
 eclipse.buildId=4.29.0.20230907-1200
 java.version=17.0.9
@@ -7326,3 +7327,16 @@ Location: null at line 7 and column 1
 !MESSAGE The generation failed to generate any file because there are no model elements that matches at least the type of the first parameter of one of your main templates. 
 The problem may be caused by a problem with the registration of your metamodel, please see the method named "registerPackages" in the Java launcher of your generator. It could also come from a missing [comment @main/] 
 in the template used as the entry point of the generation. 
+=======
+
+!ENTRY org.eclipse.ui.ide 4 4 2024-01-10 16:17:25.175
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 2 1 2024-01-10 16:17:25.177
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2024-01-10 16:17:25.178
+!MESSAGE The project description file (.project) for 'fr.l127.librairieAlgorithme.examples' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+
+!ENTRY org.eclipse.core.resources 2 10035 2024-01-10 16:17:27.568
+!MESSAGE The workspace will exit with unsaved changes in this session.
+>>>>>>> lolo-le-gigolo
