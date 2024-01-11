@@ -17,6 +17,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
@@ -48,7 +49,7 @@ public class GeneratedSwing extends JFrame {
         // Création du modèle de tableau par défaut
         tableModel = new DefaultTableModel(0, nbColonnesEntrees + nbColonnesSorties);
 
-        // TODO : Définir des valeurs initiales dans certaines cases d'après le modèle (exemple en dessous)
+        // Au besoin, voici comment définir des valeurs dans certaines cases (exemple en dessous)
         // tableModel.setValueAt("A1", 0, 0);
         // tableModel.setValueAt("B2", 1, 1);
         // tableModel.setValueAt("C3", 2, 2);
@@ -68,8 +69,8 @@ public class GeneratedSwing extends JFrame {
         jbExecute = new JButton("Exécuter");
         jbClean = new JButton("Clean");
 
-        jbAddColumnButton.addActionListener(new ActionButtons());
-        jbAddRowButton.addActionListener(new ActionButtons());
+        //jbAddColumnButton.addActionListener(new ActionButtons());
+        //jbAddRowButton.addActionListener(new ActionButtons());
         jbImportCSVFile.addActionListener(new ActionButtons());
         jbExportCSVFile.addActionListener(new ActionButtons());
         jbExecute.addActionListener(new ActionButtons());
@@ -79,8 +80,8 @@ public class GeneratedSwing extends JFrame {
         // JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JToolBar toolBar = new JToolBar();
         
-        toolBar.add(jbAddRowButton);
-        toolBar.add(jbAddColumnButton);
+        //toolBar.add(jbAddRowButton);
+        //toolBar.add(jbAddColumnButton);
         toolBar.add(jbImportCSVFile);
         toolBar.add(jbExportCSVFile);
         toolBar.add(jbExecute);
@@ -151,46 +152,50 @@ public class GeneratedSwing extends JFrame {
 	
 	private void onExecute() {
 
-		// AVANT D'EXECUTER : exporter nos informations dans un fichier csv
-		exportCSV(new File("input.csv"));
+		if (tableModel.getRowCount() < 1) {
+			JOptionPane.showMessageDialog(this, "ERROR : The table is empty !!!");
+		} else {
 		
-	    try {
-	        // Chemin relatif vers le script Python dans le répertoire src
-	        String pythonScriptPath = "add.py";
-
-	        // Chemin du fichier CSV
-	        String csvFilePath = "input.csv"; // Remplacez par le chemin réel
-
-	        // Commande pour exécuter le script Python
-	        String[] command = {"python3", pythonScriptPath, csvFilePath};
-
-	        // Exécution du script Python
-	        ProcessBuilder pb = new ProcessBuilder(command);
-	        Process p = pb.start();
-
-	        // Lecture de la sortie standard et d'erreur du script
-	        BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
-	        BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
-
-	        // Affichage de la sortie du script
-	        String s;
-	        while ((s = stdInput.readLine()) != null) {
-	            System.out.println(s);
-	        }
-
-	        // Affichage des erreurs éventuelles
-	        while ((s = stdError.readLine()) != null) {
-	            System.err.println(s);
-	        }
-
-	        int exitCode = p.waitFor();
-	        System.out.println("Exited with code : " + exitCode);
-	        
-	        importResult();
-	        
-	        
-	    } catch (IOException | InterruptedException e) {
-	        e.printStackTrace();
+		    try {
+		    	// AVANT D'EXECUTER : exporter nos informations dans un fichier csv
+		    	exportCSV(new File("input.csv"));
+		        // Chemin relatif vers le script Python dans le répertoire src
+		        String pythonScriptPath = "add.py";
+	
+		        // Chemin du fichier CSV
+		        String csvFilePath = "input.csv"; // Remplacez par le chemin réel
+	
+		        // Commande pour exécuter le script Python
+		        String[] command = {"python3", pythonScriptPath, csvFilePath};
+	
+		        // Exécution du script Python
+		        ProcessBuilder pb = new ProcessBuilder(command);
+		        Process p = pb.start();
+	
+		        // Lecture de la sortie standard et d'erreur du script
+		        BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+		        BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+	
+		        // Affichage de la sortie du script
+		        String s;
+		        while ((s = stdInput.readLine()) != null) {
+		            System.out.println(s);
+		        }
+	
+		        // Affichage des erreurs éventuelles
+		        while ((s = stdError.readLine()) != null) {
+		            System.err.println(s);
+		        }
+	
+		        int exitCode = p.waitFor();
+		        System.out.println("Exited with code : " + exitCode);
+		        
+		        importResult();
+		        
+		        
+		    } catch (IOException | InterruptedException e) {
+		        e.printStackTrace();
+		    }
 	    }
 	}
 	
@@ -246,19 +251,25 @@ public class GeneratedSwing extends JFrame {
 	}
 	
 	private void exportCSV(File csvFile) {
-		try (PrintWriter pw = new PrintWriter(csvFile)) {
-            for (int i = 0; i < tableModel.getRowCount(); i++) {
-                for (int j = 0; j < tableModel.getColumnCount(); j++) {
-                	if(tableModel.getValueAt(i, j) != null) {
-                		pw.print(tableModel.getValueAt(i, j));		                		
-                	}
-                    if (j < tableModel.getColumnCount() - 1) pw.print(",");
-                }
-                pw.println();
-            }
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-        }
+		if (tableModel.getRowCount() < 1) {
+			
+			JOptionPane.showMessageDialog(this, "ERROR : The table is empty !!!");
+		} else {
+			try (PrintWriter pw = new PrintWriter(csvFile)) {
+				for (int i = 0; i < tableModel.getRowCount(); i++) {
+					for (int j = 0; j < tableModel.getColumnCount(); j++) {
+						if(tableModel.getValueAt(i, j) != null) {
+							pw.print(tableModel.getValueAt(i, j));		                		
+						}
+						if (j < tableModel.getColumnCount() - 1) pw.print(",");
+					}
+					pw.println();
+				}
+			} catch (IOException ioException) {
+				ioException.printStackTrace();
+			}
+			
+		}
 	}
 	
 	private void onClean() {
