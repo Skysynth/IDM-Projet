@@ -5,8 +5,10 @@ package fr.l127.serializer;
 
 import com.google.inject.Inject;
 import fr.l127.lA.Algorithme;
+import fr.l127.lA.Entree;
 import fr.l127.lA.LAPackage;
 import fr.l127.lA.Librairie;
+import fr.l127.lA.Sortie;
 import fr.l127.services.LAGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -15,7 +17,9 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
 public class LASemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -34,8 +38,14 @@ public class LASemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case LAPackage.ALGORITHME:
 				sequence_Algorithme(context, (Algorithme) semanticObject); 
 				return; 
+			case LAPackage.ENTREE:
+				sequence_Entree(context, (Entree) semanticObject); 
+				return; 
 			case LAPackage.LIBRAIRIE:
 				sequence_Librairie(context, (Librairie) semanticObject); 
+				return; 
+			case LAPackage.SORTIE:
+				sequence_Sortie(context, (Sortie) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -45,11 +55,10 @@ public class LASemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     LibrairieElement returns Algorithme
 	 *     Algorithme returns Algorithme
 	 *
 	 * Constraint:
-	 *     (name=ID entrees+=ID+ sorties+=ID+ chemin=ID)
+	 *     (name=ID entrees+=Entree+ sorties+=Sortie+ chemin=STRING)
 	 * </pre>
 	 */
 	protected void sequence_Algorithme(ISerializationContext context, Algorithme semanticObject) {
@@ -60,14 +69,54 @@ public class LASemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Entree returns Entree
+	 *
+	 * Constraint:
+	 *     idColonne=INT
+	 * </pre>
+	 */
+	protected void sequence_Entree(ISerializationContext context, Entree semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, LAPackage.Literals.ENTREE__ID_COLONNE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LAPackage.Literals.ENTREE__ID_COLONNE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEntreeAccess().getIdColonneINTTerminalRuleCall_0(), semanticObject.getIdColonne());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Librairie returns Librairie
 	 *
 	 * Constraint:
-	 *     (name=ID elements+=LibrairieElement*)
+	 *     (name=ID elements+=Algorithme*)
 	 * </pre>
 	 */
 	protected void sequence_Librairie(ISerializationContext context, Librairie semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Sortie returns Sortie
+	 *
+	 * Constraint:
+	 *     idColonne=INT
+	 * </pre>
+	 */
+	protected void sequence_Sortie(ISerializationContext context, Sortie semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, LAPackage.Literals.SORTIE__ID_COLONNE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LAPackage.Literals.SORTIE__ID_COLONNE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSortieAccess().getIdColonneINTTerminalRuleCall_0(), semanticObject.getIdColonne());
+		feeder.finish();
 	}
 	
 	

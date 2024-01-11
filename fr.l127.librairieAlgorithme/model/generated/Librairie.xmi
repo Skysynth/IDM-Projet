@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lA:Librairie
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:lA="http://www.l127.fr/LA"
+    name="test">
+  <elements
+      name="aze"
+      chemin="./aze">
+    <entrees
+        idColonne="1"/>
+    <entrees/>
+    <sorties
+        idColonne="3"/>
+  </elements>
+</lA:Librairie>

@@ -29,18 +29,18 @@ public class LAGrammarAccess extends AbstractElementFinder.AbstractGrammarElemen
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cElementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cElementsLibrairieElementParserRuleCall_3_0 = (RuleCall)cElementsAssignment_3.eContents().get(0);
+		private final RuleCall cElementsAlgorithmeParserRuleCall_3_0 = (RuleCall)cElementsAssignment_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Librairie:
 		//    'librairies' name=ID '{'
-		//     elements+=LibrairieElement*
+		//     elements+=Algorithme*
 		//     '}'
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'librairies' name=ID '{'
-		// elements+=LibrairieElement*
+		// elements+=Algorithme*
 		// '}'
 		public Group getGroup() { return cGroup; }
 		
@@ -56,25 +56,14 @@ public class LAGrammarAccess extends AbstractElementFinder.AbstractGrammarElemen
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//elements+=LibrairieElement*
+		//elements+=Algorithme*
 		public Assignment getElementsAssignment_3() { return cElementsAssignment_3; }
 		
-		//LibrairieElement
-		public RuleCall getElementsLibrairieElementParserRuleCall_3_0() { return cElementsLibrairieElementParserRuleCall_3_0; }
+		//Algorithme
+		public RuleCall getElementsAlgorithmeParserRuleCall_3_0() { return cElementsAlgorithmeParserRuleCall_3_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
-	}
-	public class LibrairieElementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.l127.LA.LibrairieElement");
-		private final RuleCall cAlgorithmeParserRuleCall = (RuleCall)rule.eContents().get(1);
-		
-		//LibrairieElement : Algorithme
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//Algorithme
-		public RuleCall getAlgorithmeParserRuleCall() { return cAlgorithmeParserRuleCall; }
 	}
 	public class AlgorithmeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.l127.LA.Algorithme");
@@ -86,31 +75,31 @@ public class LAGrammarAccess extends AbstractElementFinder.AbstractGrammarElemen
 		private final Keyword cEntrEsKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cLeftParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cEntreesAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cEntreesIDTerminalRuleCall_5_0 = (RuleCall)cEntreesAssignment_5.eContents().get(0);
+		private final RuleCall cEntreesEntreeParserRuleCall_5_0 = (RuleCall)cEntreesAssignment_5.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Keyword cSortiesKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Keyword cLeftParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Assignment cSortiesAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cSortiesIDTerminalRuleCall_9_0 = (RuleCall)cSortiesAssignment_9.eContents().get(0);
+		private final RuleCall cSortiesSortieParserRuleCall_9_0 = (RuleCall)cSortiesAssignment_9.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		private final Keyword cCheminKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		private final Assignment cCheminAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cCheminIDTerminalRuleCall_12_0 = (RuleCall)cCheminAssignment_12.eContents().get(0);
+		private final RuleCall cCheminSTRINGTerminalRuleCall_12_0 = (RuleCall)cCheminAssignment_12.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
 		
 		//Algorithme :
 		//    'algo' name=ID '{'
-		//        'entrées' '(' (entrees+=ID)+ ')'
-		//        'sorties' '(' (sorties+=ID)+ ')'
-		//        'chemin' chemin=ID
+		//        'entrées' '(' (entrees+=Entree)+ ')'
+		//        'sorties' '(' (sorties+=Sortie)+ ')'
+		//        'chemin' chemin=STRING
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'algo' name=ID '{'
-		//    'entrées' '(' (entrees+=ID)+ ')'
-		//    'sorties' '(' (sorties+=ID)+ ')'
-		//    'chemin' chemin=ID
+		//    'entrées' '(' (entrees+=Entree)+ ')'
+		//    'sorties' '(' (sorties+=Sortie)+ ')'
+		//    'chemin' chemin=STRING
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -132,11 +121,11 @@ public class LAGrammarAccess extends AbstractElementFinder.AbstractGrammarElemen
 		//'('
 		public Keyword getLeftParenthesisKeyword_4() { return cLeftParenthesisKeyword_4; }
 		
-		//(entrees+=ID)+
+		//(entrees+=Entree)+
 		public Assignment getEntreesAssignment_5() { return cEntreesAssignment_5; }
 		
-		//ID
-		public RuleCall getEntreesIDTerminalRuleCall_5_0() { return cEntreesIDTerminalRuleCall_5_0; }
+		//Entree
+		public RuleCall getEntreesEntreeParserRuleCall_5_0() { return cEntreesEntreeParserRuleCall_5_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
@@ -147,11 +136,11 @@ public class LAGrammarAccess extends AbstractElementFinder.AbstractGrammarElemen
 		//'('
 		public Keyword getLeftParenthesisKeyword_8() { return cLeftParenthesisKeyword_8; }
 		
-		//(sorties+=ID)+
+		//(sorties+=Sortie)+
 		public Assignment getSortiesAssignment_9() { return cSortiesAssignment_9; }
 		
-		//ID
-		public RuleCall getSortiesIDTerminalRuleCall_9_0() { return cSortiesIDTerminalRuleCall_9_0; }
+		//Sortie
+		public RuleCall getSortiesSortieParserRuleCall_9_0() { return cSortiesSortieParserRuleCall_9_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_10() { return cRightParenthesisKeyword_10; }
@@ -159,20 +148,53 @@ public class LAGrammarAccess extends AbstractElementFinder.AbstractGrammarElemen
 		//'chemin'
 		public Keyword getCheminKeyword_11() { return cCheminKeyword_11; }
 		
-		//chemin=ID
+		//chemin=STRING
 		public Assignment getCheminAssignment_12() { return cCheminAssignment_12; }
 		
-		//ID
-		public RuleCall getCheminIDTerminalRuleCall_12_0() { return cCheminIDTerminalRuleCall_12_0; }
+		//STRING
+		public RuleCall getCheminSTRINGTerminalRuleCall_12_0() { return cCheminSTRINGTerminalRuleCall_12_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
 	}
+	public class EntreeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.l127.LA.Entree");
+		private final Assignment cIdColonneAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cIdColonneINTTerminalRuleCall_0 = (RuleCall)cIdColonneAssignment.eContents().get(0);
+		
+		//Entree :
+		//    idColonne = INT
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//idColonne = INT
+		public Assignment getIdColonneAssignment() { return cIdColonneAssignment; }
+		
+		//INT
+		public RuleCall getIdColonneINTTerminalRuleCall_0() { return cIdColonneINTTerminalRuleCall_0; }
+	}
+	public class SortieElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.l127.LA.Sortie");
+		private final Assignment cIdColonneAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cIdColonneINTTerminalRuleCall_0 = (RuleCall)cIdColonneAssignment.eContents().get(0);
+		
+		//Sortie :
+		//    idColonne = INT
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//idColonne = INT
+		public Assignment getIdColonneAssignment() { return cIdColonneAssignment; }
+		
+		//INT
+		public RuleCall getIdColonneINTTerminalRuleCall_0() { return cIdColonneINTTerminalRuleCall_0; }
+	}
 	
 	
 	private final LibrairieElements pLibrairie;
-	private final LibrairieElementElements pLibrairieElement;
 	private final AlgorithmeElements pAlgorithme;
+	private final EntreeElements pEntree;
+	private final SortieElements pSortie;
 	
 	private final Grammar grammar;
 	
@@ -184,8 +206,9 @@ public class LAGrammarAccess extends AbstractElementFinder.AbstractGrammarElemen
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pLibrairie = new LibrairieElements();
-		this.pLibrairieElement = new LibrairieElementElements();
 		this.pAlgorithme = new AlgorithmeElements();
+		this.pEntree = new EntreeElements();
+		this.pSortie = new SortieElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -217,7 +240,7 @@ public class LAGrammarAccess extends AbstractElementFinder.AbstractGrammarElemen
 	
 	//Librairie:
 	//    'librairies' name=ID '{'
-	//     elements+=LibrairieElement*
+	//     elements+=Algorithme*
 	//     '}'
 	//    ;
 	public LibrairieElements getLibrairieAccess() {
@@ -228,21 +251,11 @@ public class LAGrammarAccess extends AbstractElementFinder.AbstractGrammarElemen
 		return getLibrairieAccess().getRule();
 	}
 	
-	//LibrairieElement : Algorithme
-	//;
-	public LibrairieElementElements getLibrairieElementAccess() {
-		return pLibrairieElement;
-	}
-	
-	public ParserRule getLibrairieElementRule() {
-		return getLibrairieElementAccess().getRule();
-	}
-	
 	//Algorithme :
 	//    'algo' name=ID '{'
-	//        'entrées' '(' (entrees+=ID)+ ')'
-	//        'sorties' '(' (sorties+=ID)+ ')'
-	//        'chemin' chemin=ID
+	//        'entrées' '(' (entrees+=Entree)+ ')'
+	//        'sorties' '(' (sorties+=Sortie)+ ')'
+	//        'chemin' chemin=STRING
 	//    '}'
 	//;
 	public AlgorithmeElements getAlgorithmeAccess() {
@@ -251,6 +264,28 @@ public class LAGrammarAccess extends AbstractElementFinder.AbstractGrammarElemen
 	
 	public ParserRule getAlgorithmeRule() {
 		return getAlgorithmeAccess().getRule();
+	}
+	
+	//Entree :
+	//    idColonne = INT
+	//;
+	public EntreeElements getEntreeAccess() {
+		return pEntree;
+	}
+	
+	public ParserRule getEntreeRule() {
+		return getEntreeAccess().getRule();
+	}
+	
+	//Sortie :
+	//    idColonne = INT
+	//;
+	public SortieElements getSortieAccess() {
+		return pSortie;
+	}
+	
+	public ParserRule getSortieRule() {
+		return getSortieAccess().getRule();
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

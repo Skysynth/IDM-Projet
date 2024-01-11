@@ -33,15 +33,6 @@ public interface LAFactory extends EFactory
   Librairie createLibrairie();
 
   /**
-   * Returns a new object of class '<em>Librairie Element</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Librairie Element</em>'.
-   * @generated
-   */
-  LibrairieElement createLibrairieElement();
-
-  /**
    * Returns a new object of class '<em>Algorithme</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -49,6 +40,24 @@ public interface LAFactory extends EFactory
    * @generated
    */
   Algorithme createAlgorithme();
+
+  /**
+   * Returns a new object of class '<em>Entree</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Entree</em>'.
+   * @generated
+   */
+  Entree createEntree();
+
+  /**
+   * Returns a new object of class '<em>Sortie</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sortie</em>'.
+   * @generated
+   */
+  Sortie createSortie();
 
   /**
    * Returns the package supported by this factory.

@@ -4,17 +4,23 @@ generate lA "http://www.l127.fr/LA"
 
 Librairie:
 	'librairies' name=ID '{'
-	 elements+=LibrairieElement*
+	 elements+=Algorithme*
 	 '}'
 	;
 
-LibrairieElement : Algorithme
-;	
+	
 Algorithme : 
 	'algo' name=ID '{'
-		'entrées' '(' (entrees+=ID)+ ')' 
-		'sorties' '(' (sorties+=ID)+ ')' 
-		'chemin' chemin=ID
+		'entrées' '(' (entrees+=Entree)+ ')' 
+		'sorties' '(' (sorties+=Sortie)+ ')' 
+		'chemin' chemin=STRING
 	'}'
 	
+;
+
+Entree :
+	idColonne = INT
+;
+Sortie :
+	idColonne = INT
 ;

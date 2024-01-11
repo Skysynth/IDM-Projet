@@ -1,0 +1,89 @@
+[comment encoding = UTF-8 /]
+[module schemaTableToJavaApp('http://www.example.org/schemaTable')]
+
+[template public generateElement(aSchemaTable : SchemaTable)]
+[comment @main/]
+[file ('App.java', false, 'UTF-8')]
+
+package main;
+
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * - Ceci est un modèle, on peut récupérer les éléments de la zone A pour générer le swing
+ * - la méthode checkConstraints est appelé sur toutes les colonnes de toutes les tables d'un import CSV
+ * - à ce propos, l'import CSV doit être géré en utilisant la méthode add() fournie par une colonne
+ * - si on modifie une colonne, on rappelle checkConstraint sur cette dernière
+ * - 
+ */
+
+public class App {
+
+	static List<List<Column>> schemaTable; 
+
+	public static void main(String['['/]] args) {
+		
+		/* Zone A */
+		
+		schemaTable = new ArrayList<List<Column>>();
+		List<Column> currentTable;
+		Column currentColumn;	
+		Constraint currentConstraint;
+		String['['/]] currentArgument;
+		
+		/* Fin zone A */
+
+		// Extraire les tables et les colonnes du métamodèle
+
+[let tables : OrderedSet(Table) = aSchemaTable.getTables() ] 
+	[for (table : Table | tables)]
+		// table courante : [table.id/]
+		currentTable = new ArrayList<Column>();
+
+		[let colonnes : OrderedSet(Colonne) = table.getColonnes() ] 
+			[for (colonne : Colonne | colonnes)]
+			// colonne courante : [colonne.id/]
+
+			[if colonne.typeColonne = TypeColonne::ChaineCaracteres]
+			currentColumn = new Column<String>();
+			[else]
+			currentColumn = new Column<Integer>();
+			[/if]
+
+				[for(c : Contrainte | colonne.contrainte)]
+					
+					currentArgument = new String['['/]]{[for (arg : String | c.args)]"[arg/]"[if arg <> c.args->last()],[/if][/for]};
+					currentConstraint = new Constraint("[c.nom/]", currentArgument);
+
+					currentColumn.addConstraint(currentConstraint);
+					
+				[/for]
+			
+
+			currentTable.add(new Column());
+
+			[/for]	
+		[/let]
+	[/for]
+[/let]
+	
+		// Créer un affichage swing 
+		
+    }
+
+}
+
+[/file]
+[/template]
+
+[query public getTables(s : SchemaTable) : OrderedSet(Table) = 
+	s.table->asOrderedSet()
+/]
+
+[query public getColonnes(t : Table) : OrderedSet(Colonne) = 
+	t.colonne->asOrderedSet()
+/]
+
+
