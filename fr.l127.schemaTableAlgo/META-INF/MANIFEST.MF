@@ -1,7 +1,16 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: fr.l127.schemaTableAlgo
-Bundle-SymbolicName: fr.l127.schemaTableAlgo; singleton:=true
+Bundle-Name: %pluginName
+Bundle-SymbolicName: fr.l127.schemaTableAlgo;singleton:=true
+Automatic-Module-Name: fr.l127.schemaTableAlgo
 Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: fr.l127.schemaTableAlgo,
+ fr.l127.schemaTableAlgo.impl,
+ fr.l127.schemaTableAlgo.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy

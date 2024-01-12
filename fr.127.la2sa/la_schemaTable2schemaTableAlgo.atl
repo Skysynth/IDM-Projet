@@ -1,0 +1,53 @@
+-- @path la=/fr.l127.librairieAlgorithme/model/generated/LA.ecore
+-- @path schemaTable=/fr.l127.schemaTable/model/schemaTable.ecore
+-- @path schemaTableAlgo=/fr.l127.schemaTableAlgo/model/schemaTableAlgo.ecore
+
+module laschemaTable2schemaTableAlgo;
+create OUT : schemaTableAlgo from IN : la, IN1 : schemaTable;
+
+rule schemaTable2schemaTable{
+	from schemaTableIn : schemaTable!SchemaTable
+	to schemaTable : schemaTableAlgo!SchemaTable(
+		table<-schemaTableIn.table)
+	do {
+		schemaTableIn.catalogue <- schemaTableIn!Catalogue.allInstances();
+		
+	}
+	
+}
+
+rule table2table{
+	from tableIn : schemaTable!table
+	to table : schemaTableAlgo!table(
+		id<-tableIn.id,
+		colonne<-tableIn.colonne
+		)
+}
+rule colonne2colonne{
+	from colonneIn : schemaTable!colonne
+	to colonne : schemaTableAlgo!colonne(
+		id<-colonneIn.id,
+		typeColonne<-colonneIn.typeColonne,
+		contrainte<-colonneIn.contrainte
+		)
+}
+rule librairie2algorithme {
+	from librairie : la!Librairie
+	to catalogue : schemaAlgo!Catalogue(
+						nom <-librairie.name,
+						algorithme <-librairie.elements
+						)
+}
+rule Algorithme2Algorithme {
+    from
+        algoLA : la!Algorithme
+    to
+        algorithme : schemaAlgo!Algorithme
+    (
+        nom <- algoLA.name,
+        chemin <- algoLA.chemin,
+        entrees <- algoLA.entrees->collect(entreeLA | entreeLA.idColonne ),
+		sorties <- algoLA.sorties->collect(sortiesLA | sortiesLA.idColonne )	
+	)
+
+}
