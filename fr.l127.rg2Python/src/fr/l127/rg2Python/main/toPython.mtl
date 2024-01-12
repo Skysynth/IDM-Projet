@@ -1,7 +1,7 @@
 [comment encoding = UTF-8 /]
-[module toPython('http://www.example.org/ressourceGraphique')]
+[module toPython('http://www.example.org/ressourceGraphique', 'http://schemaAlgorithme')]
 
-[template public generateElement(aRessourceGraphique : RessourceGraphique)]
+[template public generateElement(aRessourceGraphique : RessourceGraphique, aCatalogue : Catalogue)]
 [comment @main/] 
 [file (aRessourceGraphique.nom +'.py', false, 'UTF-8')]
 from fonctions import *

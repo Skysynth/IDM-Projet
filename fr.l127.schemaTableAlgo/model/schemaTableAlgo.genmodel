@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/fr.l127.schemaTableAlgo/src-gen" creationIcons="false"
+    editDirectory="/fr.l127.schemaTableAlgo.edit/src-gen" editorDirectory="/fr.l127.schemaTableAlgo.editor/src-gen"
+    modelPluginID="fr.l127.schemaTableAlgo" modelName="SchemaTableAlgo" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>schemaTableAlgo.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="SchemaTableAlgo" basePackage="fr.l127" disposableProviderFactory="true"
+      ecorePackage="schemaTableAlgo.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="schemaTableAlgo.ecore#//TypeColonne">
+      <genEnumLiterals ecoreEnumLiteral="schemaTableAlgo.ecore#//TypeColonne/ChaineCaracteres"/>
+      <genEnumLiterals ecoreEnumLiteral="schemaTableAlgo.ecore#//TypeColonne/Nombre"/>
+    </genEnums>
+    <genClasses ecoreClass="schemaTableAlgo.ecore#//SchemaTable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference schemaTableAlgo.ecore#//SchemaTable/table"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference schemaTableAlgo.ecore#//SchemaTable/catalogue"/>
+    </genClasses>
+    <genClasses ecoreClass="schemaTableAlgo.ecore#//Table">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schemaTableAlgo.ecore#//Table/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference schemaTableAlgo.ecore#//Table/colonne"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="schemaTableAlgo.ecore#//Colonne">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schemaTableAlgo.ecore#//Colonne/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schemaTableAlgo.ecore#//Colonne/typeColonne"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference schemaTableAlgo.ecore#//Colonne/contrainte"/>
+    </genClasses>
+    <genClasses ecoreClass="schemaTableAlgo.ecore#//ColonneSpeciale"/>
+    <genClasses ecoreClass="schemaTableAlgo.ecore#//ColonneNormal"/>
+    <genClasses ecoreClass="schemaTableAlgo.ecore#//Contrainte">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schemaTableAlgo.ecore#//Contrainte/nom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schemaTableAlgo.ecore#//Contrainte/args"/>
+    </genClasses>
+    <genClasses ecoreClass="schemaTableAlgo.ecore#//Catalogue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schemaTableAlgo.ecore#//Catalogue/nom"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference schemaTableAlgo.ecore#//Catalogue/algorithme"/>
+    </genClasses>
+    <genClasses ecoreClass="schemaTableAlgo.ecore#//Algorithme">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schemaTableAlgo.ecore#//Algorithme/entrees"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schemaTableAlgo.ecore#//Algorithme/sorties"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schemaTableAlgo.ecore#//Algorithme/chemin"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

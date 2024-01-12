@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<schemaAlgorithme:Catalogue xmi:version="2.0"
+xmlns:xmi="http://www.omg.org/XMI" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:schemaAlgorithme="http://schemaAlgorithme"
+xsi:schemaLocation="http://schemaAlgorithme ./schemaAlgorithme.ecore"  
+nom="test">
+  <algorithme nom="aze" chemin="./aze">
+    <entrees>1</entrees>
+    <entrees>0</entrees>
+    <sorties>3</sorties>
+  </algorithme>
+</schemaAlgorithme:Catalogue>

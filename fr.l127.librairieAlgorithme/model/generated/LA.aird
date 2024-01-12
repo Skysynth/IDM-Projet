@@ -5,7 +5,7 @@
     <semanticResources>LA.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_pGLasLDCEe6mGOPNceZwkQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_pueJwLDCEe6mGOPNceZwkQ" name="lA class diagram" repPath="#_puQuYLDCEe6mGOPNceZwkQ" changeId="1705006087895">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_pueJwLDCEe6mGOPNceZwkQ" name="lA class diagram" repPath="#_puQuYLDCEe6mGOPNceZwkQ" changeId="1705065631514">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="LA.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -232,7 +232,7 @@
       <semanticElements xmi:type="ecore:EReference" href="LA.ecore#//Librairie/elements"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_qjE2g7DCEe6mGOPNceZwkQ" description="_qjE2gLDCEe6mGOPNceZwkQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_qjE2hbDCEe6mGOPNceZwkQ" showIcon="false"/>
-        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_qjE2hLDCEe6mGOPNceZwkQ" showIcon="false" labelColor="39,76,114"/>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_qjE2hLDCEe6mGOPNceZwkQ" labelSize="6" showIcon="false" labelColor="39,76,114"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
@@ -241,7 +241,7 @@
       <semanticElements xmi:type="ecore:EReference" href="LA.ecore#//Algorithme/entrees"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_qjGEoLDCEe6mGOPNceZwkQ" description="_qjE2gLDCEe6mGOPNceZwkQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_qjGEorDCEe6mGOPNceZwkQ" showIcon="false"/>
-        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_qjGEobDCEe6mGOPNceZwkQ" showIcon="false" labelColor="39,76,114"/>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_qjGEobDCEe6mGOPNceZwkQ" labelSize="6" showIcon="false" labelColor="39,76,114"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
@@ -250,7 +250,7 @@
       <semanticElements xmi:type="ecore:EReference" href="LA.ecore#//Algorithme/sorties"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_qjJH8LDCEe6mGOPNceZwkQ" description="_qjE2gLDCEe6mGOPNceZwkQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_qjJH8rDCEe6mGOPNceZwkQ" showIcon="false"/>
-        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_qjJH8bDCEe6mGOPNceZwkQ" showIcon="false" labelColor="39,76,114"/>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_qjJH8bDCEe6mGOPNceZwkQ" labelSize="6" showIcon="false" labelColor="39,76,114"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
