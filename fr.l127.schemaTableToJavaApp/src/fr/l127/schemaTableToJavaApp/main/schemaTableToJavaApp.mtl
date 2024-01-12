@@ -1,9 +1,9 @@
 [comment encoding = UTF-8 /]
-[module schemaTableToJavaApp('http://www.example.org/schemaTable')]
+[module schemaTableToJavaApp('http://schemaTableAlgo')]
 
-[template public generateElement(aSchemaTable : SchemaTable)]
+[template public generateElement(aSchemaTableAlgo : SchemaTableAlgo)]
 [comment @main/]
-[file ('App.java', false, 'UTF-8')]
+[file ('Model.java', false, 'UTF-8')]
 
 package main;
 
@@ -19,16 +19,16 @@ import java.util.List;
  * - 
  */
 
-public class App {
+public class Model {
 
-	static List<List<Column>> schemaTable; 
+	static SchemaTable schemaTable; 
 
 	public static void main(String['['/]] args) {
 		
 		/* Zone A */
 		
-		schemaTable = new ArrayList<List<Column>>();
-		List<Column> currentTable;
+		schemaTable = new SchemaTable();
+		Table currentTable;
 		Column currentColumn;	
 		Constraint currentConstraint;
 		String['['/]] currentArgument;
@@ -37,10 +37,10 @@ public class App {
 
 		// Extraire les tables et les colonnes du métamodèle
 
-[let tables : OrderedSet(Table) = aSchemaTable.getTables() ] 
+[let tables : OrderedSet(Table) = aSchemaTableAlgo.getTables() ] 
 	[for (table : Table | tables)]
 		// table courante : [table.id/]
-		currentTable = new ArrayList<Column>();
+		currentTable = new Table();
 
 		[let colonnes : OrderedSet(Colonne) = table.getColonnes() ] 
 			[for (colonne : Colonne | colonnes)]
@@ -66,8 +66,35 @@ public class App {
 
 			[/for]	
 		[/let]
+
+		schemaTable.add(currentTable);
+
 	[/for]
 [/let]
+
+		Algorithm currentAlgorithm = new Algorithm();
+[let algorithmes : OrderedSet(Algorithme) = aSchemaTableAlgo.getAlgorithmes() ] 
+	[for (algorithme : Algorithme | algorithmes)]
+		// Ajout des l'entrées
+		[let inputs : OrderedSet(Integer) = algorithme.entrees]
+			[for (input : Integer | inputs)]
+				currentAlgorithm.addInput([input/]);
+			[/for]
+		[/let]
+		// Ajout des sorties
+		[let outputs : OrderedSet(Integer) = algorithme.sorties]
+			[for (output : Integer | outputs)]
+				currentAlgorithm.addOutput([output/]);
+			[/for]
+		[/let]
+		
+		
+			
+		
+		
+	[/for]
+[/let]
+		
 	
 		// Créer un affichage swing 
 		
@@ -78,8 +105,13 @@ public class App {
 [/file]
 [/template]
 
-[query public getTables(s : SchemaTable) : OrderedSet(Table) = 
+[query public getTables(s : SchemaTableAlgo) : OrderedSet(Table) = 
 	s.table->asOrderedSet()
+/]
+
+
+[query public getAlgorithmes(s : SchemaTableAlgo) : OrderedSet(Algorithme) = 
+	s.catalogue.algorithme->asOrderedSet()
 /]
 
 [query public getColonnes(t : Table) : OrderedSet(Colonne) = 

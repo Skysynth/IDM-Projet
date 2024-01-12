@@ -6,6 +6,8 @@ import java.util.List;
 
 public class Column <T> {
 	
+	private int id;
+	
 	private List<T> datas;
 	
 	private List<Constraint> constraints;
@@ -42,6 +44,11 @@ public class Column <T> {
 		}
 		
 		return result;
+	}
+	
+	public int getID()
+	{
+		return id;
 	}
 	
 	

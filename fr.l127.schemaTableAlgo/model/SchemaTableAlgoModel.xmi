@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemaTableAlgo:SchemaTableAlgo
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaTableAlgo="http://schemaTableAlgo">
+  <table>
+    <colonne
+        xsi:type="schemaTableAlgo:ColonneSpeciale">
+      <contrainte
+          nom="positif"/>
+    </colonne>
+    <colonne
+        xsi:type="schemaTableAlgo:ColonneNormal"
+        id="1"/>
+    <colonne
+        xsi:type="schemaTableAlgo:ColonneNormal"
+        id="2"
+        typeColonne="Nombre"/>
+  </table>
+  <table id="1">
+    <colonne
+        xsi:type="schemaTableAlgo:ColonneSpeciale"/>
+    <colonne
+        xsi:type="schemaTableAlgo:ColonneNormal"
+        id="3"/>
+    <colonne
+        xsi:type="schemaTableAlgo:ColonneNormal"
+        id="4"
+        typeColonne="Nombre"/>
+  </table>
+  <table id="2"/>
+</schemaTableAlgo:SchemaTableAlgo>

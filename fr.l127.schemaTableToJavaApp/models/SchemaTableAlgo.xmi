@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemaTableAlgo:SchemaTableAlgo
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaTableAlgo="http://schemaTableAlgo"
+    xsi:schemaLocation="http://schemaTableAlgo ../../fr.l127.schemaTableAlgo/model/schemaTableAlgo.ecore"
+    >
+  <table>
+    <colonne
+        xsi:type="schemaTableAlgo:ColonneSpeciale"/>
+    <colonne
+        xsi:type="schemaTableAlgo:ColonneNormal"
+        id="1"/>
+    <colonne
+        xsi:type="schemaTableAlgo:ColonneNormal"
+        id="2"
+        typeColonne="Nombre"/>
+  </table>
+  <table id="1">
+    <colonne
+        xsi:type="schemaTableAlgo:ColonneSpeciale"
+        id="3"/>
+    <colonne
+        xsi:type="schemaTableAlgo:ColonneNormal"
+        id="4"/>
+    <colonne
+        xsi:type="schemaTableAlgo:ColonneNormal"
+        id="5"/>
+  </table>
+  <catalogue>
+    <algorithme
+        chemin="fichier">
+      <entrees>2</entrees>
+      <entrees>3</entrees>
+      <sorties>5</sorties>
+    </algorithme>
+  </catalogue>
+</schemaTableAlgo:SchemaTableAlgo>
