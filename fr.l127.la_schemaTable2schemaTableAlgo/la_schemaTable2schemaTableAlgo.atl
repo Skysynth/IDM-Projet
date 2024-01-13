@@ -6,34 +6,43 @@ module laschemaTable2schemaTableAlgo;
 create OUT : schemaTableAlgo from IN : la, IN1 : schemaTable;
 
 rule schemaTable2schemaTable{
-	from schemaTableIn : schemaTable!SchemaTable
+	from schemaTable : schemaTable!SchemaTable
 	to schemaTableAlgo : schemaTableAlgo!SchemaTableAlgo(
-		table<-schemaTableIn.table)
+		table<-schemaTable.table)
 	do {
-		schemaTableAlgo.catalogue <- schemaTableIn!Catalogue.allInstances();
+		schemaTableAlgo.catalogue <- schemaTableAlgo!Catalogue.allInstances();
 		
 	}
 	
 }
 
 rule table2table{
-	from tableIn : schemaTable!table
-	to table : schemaTableAlgo!table(
+	from tableIn : schemaTable!Table
+	to table : schemaTableAlgo!Table(
 		id<-tableIn.id,
 		colonne<-tableIn.colonne
 		)
 }
-rule colonne2colonne{
-	from colonneIn : schemaTable!colonne
-	to colonne : schemaTableAlgo!colonne(
+rule colonneSpe2colonneSpe{
+	from colonneIn : schemaTable!ColonneSpeciale
+	to colonne : schemaTableAlgo!ColonneSpeciale(
 		id<-colonneIn.id,
 		typeColonne<-colonneIn.typeColonne,
 		contrainte<-colonneIn.contrainte
 		)
 }
+rule colonneNormal2colonneNormal{
+	from colonneIn : schemaTable!ColonneNormal
+	to colonne : schemaTableAlgo!ColonneNormal(
+		id<-colonneIn.id,
+		typeColonne<-colonneIn.typeColonne,
+		contrainte<-colonneIn.contrainte
+		)
+}
+
 rule librairie2algorithme {
 	from librairie : la!Librairie
-	to catalogue : schemaAlgo!Catalogue(
+	to catalogue : schemaTableAlgo!Catalogue(
 						nom <-librairie.name,
 						algorithme <-librairie.elements
 						)
@@ -42,9 +51,8 @@ rule Algorithme2Algorithme {
     from
         algoLA : la!Algorithme
     to
-        algorithme : schemaAlgo!Algorithme
+        algorithme : schemaTableAlgo!Algorithme
     (
-        nom <- algoLA.name,
         chemin <- algoLA.chemin,
         entrees <- algoLA.entrees->collect(entreeLA | entreeLA.idColonne ),
 		sorties <- algoLA.sorties->collect(sortiesLA | sortiesLA.idColonne )	

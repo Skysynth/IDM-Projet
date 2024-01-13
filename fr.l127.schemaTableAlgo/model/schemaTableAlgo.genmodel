@@ -14,9 +14,9 @@
       <genEnumLiterals ecoreEnumLiteral="schemaTableAlgo.ecore#//TypeColonne/ChaineCaracteres"/>
       <genEnumLiterals ecoreEnumLiteral="schemaTableAlgo.ecore#//TypeColonne/Nombre"/>
     </genEnums>
-    <genClasses ecoreClass="schemaTableAlgo.ecore#//SchemaTable">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference schemaTableAlgo.ecore#//SchemaTable/table"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference schemaTableAlgo.ecore#//SchemaTable/catalogue"/>
+    <genClasses ecoreClass="schemaTableAlgo.ecore#//SchemaTableAlgo">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference schemaTableAlgo.ecore#//SchemaTableAlgo/table"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference schemaTableAlgo.ecore#//SchemaTableAlgo/catalogue"/>
     </genClasses>
     <genClasses ecoreClass="schemaTableAlgo.ecore#//Table">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schemaTableAlgo.ecore#//Table/id"/>
