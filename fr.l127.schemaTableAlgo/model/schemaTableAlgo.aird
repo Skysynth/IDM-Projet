@@ -3,13 +3,9 @@
   <viewpoint:DAnalysis uid="_L0_WULF3Ee6IYNc2D7bL9g" selectedViews="_L39KwLF3Ee6IYNc2D7bL9g _2EWfELF3Ee6IYNc2D7bL9g _2Eu5kLF3Ee6IYNc2D7bL9g _2FXywLF3Ee6IYNc2D7bL9g" version="15.2.0.202303281325">
     <semanticResources>schemaTableAlgo.ecore</semanticResources>
     <semanticResources>schemaTableAlgo.genmodel</semanticResources>
-    <semanticResources>SchemaTableAlgo.xmi</semanticResources>
-    <semanticResources>../build.properties</semanticResources>
-    <semanticResources>../plugin.properties</semanticResources>
-    <semanticResources>../plugin.xml</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_L39KwLF3Ee6IYNc2D7bL9g">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_lKzSkLF4Ee6IYNc2D7bL9g" name="schemaTableAlgo class diagram" repPath="#_lKxdYLF4Ee6IYNc2D7bL9g" changeId="1705085828733">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_lKzSkLF4Ee6IYNc2D7bL9g" name="schemaTableAlgo class diagram" repPath="#_lKxdYLF4Ee6IYNc2D7bL9g" changeId="1705089713552">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="schemaTableAlgo.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -410,7 +406,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_llr3w7F4Ee6IYNc2D7bL9g" name="[0..1] contrainte" sourceNode="_llg4pbF4Ee6IYNc2D7bL9g" targetNode="_lliGwrF4Ee6IYNc2D7bL9g">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_llr3w7F4Ee6IYNc2D7bL9g" name="[0..*] contrainte" sourceNode="_llg4pbF4Ee6IYNc2D7bL9g" targetNode="_lliGwrF4Ee6IYNc2D7bL9g">
       <target xmi:type="ecore:EReference" href="schemaTableAlgo.ecore#//Colonne/contrainte"/>
       <semanticElements xmi:type="ecore:EReference" href="schemaTableAlgo.ecore#//Colonne/contrainte"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_llr3xLF4Ee6IYNc2D7bL9g" description="_llrQsLF4Ee6IYNc2D7bL9g" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
