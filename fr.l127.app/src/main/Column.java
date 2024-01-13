@@ -35,8 +35,19 @@ public class Column {
             throw new IllegalArgumentException("Type de donnée incorrect pour la colonne : " + name + data.getClass().getName());
         } else {
             // Assurer que l'index est dans la plage correcte
-            ensureCapacity(index + 1);
-            datas.set(index, data);
+        	if (data != null) {
+        		ensureCapacity(index + 1);
+        		datas.set(index, data);        		
+        	} else {
+        		
+        		// On boucle pour nelever les null jusqu'à une valeur non null
+        		for(int i = index; i >= 0; i--) {
+        			if (datas.get(i) == null) {
+        				datas.remove(index);        				
+        			}
+        		}
+        	}
+        	
         }
     }
     

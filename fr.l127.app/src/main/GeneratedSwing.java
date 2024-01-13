@@ -1,24 +1,31 @@
 package main;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
@@ -26,6 +33,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -44,8 +52,11 @@ public class GeneratedSwing extends JFrame {
     private JComboBox<String> tableSelector;
 
     private CustomCellRenderer customCellRenderer = new CustomCellRenderer();
-
     
+
+    private JPopupMenu popupMenu;
+    private JMenuItem deleteItem;
+
     {
 		/* Zone A */
 		
@@ -112,6 +123,68 @@ public class GeneratedSwing extends JFrame {
 		schemaTable.addAlgorithm(currentAlgorithm);
     }
     
+    class CustomCellRenderer extends DefaultTableCellRenderer {
+        private static final long serialVersionUID = -756446113683862516L;
+    	private Set<Point> highlightedCells = new HashSet<>();
+
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value,
+                                                       boolean isSelected, boolean hasFocus,
+                                                       int row, int column) {
+            Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+
+            if (highlightedCells.contains(new Point(row, column))) {
+                c.setBackground(Color.RED);
+            } else {
+                Column columnObject = getColumnObjectAt(column);
+                if (isOutputColumn(columnObject)) {
+                    c.setBackground(new Color(220, 220, 220)); // Gris clair pour les colonnes de sortie
+                } else {
+                 
+		            if (isSelected) {
+		                c.setBackground(table.getSelectionBackground());
+		            } else {
+		                c.setBackground(table.getBackground());
+		            }
+                }
+            }
+            return c;
+        }
+
+        public void addHighlightedCell(int row, int column) {
+            highlightedCells.add(new Point(row, column));
+        }
+
+        public void clearHighlightedCells() {
+            highlightedCells.clear();
+        }
+    }
+
+    class CustomTableModel extends DefaultTableModel {
+        private static final long serialVersionUID = -5165229507929130480L;
+
+        public CustomTableModel() {
+        	super();
+        }
+        
+		public CustomTableModel(Object[][] data, Object[] columnNames) {
+            super(data, columnNames);
+        }
+
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            // Obtenez l'objet Column correspondant à l'indice de colonne
+            Column columnObject = getColumnObjectAt(column);
+
+            // Vérifiez si la colonne est une colonne de sortie d'un algorithme
+            if (isOutputColumn(columnObject)) {
+                return false; // Rendre la cellule non modifiable
+            }
+            return true; // Sinon, la cellule est modifiable
+        }
+
+    }
+
     
 	public GeneratedSwing() {
 		super("Excel-Like GUI");
@@ -121,7 +194,7 @@ public class GeneratedSwing extends JFrame {
         this.setSize(800, 600);
         
         // Création du modèle de tableau par défaut
-        tableModel = new DefaultTableModel();
+        tableModel = new CustomTableModel();
         // Au besoin, voici comment définir des valeurs dans certaines cases (exemple en dessous)
         // tableModel.setValueAt("A1", 0, 0);
 
@@ -174,6 +247,15 @@ public class GeneratedSwing extends JFrame {
         // Ajout du panneau de boutons dans le BorderLayout en bas
         this.add(toolBar, BorderLayout.SOUTH);
 
+        popupMenu = new JPopupMenu();
+        deleteItem = new JMenuItem("Supprimer");
+        
+        popupMenu.add(deleteItem);
+        
+        table.addMouseListener(new MouseEcouteur());
+        
+        deleteItem.addActionListener(new ActionButtons());
+        
         updateTableModel(schemaTable.getTables().get(0));
         // Rendre la fenêtre visible
         this.setVisible(true);
@@ -199,6 +281,25 @@ public class GeneratedSwing extends JFrame {
 	    }
 	}
 	
+	class MouseEcouteur extends MouseAdapter {
+		@Override
+	    public void mousePressed(MouseEvent e) {
+	        showPopupMenu(e);
+	    }
+
+	    @Override
+	    public void mouseReleased(MouseEvent e) {
+	        showPopupMenu(e);
+	    }
+
+	    private void showPopupMenu(MouseEvent e) {
+	        if (e.isPopupTrigger() && table.getSelectedRow() != -1) {
+	            popupMenu.show(e.getComponent(), e.getX(), e.getY());
+	        }
+	    }
+	    
+	}
+	
 	class TableListener implements TableModelListener {
 
 		private boolean isUpdating = false; // Drapeau pour contrôler les mises à jour
@@ -209,7 +310,6 @@ public class GeneratedSwing extends JFrame {
 			if (!isUpdating) {
 				int row = e.getFirstRow();
 				int column = e.getColumn();
-				System.out.println(row + "\t" + column + " : tableChanged");
 				
 				if (row < 0 || column < 0) return;
 				
@@ -217,7 +317,7 @@ public class GeneratedSwing extends JFrame {
 				Object data = model.getValueAt(row, column);
 				
 				// Mettre à jour l'objet Table ici
-				updateTableObject(row, column, data);				
+				updateTableObject(row, column, data);
 			}
 			
 		}
@@ -231,27 +331,37 @@ public class GeneratedSwing extends JFrame {
 		        Column targetColumn = selectedTable.getColumns().get(column);
 		        
 		        if (targetColumn != null) {
-		        	Object convertedData = convertStringToTargetType((String) data, targetColumn.getDataType());
-		            
-		        	if (convertedData != null) {
-		        		targetColumn.updateData(row, convertedData);
+		        	if (data == null | data.toString().equals("")) {
+		        		targetColumn.updateData(row, null);
 		        	} else {
-		        		System.out.println("Erreur de type :");
-		        		System.out.println(targetColumn.getDataType() + " était attendu");
-		        		System.out.println("Reçu : " + data + " de type " + data.getClass().getName());
+		        		Object convertedData = convertStringToTargetType((String) data, targetColumn.getDataType());
 		        		
-		        		// Désactiver temporairement la mise à jour
-	                    isUpdating = true;
-
-	                    // Réinitialiser la donnée dans la JTable
-	                    tableModel.setValueAt(null, row, column);
-
-	                    // Mettre la cellule en rouge temporairement
-	                    highlightCell(row, column);
-
-	                    // Réactiver les mises à jour
-	                    isUpdating = false;
-		        	}	
+		        		if (convertedData != null) {
+		        			targetColumn.updateData(row, convertedData);
+		        			
+		        		} else {
+		        			System.out.print("Erreur de type : ");
+		        			System.out.println(targetColumn.getDataType().getCanonicalName() + " était attendu");
+		        			
+		        			// Désactiver temporairement la mise à jour
+		        			isUpdating = true;
+		        			
+		        			// Réinitialiser la donnée dans la JTable
+		        			tableModel.setValueAt(null, row, column);
+		        			targetColumn.updateData(row, null);
+		        			
+		        			// Mettre la cellule en rouge temporairement
+		        			highlightCell(row, column);
+		        			
+		        			// Réactiver les mises à jour
+		        			isUpdating = false;
+		        		}
+		        	}
+		        	
+		        	
+		        	List<Algorithm> algos = schemaTable.getAlgorithmsTakingColumnAsInput(targetColumn);
+		        	// On tente d'appliquer les algorithmes qui concernent cette colonne en input
+	        		tryToExecuteAlgorithms(algos);
 		        }
 		        
 		    }
@@ -270,7 +380,7 @@ public class GeneratedSwing extends JFrame {
 	        timer.start();
 	    }
 	}
-	
+
     class ActionButtons implements ActionListener {
 
 		@Override
@@ -297,263 +407,235 @@ public class GeneratedSwing extends JFrame {
 			else if (e.getSource() == tableSelector) {
 				onSwitchTable();
 			}
+			else if (e.getSource() == deleteItem) {
+				System.out.println("deleteItem");
+				deleteSelectedRows();
+			}
 			else {
 				System.out.println("Shouldn't see that, call 911");
 			}
 		}
-    	
     }
-    
-	private void onSwitchTable() {
+  
+    private void deleteSelectedRows() {
+        int[] selectedRows = table.getSelectedRows();
+
+        // Convertir les indices de vue en indices de modèle
+        for (int i = 0; i < selectedRows.length; i++) {
+            selectedRows[i] = table.convertRowIndexToModel(selectedRows[i]);
+        }
         
-		String selectedTableName = (String) tableSelector.getSelectedItem();
-        Table selectedTable = schemaTable.getTableByName(selectedTableName);
-        updateTableModel(selectedTable); // Méthode pour mettre à jour le JTable en fonction de la Table sélectionnée
-	}
+        Arrays.sort(selectedRows);
 
-	private void onImportCSVFile() {
-		JFileChooser fileChooser = new JFileChooser();
-	    if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-	        File csvFile = fileChooser.getSelectedFile();
-	        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
-	            String line;
-	            while ((line = br.readLine()) != null) {
-	                String[] data = line.split(",");
-	                tableModel.addRow(data);
-	            }
-	        } catch (IOException ioException) {
-	            ioException.printStackTrace();
-	        }
-	    }
-	}
-	
-	private void onExecute() {
-		for (Algorithm algorithm : schemaTable.getAlgorithms()) {
-	        // Vérifier la validité des colonnes d'entrée
-	        boolean validInput = true;
-	        for (Column inputColumn : algorithm.getInputs()) {
-	            if (inputColumn == null || !inputColumn.checkTypesAndNoNull()) {
-	                validInput = false;
-	                break;
-	            }
-	        }
-
-	        if (validInput) {
-	        	System.out.println("on est bon");
-	            // Générer le fichier CSV d'entrée
-	            String csvInputPath;
-				try {
-					csvInputPath = generateCsvForAlgorithmInput(algorithm);
-					System.out.println("csv Input generated");
-					
-					// Exécuter l'algorithme via Python
-					String csvOutputPath = executePythonAlgorithm(algorithm.getPath(), csvInputPath, algorithm.getPath().replaceAll(".py", "") + "-output.csv");
-					
-					System.out.println("csv output generated");
-					
-					// Lire les résultats et mettre à jour les colonnes de sortie
-					List<List<String>> resultData = readCsvResults(csvOutputPath);
-					updateOutputColumns(algorithm.getOutputs(), resultData);
-					
-					updateTableModel(tableDisplayed);
-					System.out.println("finished !");
-				} catch (IOException | InterruptedException e) {
-					e.printStackTrace();
-				}
-
-	        }
-	    }
-	}
-		
-	private String generateCsvForAlgorithmInput(Algorithm algorithm) throws IOException {
-	    String csvFilePath = algorithm.getPath().replaceAll(".py", "") + "-input.csv"; // Chemin du fichier CSV à générer
-	  
-	    try (PrintWriter csvWriter = new PrintWriter(new File(csvFilePath))) {
-	    	
-	        for (Column inputColumn : algorithm.getInputs()) {
-	        	
-	            if (inputColumn != null) {
-	            	boolean isPremier = true;
-	                // Écrire les données de la colonne dans le fichier CSV
-	                for (Object data : inputColumn.getDatas()) {
-	                	if (isPremier) {
-	                		isPremier = false;
-	                	} else {
-		                    csvWriter.print(","); // Séparateur CSV
-	                	}
-	                	csvWriter.print(data.toString());	                		
-	                }
-	                csvWriter.println();
-	            }
-	        }
-	    }
-	    return csvFilePath;
-	}
-	
-	private String executePythonAlgorithm(String scriptPath, String csvInputPath, String csvOutputPath) throws IOException, InterruptedException {
-	    ProcessBuilder pb = new ProcessBuilder("python3", "add.py", scriptPath, csvInputPath, csvOutputPath);
-	    Process p = pb.start();
-	    p.waitFor(); // Attendre la fin de l'exécution du script
-
-	    return csvOutputPath;
-	}
-	
-	private List<List<String>> readCsvResults(String csvFilePath) throws IOException {
-        File resultFile = new File(csvFilePath);
-        List<List<String>> rows = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(resultFile))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                rows.add(Arrays.asList(line.split(",")));
+        // Supprimer les données de chaque colonne dans les objets Column
+        for (int col = 0; col < table.getModel().getColumnCount(); col++) {
+            Column columnObject = getColumnObjectAt(col);
+            for (int i = selectedRows.length - 1; i >= 0; i--) {
+                columnObject.getDatas().remove(selectedRows[i]);
             }
         }
 
-        // Transposer les lignes en colonnes
-		return transpose(rows);
-	}
+        // Supprimer les lignes du modèle de la table
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        for (int i = selectedRows.length - 1; i >= 0; i--) {
+            model.removeRow(selectedRows[i]);
+        }
+    }
+    
+    private void onSwitchTable() {
+    	
+    	String selectedTableName = (String) tableSelector.getSelectedItem();
+    	Table selectedTable = schemaTable.getTableByName(selectedTableName);
+    	updateTableModel(selectedTable); // Méthode pour mettre à jour le JTable en fonction de la Table sélectionnée
+    }
+    
+    private void onImportCSVFile() {
+    	JFileChooser fileChooser = new JFileChooser();
+    	if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+    		File csvFile = fileChooser.getSelectedFile();
+    		try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+    			String line;
+    			while ((line = br.readLine()) != null) {
+    				String[] data = line.split(",");
+    				tableModel.addRow(data);
+    			}
+    		} catch (IOException ioException) {
+    			ioException.printStackTrace();
+    		}
+    	}
+    }
 
-	// Méthode pour transposer une liste de listes (convertir les lignes en colonnes)
-	private static <T> List<List<T>> transpose(List<List<T>> table) {
-	    List<List<T>> ret = new ArrayList<>();
-	    final int N = table.get(0).size();
-	    for (int i = 0; i < N; i++) {
-	        List<T> col = new ArrayList<>();
-	        for (List<T> row : table) {
-	            col.add(row.get(i));
-	        }
-	        ret.add(col);
-	    }
-	    return ret;
-	}
+    private void onExecute() {
+    	tryToExecuteAlgorithms(schemaTable.getAlgorithms());
+    }
+    
+    private void tryToExecuteAlgorithms(List<Algorithm> algorithms) {
+    	
+    	for (Algorithm algorithm : algorithms) {
+    		// Vérifier la validité des colonnes d'entrée
+    		boolean validInput = true;
+    		
+    		List<Integer> columnSizes = new ArrayList<Integer>();
+    		
+    		for (Column inputColumn : algorithm.getInputs()) {
+    			if (inputColumn == null || !inputColumn.checkTypesAndNoNull() || !inputColumn.checkConstraints()) {
+    				validInput = false;
+    				break;
+    			}
+    			columnSizes.add(inputColumn.getDatas().size());
+    		}
 
-	
-	private void updateOutputColumns(List<Column> outputColumns, List<List<String>> resultData) {
-	    if (outputColumns.size() != resultData.size()) {
-	        throw new IllegalArgumentException("Le nombre de colonnes de sortie ne correspond pas aux résultats obtenus : " + outputColumns.size() + " | " + resultData.size());
-	    }
+    		// Vérification de la même taille des colonnes
+    		if (validInput) {
+    			if (!columnSizes.isEmpty()) {    				
+    				int sizeToFit = columnSizes.get(0);
+    				for (Integer i : columnSizes) {
+    					if (sizeToFit != i) {
+    						validInput = false;
+    						break;
+    					}
+    				}
+    			} else {
+    				validInput = false;
+    			}
+    		}
 
-	    for (int i = 0; i < outputColumns.size(); i++) {
-	        Column outputColumn = outputColumns.get(i);
-	        List<String> columnData = resultData.get(i);
-	        
-	        outputColumn.setDatas(convertListStringToListTargetType(columnData, outputColumn.getDataType()));
-	    }
-	}
-
-	
-	@SuppressWarnings("unused")
-	private void onExecuteOld() {
-
-		if (tableModel.getRowCount() < 1) {
-			JOptionPane.showMessageDialog(this, "ERROR : The table is empty !!!");
-		} else {
-		
-		    try {
-		    	// AVANT D'EXECUTER : exporter nos informations dans un fichier csv
-		    	exportCSV(new File("input.csv"));
-		    	
-		        // Chemin relatif vers le script Python dans le répertoire src
-		        String pythonScriptPath = "add.py";
-	
-		        // Chemin du fichier CSV
-		        String csvFilePath = "input.csv"; // Remplacez par le chemin réel
-	
-		        // Commande pour exécuter le script Python
-		        String[] command = {"python3", pythonScriptPath, csvFilePath};
-	
-		        // Exécution du script Python
-		        ProcessBuilder pb = new ProcessBuilder(command);
-		        Process p = pb.start();
-	
-		        // Lecture de la sortie standard et d'erreur du script
-		        BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
-		        BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
-	
-		        // Affichage de la sortie du script
-		        String s;
-		        while ((s = stdInput.readLine()) != null) {
-		            System.out.println(s);
-		        }
-	
-		        // Affichage des erreurs éventuelles
-		        while ((s = stdError.readLine()) != null) {
-		            System.err.println(s);
-		        }
-	
-		        int exitCode = p.waitFor();
-		        System.out.println("Exited with code : " + exitCode);
-		        
-		        importResult();
-		        
-		        
-		    } catch (IOException | InterruptedException e) {
-		        e.printStackTrace();
-		    }
-	    }
-	}
-	
-	private void importResult() {
-		try {
-			// Lire les données du fichier CSV
-	        File resultFile = new File("result.csv"); // Ajustez le chemin
-	        List<List<String>> rows = new ArrayList<>();
-	        try (BufferedReader br = new BufferedReader(new FileReader(resultFile))) {
-	            String line;
-	            while ((line = br.readLine()) != null) {
-	                rows.add(Arrays.asList(line.split(","))); // Supposer que les valeurs sont séparées par des virgules
-	            }
-	        }
-
-	        // Transposer les lignes en colonnes
-	        List<List<String>> columns = transpose(rows);
-
-	        // Ajouter chaque colonne transposée au tableau
-	        int i = 1;
-	        for (List<String> column : columns) {
-	            tableModel.addColumn("Resultat " + i, column.toArray());
-	            i++;
-	        }
-	  } catch (IOException e) {
-	        e.printStackTrace();
-	    }
-	}
-	
-	private void onExportCSVFile() {
-		jbExportCSVFile.addActionListener(e -> {
-		    JFileChooser fileChooser = new JFileChooser();
-		    if (fileChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
-		        File csvFile = fileChooser.getSelectedFile();
-		        exportCSV(csvFile);
-		    }
-		});
-	}
-	
-	private void exportCSV(File csvFile) {
-		if (tableModel.getRowCount() < 1) {
-			
-			JOptionPane.showMessageDialog(this, "ERROR : The table is empty !!!");
-		} else {
-			try (PrintWriter pw = new PrintWriter(csvFile)) {
-				for (int i = 0; i < tableModel.getRowCount(); i++) {
-					for (int j = 0; j < tableModel.getColumnCount(); j++) {
-						if(tableModel.getValueAt(i, j) != null) {
-							pw.print(tableModel.getValueAt(i, j));		                		
-						}
-						if (j < tableModel.getColumnCount() - 1) pw.print(",");
-					}
-					pw.println();
-				}
-			} catch (IOException ioException) {
-				ioException.printStackTrace();
-			}
-			
-		}
-	}
-	
-	private void onClean() {
-		tableModel.setRowCount(0);
-	}
-	
+    		if (validInput) {
+    			// Générer le fichier CSV d'entrée
+    			String csvInputPath;
+    			try {
+    				csvInputPath = generateCsvForAlgorithmInput(algorithm);
+    				System.out.println("csv Input generated");
+    				
+    				// Exécuter l'algorithme via Python
+    				String csvOutputPath = executePythonAlgorithm(algorithm.getPath(), csvInputPath, algorithm.getPath().replaceAll(".py", "") + "-output.csv");
+    				
+    				System.out.println("csv output generated");
+    				
+    				// Lire les résultats et mettre à jour les colonnes de sortie
+    				List<List<String>> resultData = readCsvResults(csvOutputPath);
+    				updateOutputColumns(algorithm.getOutputs(), resultData);
+    				
+    				updateTableModel(tableDisplayed);
+    				System.out.println("finished !");
+    			} catch (IOException | InterruptedException e) {
+    				e.printStackTrace();
+    			}
+    			
+    		}
+    	}
+    }
+    
+    private String generateCsvForAlgorithmInput(Algorithm algorithm) throws IOException {
+    	String csvFilePath = algorithm.getPath().replaceAll(".py", "") + "-input.csv"; // Chemin du fichier CSV à générer
+    	
+    	try (PrintWriter csvWriter = new PrintWriter(new File(csvFilePath))) {
+    		
+    		for (Column inputColumn : algorithm.getInputs()) {
+    			
+    			if (inputColumn != null) {
+    				boolean isPremier = true;
+    				// Écrire les données de la colonne dans le fichier CSV
+    				for (Object data : inputColumn.getDatas()) {
+    					if (isPremier) {
+    						isPremier = false;
+    					} else {
+    						csvWriter.print(","); // Séparateur CSV
+    					}
+    					csvWriter.print(data.toString());	                		
+    				}
+    				csvWriter.println();
+    			}
+    		}
+    	}
+    	return csvFilePath;
+    }
+    
+    private String executePythonAlgorithm(String scriptPath, String csvInputPath, String csvOutputPath) throws IOException, InterruptedException {
+    	ProcessBuilder pb = new ProcessBuilder("python3", "add.py", scriptPath, csvInputPath, csvOutputPath);
+    	Process p = pb.start();
+    	p.waitFor(); // Attendre la fin de l'exécution du script
+    	
+    	return csvOutputPath;
+    }
+    
+    private List<List<String>> readCsvResults(String csvFilePath) throws IOException {
+    	File resultFile = new File(csvFilePath);
+    	List<List<String>> rows = new ArrayList<>();
+    	try (BufferedReader br = new BufferedReader(new FileReader(resultFile))) {
+    		String line;
+    		while ((line = br.readLine()) != null) {
+    			rows.add(Arrays.asList(line.split(",")));
+    		}
+    	}
+    	
+    	// Transposer les lignes en colonnes
+    	return transpose(rows);
+    }
+    
+    // Méthode pour transposer une liste de listes (convertir les lignes en colonnes)
+    private static <T> List<List<T>> transpose(List<List<T>> table) {
+    	List<List<T>> ret = new ArrayList<>();
+    	final int N = table.get(0).size();
+    	for (int i = 0; i < N; i++) {
+    		List<T> col = new ArrayList<>();
+    		for (List<T> row : table) {
+    			col.add(row.get(i));
+    		}
+    		ret.add(col);
+    	}
+    	return ret;
+    }
+    
+    
+    private void updateOutputColumns(List<Column> outputColumns, List<List<String>> resultData) {
+    	if (outputColumns.size() != resultData.size()) {
+    		throw new IllegalArgumentException("Le nombre de colonnes de sortie ne correspond pas aux résultats obtenus : " + outputColumns.size() + " | " + resultData.size());
+    	}
+    	
+    	for (int i = 0; i < outputColumns.size(); i++) {
+    		Column outputColumn = outputColumns.get(i);
+    		List<String> columnData = resultData.get(i);
+    		
+    		outputColumn.setDatas(convertListStringToListTargetType(columnData, outputColumn.getDataType()));
+    	}
+    }
+    
+    private void onExportCSVFile() {
+    	jbExportCSVFile.addActionListener(e -> {
+    		JFileChooser fileChooser = new JFileChooser();
+    		if (fileChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+    			File csvFile = fileChooser.getSelectedFile();
+    			exportCSV(csvFile);
+    		}
+    	});
+    }
+    
+    private void exportCSV(File csvFile) {
+    	if (tableModel.getRowCount() < 1) {
+    		System.out.println("ERREUR : La table est vide !!!");
+    	} else {
+    		try (PrintWriter pw = new PrintWriter(csvFile)) {
+    			for (int i = 0; i < tableModel.getRowCount(); i++) {
+    				for (int j = 0; j < tableModel.getColumnCount(); j++) {
+    					if(tableModel.getValueAt(i, j) != null) {
+    						pw.print(tableModel.getValueAt(i, j));		                		
+    					}
+    					if (j < tableModel.getColumnCount() - 1) pw.print(",");
+    				}
+    				pw.println();
+    			}
+    		} catch (IOException ioException) {
+    			ioException.printStackTrace();
+    		}
+    		
+    	}
+    }
+    
+    private void onClean() {
+    	tableModel.setRowCount(0);
+    }
+    
 
 	private Object convertStringToTargetType(String data, Class<?> targetType) {
 	    try {
@@ -581,7 +663,24 @@ public class GeneratedSwing extends JFrame {
 		return result;
 	}
 	
-	
+    private Column getColumnObjectAt(int modelColumnIndex) {
+    	if (tableDisplayed != null) {
+    		return tableDisplayed.getColumns().get(modelColumnIndex);
+    	} else {
+    		return null;
+    	}
+    }
+    
+    private boolean isOutputColumn(Column column) {
+    	// Vérifiez si la colonne est une colonne de sortie d'un algorithme
+    	for (Algorithm algorithm : schemaTable.getAlgorithms()) {
+    		if (algorithm.getOutputs().contains(column)) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+    
 	public static void main(String[] args) {
 		
 		// Créer un affichage swing 

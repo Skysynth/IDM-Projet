@@ -39,12 +39,16 @@ public class SchemaTable {
 	}
 	
 	// TODO : Pas encore implémenté
-	public Algorithm getAlgorithmsThatCanBeApplied() {
+	public List<Algorithm> getAlgorithmsTakingColumnAsInput(Column c) {
+		
+		List<Algorithm> result = new ArrayList<Algorithm>();
 		
 		for(Algorithm algo : algorithms) {
-			algo.apply();
+			if (algo.getInputs().contains(c)) {
+				result.add(algo);
+			}
 		}
-		return null;
+		return result;
 	}
 	
 	public void add(Table table) {
