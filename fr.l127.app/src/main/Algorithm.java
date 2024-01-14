@@ -14,6 +14,10 @@ public class Algorithm {
 	
 	private String path;
 	
+	public Algorithm(String path) {
+		this(path, null);
+	}
+	
 	public Algorithm(String path, SchemaTable schemaTable) {
 		this.path = path;
 		this.schemaTable = schemaTable;
@@ -52,6 +56,5 @@ public class Algorithm {
 	public String getPath() {
 		return path;
 	}
-	
 	
 }

@@ -1,6 +1,7 @@
 package main;
 
 import java.lang.reflect.Method;
+import java.util.List;
 
 public class Constraint {
 	
@@ -15,7 +16,7 @@ public class Constraint {
 		this.arguments = arguments;	
 	}
 	
-	public boolean checkColumn(Column c) {
+	public boolean checkColumn(List<Object> datas) {
 		
 		boolean result = true;
 		
@@ -23,11 +24,11 @@ public class Constraint {
             // On obtient la méthode par son nom
             Method method = Tool.getMethodByName(classDC, name);
             
-            for(Object data : c.getDatas()) {
+            for(Object data : datas) {
             	
 				String[] augmentedArguments = new String[arguments.length + 1];
 				
-				augmentedArguments[0] = (String)data;
+				augmentedArguments[0] = data.toString();
 				
 				int i = 0;
 				while(i < arguments.length) {

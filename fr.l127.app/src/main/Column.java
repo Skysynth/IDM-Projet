@@ -17,13 +17,26 @@ public class Column {
         this.id = id;
         this.name = name;
         this.dataType = dataType;
-        
+    
         datas = new ArrayList<>();
         constraints = new ArrayList<>();
     }
 
     public void add(Object data) {
-        datas.add(data);
+    	if (dataValid(data)) {
+    		datas.add(data);    		
+    	} else {
+    	    throw new IllegalArgumentException("Type de donnée incorrect pour la colonne : " + name + data.getClass().getSimpleName());
+    	}
+    }
+    
+    public void add(Object data, int index) {
+    	if (dataValid(data)) {    		
+    		ensureCapacity(index + 1);
+    		datas.set(index, data);
+    	} else {
+    	    throw new IllegalArgumentException("Type de donnée incorrect pour la colonne : " + name + data.getClass().getSimpleName());
+    	}
     }
 
     public void addConstraint(Constraint c) {
@@ -32,22 +45,11 @@ public class Column {
 
     public void updateData(int index, Object data) {
         if (data != null && !dataType.isInstance(data)) {
-            throw new IllegalArgumentException("Type de donnée incorrect pour la colonne : " + name + data.getClass().getName());
+            throw new IllegalArgumentException("Type de donnée incorrect pour la colonne : " + name + data.getClass().getSimpleName());
         } else {
             // Assurer que l'index est dans la plage correcte
-        	if (data != null) {
-        		ensureCapacity(index + 1);
-        		datas.set(index, data);        		
-        	} else {
-        		
-        		// On boucle pour nelever les null jusqu'à une valeur non null
-        		for(int i = index; i >= 0; i--) {
-        			if (datas.get(i) == null) {
-        				datas.remove(index);        				
-        			}
-        		}
-        	}
-        	
+    		ensureCapacity(index + 1);
+    		datas.set(index, data);	
         }
     }
     
@@ -58,14 +60,23 @@ public class Column {
         }
     }
     
+    public int getTailleCorrecte() {
+    	int taille = 0;
+    	
+    	while (taille < datas.size() && datas.get(taille) != null) taille++;
+    	
+    	return taille;
+    }
+
     public boolean checkConstraints() {
-	
+    	
+    	List<Object> subDatas = getDatasCorrects();
+    	
 		for(Constraint c : constraints) {
-			if(!c.checkColumn(this)) {
+			if(!c.checkColumn(subDatas)) {
 				return false;
 			}
 		}
-		
 		return true;
     }
 
@@ -87,6 +98,13 @@ public class Column {
         return true; // tous les datas sont corrects
     }
 
+    private boolean dataValid(Object data) {
+    	if (data != null && !dataType.isInstance(data)) {
+    		return false;
+    	}
+    	return true;
+    }
+    
     
 	public String getName() {
 		return name;
@@ -103,6 +121,18 @@ public class Column {
 	public List<Object> getDatas() {
 		return datas;
 	}
+	
+	public List<Object> getDatasCorrects() {
+		return datas.subList(0, getTailleCorrecte());
+	}
+	
+	public List<Object> getSubDatas(int fromInclusive, int toExclusive) {
+		try {			
+			return datas.subList(fromInclusive, toExclusive);
+		} catch (Exception e) {
+			return null;
+		}
+	}
 
 	public Class<?> getDataType() {
 		return dataType;
@@ -111,5 +141,8 @@ public class Column {
 	public void setDatas(List<Object> datas) {
 		this.datas = datas;
 	}
-	
+
+	public void clean() {
+		this.datas.clear();
+	}
 }

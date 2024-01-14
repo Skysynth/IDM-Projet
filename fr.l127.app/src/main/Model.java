@@ -8,77 +8,88 @@ package main;
  * - si on modifie une colonne, on rappelle checkConstraint sur cette dernière
  * - 
  */
-/*
+
 public class Model {
 
-	static SchemaTable schemaTable; 
 
 	public static void main(String[] args) {
 		
+		SchemaTable schemaTable = new SchemaTable(); 
 		
-		schemaTable = new SchemaTable();
+		/* Zone A */
 		Table currentTable;
 		Column currentColumn;	
 		Constraint currentConstraint;
 		String[] currentArgument;
 		
+		/* Fin zone A */
 
 		// Extraire les tables et les colonnes du métamodèle
 
 		// table courante : 0
-		currentTable = new Table();
+		currentTable = new Table("Table 1");
 
 			// colonne courante : 0
-
-			currentColumn = new Column<String>(0);
+			currentColumn = new Column(0, "Zero", String.class);
 			currentTable.add(currentColumn);
 
 			// colonne courante : 1
-
-			currentColumn = new Column<String>(1);
+			currentColumn = new Column(1, "Un", Integer.class);
 			currentTable.add(currentColumn);
 
 			// colonne courante : 2
-
-			currentColumn = new Column<Integer>(2);
+			currentColumn = new Column(2, "Deux", Integer.class);
 			currentTable.add(currentColumn);
 
 
 		schemaTable.add(currentTable);
 
 		// table courante : 1
-		currentTable = new Table();
+		currentTable = new Table("Table 2");
 
 			// colonne courante : 3
 
-			currentColumn = new Column<String>(3);
+			currentColumn = new Column(3, "Add1", Integer.class);
 			currentTable.add(currentColumn);
 
 			// colonne courante : 4
 
-			currentColumn = new Column<String>(4);
+			currentColumn = new Column(4, "Add2", Integer.class);
 			currentTable.add(currentColumn);
 
 			// colonne courante : 5
 
-			currentColumn = new Column<String>(5);
+			currentColumn = new Column(5, "Result", Integer.class);
 			currentTable.add(currentColumn);
 
 
 		schemaTable.add(currentTable);
 
 
-		Algorithm currentAlgorithm = new Algorithm("algo.py");
+		Algorithm currentAlgorithm = new Algorithm("add.py", schemaTable);
+		
 		// Ajout des l'entrées
-		currentAlgorithm.addInput(2);
 		currentAlgorithm.addInput(3);
+		currentAlgorithm.addInput(4);
 		// Ajout des sorties
 		currentAlgorithm.addOutput(5);
 		
-		// Créer un affichage swing 
+		schemaTable.addAlgorithm(currentAlgorithm);
 		
+		currentAlgorithm = new Algorithm("add.py", schemaTable);
+		
+		// Ajout des l'entrées
+		currentAlgorithm.addInput(1);
+		currentAlgorithm.addInput(2);
+		// Ajout des sorties
+		currentAlgorithm.addOutput(3);
+
+		schemaTable.addAlgorithm(currentAlgorithm);
+		
+		
+		// Créer un affichage swing 
+		new GeneratedSwing(schemaTable);
     }
 
 }
 
-*/

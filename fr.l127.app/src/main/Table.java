@@ -22,11 +22,12 @@ public class Table{
 	public List<List<Object>> getRows() {
         List<List<Object>> rows = new ArrayList<>();
         
-        
         if (!columns.isEmpty()) {
-            int numberOfRows = columns.get(0).getDatas().size(); // Nombre de lignes basé sur la première colonne
-
-            for (int i = 0; i < numberOfRows; i++) {
+        	int maxColumnLength = columns.stream()
+	                .mapToInt(column -> column.getDatas().size())
+	                .max().orElse(0);
+        	
+            for (int i = 0; i < maxColumnLength; i++) {
                 List<Object> row = new ArrayList<>();
                 for (Column column : columns) {
                     row.add(column.getDatas().size() > i ? column.getDatas().get(i) : null);

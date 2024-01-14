@@ -38,7 +38,6 @@ public class SchemaTable {
 		return null;
 	}
 	
-	// TODO : Pas encore implémenté
 	public List<Algorithm> getAlgorithmsTakingColumnAsInput(Column c) {
 		
 		List<Algorithm> result = new ArrayList<Algorithm>();
@@ -51,6 +50,28 @@ public class SchemaTable {
 		return result;
 	}
 	
+
+	public List<Algorithm> getAlgorithmsTakingAtLeastOneColumnAsInput(List<Column> columns) {
+	    List<Algorithm> result = new ArrayList<Algorithm>();
+	    
+	    for (Algorithm algo : algorithms) {
+	        // Vérifie si l'algorithme a au moins une colonne en commun avec la liste fournie
+	        if (containsAtLeastOne(algo.getInputs(), columns)) {
+	            result.add(algo);
+	        }
+	    }
+	    return result;
+	}
+
+	private boolean containsAtLeastOne(List<Column> algorithmColumns, List<Column> givenColumns) {
+	    for (Column col : givenColumns) {
+	        if (algorithmColumns.contains(col)) {
+	            return true;
+	        }
+	    }
+	    return false;
+	}
+
 	public void add(Table table) {
 		tables.add(table);
 	}
@@ -66,5 +87,6 @@ public class SchemaTable {
 	public List<Algorithm> getAlgorithms() {
 		return algorithms;
 	}
+
 	
 }

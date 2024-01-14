@@ -35,7 +35,7 @@ public class Tool {
     }
 
     public static Object convertArgument(String argument, Class<?> parameterType) {
-        
+
     	switch (parameterType.getSimpleName()) {
             case "String":
                 return argument;

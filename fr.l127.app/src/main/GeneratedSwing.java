@@ -29,7 +29,6 @@ import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
-import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
@@ -47,81 +46,15 @@ public class GeneratedSwing extends JFrame {
     private JTable table;
 
     private JScrollPane scrollPane;
-    private JButton jbAddRowButton, jbAddColumnButton, jbImportCSVFile, jbExportCSVFile, jbExecute, jbClean;
+    private JButton jbAddRowButton, jbImportCSVFile, jbExportCSVFile, jbClean;
 
     private JComboBox<String> tableSelector;
 
     private CustomCellRenderer customCellRenderer = new CustomCellRenderer();
     
-
     private JPopupMenu popupMenu;
     private JMenuItem deleteItem;
 
-    {
-		/* Zone A */
-		
-		schemaTable = new SchemaTable();
-		Table currentTable;
-		Column currentColumn;	
-		// Constraint currentConstraint;
-		// String[] currentArgument;
-		
-		/* Fin zone A */
-
-		// Extraire les tables et les colonnes du métamodèle
-
-		// table courante : 0
-		currentTable = new Table("Table 1");
-
-			// colonne courante : 0
-
-			currentColumn = new Column(0, "Zero", String.class);
-			currentTable.add(currentColumn);
-
-			// colonne courante : 1
-
-			currentColumn = new Column(1, "Un", String.class);
-			currentTable.add(currentColumn);
-
-			// colonne courante : 2
-
-			currentColumn = new Column(2, "Deux", Integer.class);
-			currentTable.add(currentColumn);
-
-
-		schemaTable.add(currentTable);
-
-		// table courante : 1
-		currentTable = new Table("Table 2");
-
-			// colonne courante : 3
-
-			currentColumn = new Column(3, "Add1", Integer.class);
-			currentTable.add(currentColumn);
-
-			// colonne courante : 4
-
-			currentColumn = new Column(4, "Add2", Integer.class);
-			currentTable.add(currentColumn);
-
-			// colonne courante : 5
-
-			currentColumn = new Column(5, "Result", Integer.class);
-			currentTable.add(currentColumn);
-
-
-		schemaTable.add(currentTable);
-
-
-		Algorithm currentAlgorithm = new Algorithm("add.py", schemaTable);
-		// Ajout des l'entrées
-		currentAlgorithm.addInput(3);
-		currentAlgorithm.addInput(4);
-		// Ajout des sorties
-		currentAlgorithm.addOutput(5);
-		
-		schemaTable.addAlgorithm(currentAlgorithm);
-    }
     
     class CustomCellRenderer extends DefaultTableCellRenderer {
         private static final long serialVersionUID = -756446113683862516L;
@@ -185,13 +118,14 @@ public class GeneratedSwing extends JFrame {
 
     }
 
-    
-	public GeneratedSwing() {
+	public GeneratedSwing(SchemaTable schemaTable) {
 		super("Excel-Like GUI");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null); // Centre la fenêtre
         this.setMinimumSize(new Dimension(800, 600));
         this.setSize(800, 600);
+        
+        this.schemaTable = schemaTable;
         
         // Création du modèle de tableau par défaut
         tableModel = new CustomTableModel();
@@ -213,10 +147,8 @@ public class GeneratedSwing extends JFrame {
 
         // Bouton pour ajouter une ligne
         jbAddRowButton = new JButton("Ajouter une ligne");
-        jbAddColumnButton = new JButton("Ajouter une colonne");
         jbImportCSVFile = new JButton("Importer CSV");
         jbExportCSVFile = new JButton("Exporter CSV");
-        jbExecute = new JButton("Exécuter");
         jbClean = new JButton("Clean");
         tableSelector = new JComboBox<>();
 
@@ -228,7 +160,6 @@ public class GeneratedSwing extends JFrame {
         jbAddRowButton.addActionListener(new ActionButtons());
         jbImportCSVFile.addActionListener(new ActionButtons());
         jbExportCSVFile.addActionListener(new ActionButtons());
-        jbExecute.addActionListener(new ActionButtons());
         jbClean.addActionListener(new ActionButtons());
         tableSelector.addActionListener(new ActionButtons());
 
@@ -240,7 +171,6 @@ public class GeneratedSwing extends JFrame {
         toolBar.add(jbAddRowButton);
         toolBar.add(jbImportCSVFile);
         toolBar.add(jbExportCSVFile);
-        toolBar.add(jbExecute);
         toolBar.add(jbClean);
         toolBar.add(tableSelector);
         
@@ -385,21 +315,14 @@ public class GeneratedSwing extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
-			if (e.getSource() == jbAddColumnButton) {
-				tableModel.addColumn("Colonne " + (tableModel.getColumnCount() + 1));
-			}
-			else if (e.getSource() == jbAddRowButton) {
-				tableModel.addRow(new Object[tableModel.getColumnCount()]);
+			if (e.getSource() == jbAddRowButton) {
+				onAddRow();
 			}
 			else if (e.getSource() == jbImportCSVFile) {
 				onImportCSVFile();
 			}
 			else if (e.getSource() == jbExportCSVFile) {
 				onExportCSVFile();
-			}
-			else if (e.getSource() == jbExecute) {
-				onExecute();
 			}
 			else if (e.getSource() == jbClean) {
 				onClean();
@@ -442,8 +365,16 @@ public class GeneratedSwing extends JFrame {
         }
     }
     
-    private void onSwitchTable() {
+    public void onAddRow() {
+    	tableModel.addRow(new Object[tableModel.getColumnCount()]);
     	
+    	for (Column c : tableDisplayed.getColumns()) {
+    		c.add(null);
+    		
+    	}
+	}
+
+	private void onSwitchTable() {
     	String selectedTableName = (String) tableSelector.getSelectedItem();
     	Table selectedTable = schemaTable.getTableByName(selectedTableName);
     	updateTableModel(selectedTable); // Méthode pour mettre à jour le JTable en fonction de la Table sélectionnée
@@ -457,18 +388,42 @@ public class GeneratedSwing extends JFrame {
     			String line;
     			while ((line = br.readLine()) != null) {
     				String[] data = line.split(",");
-    				tableModel.addRow(data);
+    				// Et on ajoute aux colonnes
+    				int iColumn = 0;
+    				int iData = 0;
+    				int sizeColumns = tableDisplayed.getColumns().size();
+
+    				Object[] dataToDisplay = new Object[sizeColumns];
+
+    				while (iData < data.length && iColumn < sizeColumns) {
+    					
+    					Column c = tableDisplayed.getColumns().get(iColumn);
+    					
+    					if (c != null && !isOutputColumn(c)) {
+    						// On ajoute cet élément
+    						Object convertedData = convertStringToTargetType(data[iData], c.getDataType());
+    						c.add(convertedData);
+    						dataToDisplay[iColumn] = convertedData;
+    						iData++;
+    					} else {
+    						dataToDisplay[iColumn] = null;
+    					}
+    					
+    					iColumn++;
+    				}
+    				
+    				tableModel.addRow(dataToDisplay);
     			}
     		} catch (IOException ioException) {
     			ioException.printStackTrace();
     		}
     	}
+    	
+    	List<Algorithm> algos = schemaTable.getAlgorithmsTakingAtLeastOneColumnAsInput(tableDisplayed.getColumns());
+    	// On tente d'appliquer les algorithmes qui concernent ces colonnes en input
+		tryToExecuteAlgorithms(algos);
     }
 
-    private void onExecute() {
-    	tryToExecuteAlgorithms(schemaTable.getAlgorithms());
-    }
-    
     private void tryToExecuteAlgorithms(List<Algorithm> algorithms) {
     	
     	for (Algorithm algorithm : algorithms) {
@@ -478,55 +433,48 @@ public class GeneratedSwing extends JFrame {
     		List<Integer> columnSizes = new ArrayList<Integer>();
     		
     		for (Column inputColumn : algorithm.getInputs()) {
-    			if (inputColumn == null || !inputColumn.checkTypesAndNoNull() || !inputColumn.checkConstraints()) {
+    			if (inputColumn == null || !inputColumn.checkTypes() || !inputColumn.checkConstraints()) {
     				validInput = false;
     				break;
     			}
-    			columnSizes.add(inputColumn.getDatas().size());
+    			columnSizes.add(inputColumn.getTailleCorrecte());
     		}
 
-    		// Vérification de la même taille des colonnes
-    		if (validInput) {
-    			if (!columnSizes.isEmpty()) {    				
-    				int sizeToFit = columnSizes.get(0);
-    				for (Integer i : columnSizes) {
-    					if (sizeToFit != i) {
-    						validInput = false;
-    						break;
-    					}
-    				}
-    			} else {
-    				validInput = false;
-    			}
-    		}
-
-    		if (validInput) {
-    			// Générer le fichier CSV d'entrée
-    			String csvInputPath;
-    			try {
-    				csvInputPath = generateCsvForAlgorithmInput(algorithm);
-    				System.out.println("csv Input generated");
-    				
-    				// Exécuter l'algorithme via Python
-    				String csvOutputPath = executePythonAlgorithm(algorithm.getPath(), csvInputPath, algorithm.getPath().replaceAll(".py", "") + "-output.csv");
-    				
-    				System.out.println("csv output generated");
-    				
-    				// Lire les résultats et mettre à jour les colonnes de sortie
-    				List<List<String>> resultData = readCsvResults(csvOutputPath);
-    				updateOutputColumns(algorithm.getOutputs(), resultData);
-    				
-    				updateTableModel(tableDisplayed);
-    				System.out.println("finished !");
-    			} catch (IOException | InterruptedException e) {
-    				e.printStackTrace();
-    			}
     			
+			if (validInput) {
+				// On réduit à la taille maximale possible qui correspond à tout le monde
+				int minSize = columnSizes.stream().mapToInt((i) -> i).min().orElse(0);
+				
+				if(minSize > 0) {					
+					// Générer le fichier CSV d'entrée
+					String csvInputPath;
+					try {
+						csvInputPath = generateCsvForAlgorithmInput(algorithm, minSize);
+						
+						// Exécuter l'algorithme via Python
+						String csvOutputPath = executePythonAlgorithm(algorithm.getPath(), csvInputPath, algorithm.getPath().replaceAll(".py", "") + "-output.csv");
+						
+						// Lire les résultats et mettre à jour les colonnes de sortie
+						List<List<String>> resultData = readCsvResults(csvOutputPath);
+						updateOutputColumns(algorithm.getOutputs(), resultData);
+						
+						updateTableModel(tableDisplayed);
+						
+						
+						// On voit s'il y a des algorithmes où les outputs qui sont des inputs dans d'autres algos
+						List<Algorithm> algos = schemaTable.getAlgorithmsTakingAtLeastOneColumnAsInput(algorithm.getOutputs());
+						
+						// Attention : boucle infinie possible si des algos se retournent la balle
+						tryToExecuteAlgorithms(algos);
+					} catch (IOException | InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
     		}
     	}
     }
     
-    private String generateCsvForAlgorithmInput(Algorithm algorithm) throws IOException {
+    private String generateCsvForAlgorithmInput(Algorithm algorithm, int size) throws IOException {
     	String csvFilePath = algorithm.getPath().replaceAll(".py", "") + "-input.csv"; // Chemin du fichier CSV à générer
     	
     	try (PrintWriter csvWriter = new PrintWriter(new File(csvFilePath))) {
@@ -536,7 +484,7 @@ public class GeneratedSwing extends JFrame {
     			if (inputColumn != null) {
     				boolean isPremier = true;
     				// Écrire les données de la colonne dans le fichier CSV
-    				for (Object data : inputColumn.getDatas()) {
+    				for (Object data : inputColumn.getSubDatas(0, size)) {
     					if (isPremier) {
     						isPremier = false;
     					} else {
@@ -598,10 +546,26 @@ public class GeneratedSwing extends JFrame {
     		List<String> columnData = resultData.get(i);
     		
     		outputColumn.setDatas(convertListStringToListTargetType(columnData, outputColumn.getDataType()));
+    		normalizeSizeOfRows(tableDisplayed);
     	}
     }
-    
-    private void onExportCSVFile() {
+
+    private void normalizeSizeOfRows(Table table) {
+    	int maxColumnLength = table.getColumns().stream()
+				                .mapToInt(column -> column.getDatas().size())
+				                .max().orElse(-1);
+    	
+    	if (maxColumnLength > 0) {
+    		for (Column c : table.getColumns()) {
+    			if (c.getDatas().size() < maxColumnLength) {
+    				c.add(null, maxColumnLength - 1);    				
+    			}
+    		}    		
+    	}
+    	
+	}
+
+	private void onExportCSVFile() {
     	jbExportCSVFile.addActionListener(e -> {
     		JFileChooser fileChooser = new JFileChooser();
     		if (fileChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
@@ -634,6 +598,9 @@ public class GeneratedSwing extends JFrame {
     
     private void onClean() {
     	tableModel.setRowCount(0);
+    	for(Column c : tableDisplayed.getColumns()) {
+    		c.clean();
+    	}
     }
     
 
@@ -652,14 +619,14 @@ public class GeneratedSwing extends JFrame {
 	        return null; // Retourne null si la conversion échoue
 	    }
 	}
-	
+
 	private List<Object> convertListStringToListTargetType(List<String> datas, Class<?> targetType) {
 		List<Object> result = new ArrayList<Object>();
 		
 		for (String data : datas) {
 			result.add(convertStringToTargetType(data, targetType));
 		}
-		
+
 		return result;
 	}
 	
@@ -680,11 +647,5 @@ public class GeneratedSwing extends JFrame {
     	}
     	return false;
     }
-    
-	public static void main(String[] args) {
-		
-		// Créer un affichage swing 
-	    SwingUtilities.invokeLater(() -> new GeneratedSwing());
-    }
-	
+   
 }
