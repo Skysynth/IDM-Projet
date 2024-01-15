@@ -8,9 +8,15 @@ public class Table{
 	private List<Column> columns;
 	
 	private String name;
-	
+
 	public Table(String name) {
 		this.name = name;
+		
+		columns = new ArrayList<Column>();
+	}
+	
+	public Table(int id) {
+		this.name = "Table " + id;
 		
 		columns = new ArrayList<Column>();
 	}
