@@ -27,46 +27,46 @@ public class Model {
 		// Extraire les tables et les colonnes du métamodèle
 
 		// table courante : 0
-		currentTable = new Table("Table 1");
+		currentTable = new Table(1);
 
 			// colonne courante : 0
-			currentColumn = new Column(0, "Zero", String.class);
+			currentColumn = new Column(0, String.class);
 			currentTable.add(currentColumn);
 
 			// colonne courante : 1
-			currentColumn = new Column(1, "Un", Integer.class);
+			currentColumn = new Column(1, Integer.class);
 			currentTable.add(currentColumn);
 
 			// colonne courante : 2
-			currentColumn = new Column(2, "Deux", Integer.class);
+			currentColumn = new Column(2, Integer.class);
 			currentTable.add(currentColumn);
 
 
 		schemaTable.add(currentTable);
 
 		// table courante : 1
-		currentTable = new Table("Table 2");
+		currentTable = new Table(2);
 
 			// colonne courante : 3
 
-			currentColumn = new Column(3, "Add1", Integer.class);
+			currentColumn = new Column(3, Integer.class);
 			currentTable.add(currentColumn);
 
 			// colonne courante : 4
 
-			currentColumn = new Column(4, "Add2", Integer.class);
+			currentColumn = new Column(4, Integer.class);
 			currentTable.add(currentColumn);
 
 			// colonne courante : 5
 
-			currentColumn = new Column(5, "Result", Integer.class);
+			currentColumn = new Column(5, Integer.class);
 			currentTable.add(currentColumn);
 
 
 		schemaTable.add(currentTable);
 
 
-		Algorithm currentAlgorithm = new Algorithm("add.py", schemaTable);
+		Algorithm currentAlgorithm = new Algorithm("add.py");
 		
 		// Ajout des l'entrées
 		currentAlgorithm.addInput(3);
@@ -76,7 +76,7 @@ public class Model {
 		
 		schemaTable.addAlgorithm(currentAlgorithm);
 		
-		currentAlgorithm = new Algorithm("add.py", schemaTable);
+		currentAlgorithm = new Algorithm("add.py");
 		
 		// Ajout des l'entrées
 		currentAlgorithm.addInput(1);
