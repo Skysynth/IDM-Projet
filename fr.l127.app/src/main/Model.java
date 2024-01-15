@@ -66,7 +66,7 @@ public class Model {
 		schemaTable.add(currentTable);
 
 
-		Algorithm currentAlgorithm = new Algorithm("add.py");
+		Algorithm currentAlgorithm = new Algorithm("add.py", schemaTable);
 		
 		// Ajout des l'entrées
 		currentAlgorithm.addInput(3);
@@ -76,7 +76,7 @@ public class Model {
 		
 		schemaTable.addAlgorithm(currentAlgorithm);
 		
-		currentAlgorithm = new Algorithm("add.py");
+		currentAlgorithm = new Algorithm("add.py", schemaTable);
 		
 		// Ajout des l'entrées
 		currentAlgorithm.addInput(1);
