@@ -13,6 +13,9 @@ public class Column {
     private String name;
     private Class<?> dataType; // Type de données attendu pour cette colonne
 
+    public Column(int id, Class<?> dataType) {
+        this(id, "Colonne " + id, dataType);
+    }
     public Column(int id, String name, Class<?> dataType) {
         this.id = id;
         this.name = name;
@@ -21,6 +24,7 @@ public class Column {
         datas = new ArrayList<>();
         constraints = new ArrayList<>();
     }
+    
 
     public void add(Object data) {
     	if (dataValid(data)) {
