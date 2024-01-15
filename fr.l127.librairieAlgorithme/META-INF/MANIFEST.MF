@@ -15,15 +15,15 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.emf.common,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-17
-Export-Package: fr.l127.serializer,
- fr.l127,
+Export-Package: fr.l127,
  fr.l127.generator,
- fr.l127.services,
- fr.l127.parser.antlr.internal,
- fr.l127.lA.util,
- fr.l127.parser.antlr,
- fr.l127.validation,
  fr.l127.lA,
  fr.l127.lA.impl,
- fr.l127.scoping
+ fr.l127.lA.util,
+ fr.l127.parser.antlr,
+ fr.l127.parser.antlr.internal,
+ fr.l127.scoping,
+ fr.l127.serializer,
+ fr.l127.services,
+ fr.l127.validation
 Import-Package: org.apache.log4j

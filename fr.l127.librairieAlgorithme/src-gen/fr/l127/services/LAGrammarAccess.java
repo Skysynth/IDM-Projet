@@ -72,7 +72,7 @@ public class LAGrammarAccess extends AbstractElementFinder.AbstractGrammarElemen
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cEntrEsKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cEntreesKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cLeftParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cEntreesAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cEntreesEntreeParserRuleCall_5_0 = (RuleCall)cEntreesAssignment_5.eContents().get(0);
@@ -89,7 +89,7 @@ public class LAGrammarAccess extends AbstractElementFinder.AbstractGrammarElemen
 		
 		//Algorithme :
 		//    'algo' name=ID '{'
-		//        'entrées' '(' (entrees+=Entree)+ ')'
+		//        'entrees' '(' (entrees+=Entree)+ ')'
 		//        'sorties' '(' (sorties+=Sortie)+ ')'
 		//        'chemin' chemin=STRING
 		//    '}'
@@ -97,7 +97,7 @@ public class LAGrammarAccess extends AbstractElementFinder.AbstractGrammarElemen
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'algo' name=ID '{'
-		//    'entrées' '(' (entrees+=Entree)+ ')'
+		//    'entrees' '(' (entrees+=Entree)+ ')'
 		//    'sorties' '(' (sorties+=Sortie)+ ')'
 		//    'chemin' chemin=STRING
 		//'}'
@@ -115,8 +115,8 @@ public class LAGrammarAccess extends AbstractElementFinder.AbstractGrammarElemen
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//'entrées'
-		public Keyword getEntrEsKeyword_3() { return cEntrEsKeyword_3; }
+		//'entrees'
+		public Keyword getEntreesKeyword_3() { return cEntreesKeyword_3; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_4() { return cLeftParenthesisKeyword_4; }
@@ -253,7 +253,7 @@ public class LAGrammarAccess extends AbstractElementFinder.AbstractGrammarElemen
 	
 	//Algorithme :
 	//    'algo' name=ID '{'
-	//        'entrées' '(' (entrees+=Entree)+ ')'
+	//        'entrees' '(' (entrees+=Entree)+ ')'
 	//        'sorties' '(' (sorties+=Sortie)+ ')'
 	//        'chemin' chemin=STRING
 	//    '}'

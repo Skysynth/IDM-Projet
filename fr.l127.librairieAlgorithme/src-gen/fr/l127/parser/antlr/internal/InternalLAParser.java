@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalLAParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'librairies'", "'{'", "'}'", "'algo'", "'entr\\u00E9es'", "'('", "')'", "'sorties'", "'chemin'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'librairies'", "'{'", "'}'", "'algo'", "'entrees'", "'('", "')'", "'sorties'", "'chemin'"
     };
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
@@ -284,7 +284,7 @@ public class InternalLAParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAlgorithme"
-    // InternalLA.g:139:1: ruleAlgorithme returns [EObject current=null] : (otherlv_0= 'algo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'entr\\u00E9es' otherlv_4= '(' ( (lv_entrees_5_0= ruleEntree ) )+ otherlv_6= ')' otherlv_7= 'sorties' otherlv_8= '(' ( (lv_sorties_9_0= ruleSortie ) )+ otherlv_10= ')' otherlv_11= 'chemin' ( (lv_chemin_12_0= RULE_STRING ) ) otherlv_13= '}' ) ;
+    // InternalLA.g:139:1: ruleAlgorithme returns [EObject current=null] : (otherlv_0= 'algo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'entrees' otherlv_4= '(' ( (lv_entrees_5_0= ruleEntree ) )+ otherlv_6= ')' otherlv_7= 'sorties' otherlv_8= '(' ( (lv_sorties_9_0= ruleSortie ) )+ otherlv_10= ')' otherlv_11= 'chemin' ( (lv_chemin_12_0= RULE_STRING ) ) otherlv_13= '}' ) ;
     public final EObject ruleAlgorithme() throws RecognitionException {
         EObject current = null;
 
@@ -309,11 +309,11 @@ public class InternalLAParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalLA.g:145:2: ( (otherlv_0= 'algo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'entr\\u00E9es' otherlv_4= '(' ( (lv_entrees_5_0= ruleEntree ) )+ otherlv_6= ')' otherlv_7= 'sorties' otherlv_8= '(' ( (lv_sorties_9_0= ruleSortie ) )+ otherlv_10= ')' otherlv_11= 'chemin' ( (lv_chemin_12_0= RULE_STRING ) ) otherlv_13= '}' ) )
-            // InternalLA.g:146:2: (otherlv_0= 'algo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'entr\\u00E9es' otherlv_4= '(' ( (lv_entrees_5_0= ruleEntree ) )+ otherlv_6= ')' otherlv_7= 'sorties' otherlv_8= '(' ( (lv_sorties_9_0= ruleSortie ) )+ otherlv_10= ')' otherlv_11= 'chemin' ( (lv_chemin_12_0= RULE_STRING ) ) otherlv_13= '}' )
+            // InternalLA.g:145:2: ( (otherlv_0= 'algo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'entrees' otherlv_4= '(' ( (lv_entrees_5_0= ruleEntree ) )+ otherlv_6= ')' otherlv_7= 'sorties' otherlv_8= '(' ( (lv_sorties_9_0= ruleSortie ) )+ otherlv_10= ')' otherlv_11= 'chemin' ( (lv_chemin_12_0= RULE_STRING ) ) otherlv_13= '}' ) )
+            // InternalLA.g:146:2: (otherlv_0= 'algo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'entrees' otherlv_4= '(' ( (lv_entrees_5_0= ruleEntree ) )+ otherlv_6= ')' otherlv_7= 'sorties' otherlv_8= '(' ( (lv_sorties_9_0= ruleSortie ) )+ otherlv_10= ')' otherlv_11= 'chemin' ( (lv_chemin_12_0= RULE_STRING ) ) otherlv_13= '}' )
             {
-            // InternalLA.g:146:2: (otherlv_0= 'algo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'entr\\u00E9es' otherlv_4= '(' ( (lv_entrees_5_0= ruleEntree ) )+ otherlv_6= ')' otherlv_7= 'sorties' otherlv_8= '(' ( (lv_sorties_9_0= ruleSortie ) )+ otherlv_10= ')' otherlv_11= 'chemin' ( (lv_chemin_12_0= RULE_STRING ) ) otherlv_13= '}' )
-            // InternalLA.g:147:3: otherlv_0= 'algo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'entr\\u00E9es' otherlv_4= '(' ( (lv_entrees_5_0= ruleEntree ) )+ otherlv_6= ')' otherlv_7= 'sorties' otherlv_8= '(' ( (lv_sorties_9_0= ruleSortie ) )+ otherlv_10= ')' otherlv_11= 'chemin' ( (lv_chemin_12_0= RULE_STRING ) ) otherlv_13= '}'
+            // InternalLA.g:146:2: (otherlv_0= 'algo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'entrees' otherlv_4= '(' ( (lv_entrees_5_0= ruleEntree ) )+ otherlv_6= ')' otherlv_7= 'sorties' otherlv_8= '(' ( (lv_sorties_9_0= ruleSortie ) )+ otherlv_10= ')' otherlv_11= 'chemin' ( (lv_chemin_12_0= RULE_STRING ) ) otherlv_13= '}' )
+            // InternalLA.g:147:3: otherlv_0= 'algo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'entrees' otherlv_4= '(' ( (lv_entrees_5_0= ruleEntree ) )+ otherlv_6= ')' otherlv_7= 'sorties' otherlv_8= '(' ( (lv_sorties_9_0= ruleSortie ) )+ otherlv_10= ')' otherlv_11= 'chemin' ( (lv_chemin_12_0= RULE_STRING ) ) otherlv_13= '}'
             {
             otherlv_0=(Token)match(input,14,FOLLOW_3); 
 
@@ -351,7 +351,7 @@ public class InternalLAParser extends AbstractInternalAntlrParser {
             		
             otherlv_3=(Token)match(input,15,FOLLOW_7); 
 
-            			newLeafNode(otherlv_3, grammarAccess.getAlgorithmeAccess().getEntrEsKeyword_3());
+            			newLeafNode(otherlv_3, grammarAccess.getAlgorithmeAccess().getEntreesKeyword_3());
             		
             otherlv_4=(Token)match(input,16,FOLLOW_8); 
 

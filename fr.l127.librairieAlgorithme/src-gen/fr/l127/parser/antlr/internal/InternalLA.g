@@ -170,9 +170,9 @@ ruleAlgorithme returns [EObject current=null]
 		{
 			newLeafNode(otherlv_2, grammarAccess.getAlgorithmeAccess().getLeftCurlyBracketKeyword_2());
 		}
-		otherlv_3='entr\u00E9es'
+		otherlv_3='entrees'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getAlgorithmeAccess().getEntrEsKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getAlgorithmeAccess().getEntreesKeyword_3());
 		}
 		otherlv_4='('
 		{

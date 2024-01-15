@@ -130,10 +130,10 @@ public class InternalLALexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalLA.g:15:7: ( 'entr\\u00E9es' )
-            // InternalLA.g:15:9: 'entr\\u00E9es'
+            // InternalLA.g:15:7: ( 'entrees' )
+            // InternalLA.g:15:9: 'entrees'
             {
-            match("entr\u00E9es"); 
+            match("entrees"); 
 
 
             }
@@ -851,17 +851,17 @@ public class InternalLALexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\1\23\2\uffff\2\23\2\uffff\2\23\1\21\2\uffff\3\21\2\uffff\1\23\3\uffff\2\23\2\uffff\2\23\5\uffff\6\23\1\54\4\23\2\uffff\4\23\1\65\1\23\1\67\1\uffff\1\23\1\uffff\1\23\1\72\1\uffff";
+        "\1\uffff\1\23\2\uffff\2\23\2\uffff\2\23\1\21\2\uffff\3\21\2\uffff\1\23\3\uffff\2\23\2\uffff\2\23\5\uffff\6\23\1\54\4\23\1\uffff\6\23\1\67\1\23\1\71\1\72\1\uffff\1\23\2\uffff\1\23\1\75\1\uffff";
     static final String DFA12_eofS =
-        "\73\uffff";
+        "\76\uffff";
     static final String DFA12_minS =
-        "\1\0\1\151\2\uffff\1\154\1\156\2\uffff\1\157\1\150\1\101\2\uffff\2\0\1\52\2\uffff\1\142\3\uffff\1\147\1\164\2\uffff\1\162\1\145\5\uffff\1\162\1\157\1\162\1\164\1\155\1\141\1\60\1\u00e9\3\151\2\uffff\1\145\1\156\1\162\1\163\1\60\1\151\1\60\1\uffff\1\145\1\uffff\1\163\1\60\1\uffff";
+        "\1\0\1\151\2\uffff\1\154\1\156\2\uffff\1\157\1\150\1\101\2\uffff\2\0\1\52\2\uffff\1\142\3\uffff\1\147\1\164\2\uffff\1\162\1\145\5\uffff\1\162\1\157\1\162\1\164\1\155\1\141\1\60\1\145\3\151\1\uffff\2\145\1\156\1\162\2\163\1\60\1\151\2\60\1\uffff\1\145\2\uffff\1\163\1\60\1\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\151\2\uffff\1\154\1\156\2\uffff\1\157\1\150\1\172\2\uffff\2\uffff\1\57\2\uffff\1\142\3\uffff\1\147\1\164\2\uffff\1\162\1\145\5\uffff\1\162\1\157\1\162\1\164\1\155\1\141\1\172\1\u00e9\3\151\2\uffff\1\145\1\156\1\162\1\163\1\172\1\151\1\172\1\uffff\1\145\1\uffff\1\163\1\172\1\uffff";
+        "\1\uffff\1\151\2\uffff\1\154\1\156\2\uffff\1\157\1\150\1\172\2\uffff\2\uffff\1\57\2\uffff\1\142\3\uffff\1\147\1\164\2\uffff\1\162\1\145\5\uffff\1\162\1\157\1\162\1\164\1\155\1\141\1\172\1\145\3\151\1\uffff\2\145\1\156\1\162\2\163\1\172\1\151\2\172\1\uffff\1\145\2\uffff\1\163\1\172\1\uffff";
     static final String DFA12_acceptS =
-        "\2\uffff\1\2\1\3\2\uffff\1\6\1\7\3\uffff\1\12\1\13\3\uffff\1\17\1\20\1\uffff\1\12\1\2\1\3\2\uffff\1\6\1\7\2\uffff\1\13\1\14\1\15\1\16\1\17\13\uffff\1\4\1\5\7\uffff\1\11\1\uffff\1\10\2\uffff\1\1";
+        "\2\uffff\1\2\1\3\2\uffff\1\6\1\7\3\uffff\1\12\1\13\3\uffff\1\17\1\20\1\uffff\1\12\1\2\1\3\2\uffff\1\6\1\7\2\uffff\1\13\1\14\1\15\1\16\1\17\13\uffff\1\4\12\uffff\1\11\1\uffff\1\5\1\10\2\uffff\1\1";
     static final String DFA12_specialS =
-        "\1\0\14\uffff\1\1\1\2\54\uffff}>";
+        "\1\0\14\uffff\1\1\1\2\57\uffff}>";
     static final String[] DFA12_transitionS = {
             "\11\21\2\20\2\21\1\20\22\21\1\20\1\21\1\15\4\21\1\16\1\6\1\7\5\21\1\17\12\14\7\21\32\13\3\21\1\12\1\13\1\21\1\4\1\13\1\11\1\13\1\5\6\13\1\1\6\13\1\10\7\13\1\2\1\21\1\3\uff82\21",
             "\1\22",
@@ -908,18 +908,21 @@ public class InternalLALexer extends Lexer {
             "\1\57",
             "\1\60",
             "",
-            "",
             "\1\61",
             "\1\62",
             "\1\63",
             "\1\64",
-            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+            "\1\65",
             "\1\66",
             "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
-            "",
             "\1\70",
+            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
             "",
-            "\1\71",
+            "\1\73",
+            "",
+            "",
+            "\1\74",
             "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
             ""
     };

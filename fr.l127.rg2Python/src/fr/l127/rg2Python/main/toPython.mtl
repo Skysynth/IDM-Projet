@@ -1,12 +1,12 @@
 [comment encoding = UTF-8 /]
-[module toPython('http://www.example.org/ressourceGraphique', 'http://schemaAlgorithme')]
+[module toPython('http://www.example.org/ressourceGraphique')]
 
-[template public generateElement(aRessourceGraphique : RessourceGraphique, aCatalogue : Catalogue)]
+[template public generateElement(aRessourceGraphique : RessourceGraphique)]
 [comment @main/] 
 [file (aRessourceGraphique.nom +'.py', false, 'UTF-8')]
 from fonctions import *
 def [aRessourceGraphique.nom/] (*colonnes) :
-	return [let resultats : OrderedSet(Resultat) = aRessourceGraphique.getResultats()][for (res : Resultat | resultats)][generateFunctionCallResultat(res)/][/for][/let]
+	return ['['/][let resultats : OrderedSet(Resultat) = sortedResultat(aRessourceGraphique.getResultats())][for (i : Integer | Sequence{1..resultats->size()})][let res : Resultat = resultats->at(i)][generateFunctionCallResultat(res)/][if (i <> resultats->size())],[/if][/let][/for][/let]]
 [/file]
 [/template]
 
@@ -28,6 +28,10 @@ def [aRessourceGraphique.nom/] (*colonnes) :
 [query public getResultats(rg : RessourceGraphique) : OrderedSet(Resultat) =
     rg.bloc->select(e | e.oclIsTypeOf(Resultat))->asOrderedSet()
 /]
+[query public sortedResultat(resultats : OrderedSet(Resultat)) : OrderedSet(Resultat) =
+    resultats->sortedBy(r | r.idColonne)
+/]
+
 [query public getEntrees(bloc : BlocBinaire) : OrderedSet(Bloc) = 
       bloc.entree->asOrderedSet()
 /]
@@ -38,9 +42,9 @@ def [aRessourceGraphique.nom/] (*colonnes) :
       bloc.entree->asOrderedSet()
 /]
 
-[template public nameMethodPython(bloc: BlocUnaire)][if (bloc.oclIsTypeOf(Sinus))]sin[else][if (bloc.oclIsTypeOf(Cosinus))]cos[else][if (bloc.oclIsTypeOf(FichierUnaire))][let fichierUnaire : FichierUnaire = bloc.oclAsType(FichierUnaire)][fichierUnaire.chemin/][/let][/if][/if][/if]
+[template public nameMethodPython(bloc: BlocUnaire)][if (bloc.oclIsTypeOf(Inverse))]reverse[else][if (bloc.oclIsTypeOf(Negation))]opposite[else][if (bloc.oclIsTypeOf(RacineCarree))]sqrt[else][if (bloc.oclIsTypeOf(Sinus))]sin[else][if (bloc.oclIsTypeOf(Cosinus))]cos[else][if (bloc.oclIsTypeOf(FichierUnaire))][let fichierUnaire : FichierUnaire = bloc.oclAsType(FichierUnaire)][fichierUnaire.chemin/][/let][/if][/if][/if][/if][/if][/if]
 [/template]
-[template public nameMethodPython(bloc: BlocBinaire)][if (bloc.oclIsTypeOf(Addition))]add[else][if (bloc.oclIsTypeOf(Multiplication))]multiply[else][if (bloc.oclIsTypeOf(FichierBinaire))][let fichierBinaire : FichierBinaire = bloc.oclAsType(FichierBinaire)][fichierBinaire.chemin/][/let][/if][/if][/if]
+[template public nameMethodPython(bloc: BlocBinaire)][if (bloc.oclIsTypeOf(Maximun))]max[else][if (bloc.oclIsTypeOf(Minimun))]min[else][if (bloc.oclIsTypeOf(Soustraction))]subtract[else][if (bloc.oclIsTypeOf(Division))]divide[else][if (bloc.oclIsTypeOf(Addition))]add[else][if (bloc.oclIsTypeOf(Multiplication))]multiply[else][if (bloc.oclIsTypeOf(FichierBinaire))][let fichierBinaire : FichierBinaire = bloc.oclAsType(FichierBinaire)][fichierBinaire.chemin/][/let][/if][/if][/if][/if][/if][/if][/if]
 [/template]
 
 

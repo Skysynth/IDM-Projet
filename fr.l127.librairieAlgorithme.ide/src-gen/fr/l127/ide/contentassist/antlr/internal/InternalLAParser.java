@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalLAParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'librairies'", "'{'", "'}'", "'algo'", "'entr\\u00E9es'", "'('", "')'", "'sorties'", "'chemin'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'librairies'", "'{'", "'}'", "'algo'", "'entrees'", "'('", "')'", "'sorties'", "'chemin'"
     };
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
@@ -1067,21 +1067,21 @@ public class InternalLAParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Algorithme__Group__3__Impl"
-    // InternalLA.g:380:1: rule__Algorithme__Group__3__Impl : ( 'entr\\u00E9es' ) ;
+    // InternalLA.g:380:1: rule__Algorithme__Group__3__Impl : ( 'entrees' ) ;
     public final void rule__Algorithme__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLA.g:384:1: ( ( 'entr\\u00E9es' ) )
-            // InternalLA.g:385:1: ( 'entr\\u00E9es' )
+            // InternalLA.g:384:1: ( ( 'entrees' ) )
+            // InternalLA.g:385:1: ( 'entrees' )
             {
-            // InternalLA.g:385:1: ( 'entr\\u00E9es' )
-            // InternalLA.g:386:2: 'entr\\u00E9es'
+            // InternalLA.g:385:1: ( 'entrees' )
+            // InternalLA.g:386:2: 'entrees'
             {
-             before(grammarAccess.getAlgorithmeAccess().getEntrEsKeyword_3()); 
+             before(grammarAccess.getAlgorithmeAccess().getEntreesKeyword_3()); 
             match(input,15,FOLLOW_2); 
-             after(grammarAccess.getAlgorithmeAccess().getEntrEsKeyword_3()); 
+             after(grammarAccess.getAlgorithmeAccess().getEntreesKeyword_3()); 
 
             }
 

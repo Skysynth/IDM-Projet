@@ -11,7 +11,7 @@ Librairie:
 	
 Algorithme : 
 	'algo' name=ID '{'
-		'entrées' '(' (entrees+=Entree)+ ')' 
+		'entrees' '(' (entrees+=Entree)+ ')' 
 		'sorties' '(' (sorties+=Sortie)+ ')' 
 		'chemin' chemin=STRING
 	'}'

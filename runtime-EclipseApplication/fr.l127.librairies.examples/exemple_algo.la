@@ -1,0 +1,7 @@
+librairies exemple {
+	algo test {
+		entrees ( 0 1)
+		sorties(3 4)
+		chemin "test"
+	}
+}

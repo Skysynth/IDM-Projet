@@ -383,9 +383,9 @@ rule__Algorithme__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getAlgorithmeAccess().getEntrEsKeyword_3()); }
-	'entr\u00E9es'
-	{ after(grammarAccess.getAlgorithmeAccess().getEntrEsKeyword_3()); }
+	{ before(grammarAccess.getAlgorithmeAccess().getEntreesKeyword_3()); }
+	'entrees'
+	{ after(grammarAccess.getAlgorithmeAccess().getEntreesKeyword_3()); }
 )
 ;
 finally {

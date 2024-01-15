@@ -1,7 +1,0 @@
-librairies listeAlgo {
-	algo az{
-		entrées(1 0)
-		sorties (2)
-		chemin ".m:aze"
-	}
-}

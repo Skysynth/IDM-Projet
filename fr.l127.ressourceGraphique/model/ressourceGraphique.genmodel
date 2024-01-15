@@ -18,6 +18,7 @@
     <genClasses image="false" ecoreClass="ressourceGraphique.ecore#//BlocIntermediaire"/>
     <genClasses ecoreClass="ressourceGraphique.ecore#//Resultat">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ressourceGraphique.ecore#//Resultat/entree"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ressourceGraphique.ecore#//Resultat/idColonne"/>
     </genClasses>
     <genClasses ecoreClass="ressourceGraphique.ecore#//Entree"/>
     <genClasses image="false" ecoreClass="ressourceGraphique.ecore#//BlocUnaire">
