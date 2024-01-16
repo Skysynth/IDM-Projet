@@ -266,7 +266,7 @@ public class GeneratedSwing extends JFrame {
 		        	} else {
 		        		Object convertedData = convertStringToTargetType((String) data, targetColumn.getDataType());
 		        		
-		        		if (convertedData != null) {
+		        		if (convertedData != null && targetColumn.checkConstraintsOnSingleElement(convertedData)) {
 		        			targetColumn.updateData(row, convertedData);
 		        			
 		        		} else {
@@ -500,7 +500,7 @@ public class GeneratedSwing extends JFrame {
     }
     
     private String executePythonAlgorithm(String scriptPath, String csvInputPath, String csvOutputPath) throws IOException, InterruptedException {
-    	ProcessBuilder pb = new ProcessBuilder("python3", "add.py", scriptPath, csvInputPath, csvOutputPath);
+    	ProcessBuilder pb = new ProcessBuilder("python3", "lanceur_algo.py", scriptPath, csvInputPath, csvOutputPath);
     	Process p = pb.start();
     	p.waitFor(); // Attendre la fin de l'exécution du script
     	

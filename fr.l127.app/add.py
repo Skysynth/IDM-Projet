@@ -12,7 +12,7 @@ def add(*colonnes):
     return resultat
 
 
-def lire_csv_et_executer_add(script, input_csv, output_csv):
+def lire_csv_et_executer_add(fonction, input_csv, output_csv):
     colonnes = []
 
     # Lecture du fichier CSV
@@ -23,7 +23,8 @@ def lire_csv_et_executer_add(script, input_csv, output_csv):
             colonnes.append([int(item) if item.isdigit() else item for item in row])
             print(colonnes)
     # Exécution de la fonction add
-    resultat = add(*colonnes)
+    resultat = fonction(*colonnes)
+    print(resultat)
 
     # Écriture du résultat dans un fichier CSV
     with open(output_csv, 'w', newline='') as csvfile:
@@ -37,8 +38,10 @@ if __name__ == "__main__":
         script = sys.argv[1]
         input_csv = sys.argv[2]
         output_csv = sys.argv[3]
+        fonction = globals()[script] #getattr(globals(),script)
+
         
         
-        lire_csv_et_executer_add(script, input_csv, output_csv)
+        lire_csv_et_executer_add(fonction, input_csv, output_csv)
     else:
         println("Veuillez spécifier un fichier CSV en argument.")

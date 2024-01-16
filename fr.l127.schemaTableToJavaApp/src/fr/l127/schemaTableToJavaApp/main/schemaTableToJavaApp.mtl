@@ -27,7 +27,7 @@ public class Model {
 		
 		/* Zone A */
 		
-		schemaTable = new SchemaTable();
+		SchemaTable schemaTable = new SchemaTable();
 		Table currentTable;
 		Column currentColumn;	
 		Constraint currentConstraint;
@@ -40,16 +40,16 @@ public class Model {
 [let tables : OrderedSet(Table) = aSchemaTableAlgo.getTables() ] 
 	[for (table : Table | tables)]
 		// table courante : [table.id/]
-		currentTable = new Table();
+		currentTable = new Table([table.id/]);
 
 		[let colonnes : OrderedSet(Colonne) = table.getColonnes() ] 
 			[for (colonne : Colonne | colonnes)]
 			// colonne courante : [colonne.id/]
 
 			[if colonne.typeColonne = TypeColonne::ChaineCaracteres]
-			currentColumn = new Column<String>();
+			currentColumn = new Column([colonne.id/],String.class);
 			[else]
-			currentColumn = new Column<Integer>();
+			currentColumn = new Column([colonne.id/],Integer.class);
 			[/if]
 
 				[for(c : Contrainte | colonne.contrainte)]
@@ -62,7 +62,7 @@ public class Model {
 				[/for]
 			
 
-			currentTable.add(new Column());
+			currentTable.add(currentColumn);
 
 			[/for]	
 		[/let]
@@ -72,9 +72,11 @@ public class Model {
 	[/for]
 [/let]
 
-		Algorithm currentAlgorithm = new Algorithm();
 [let algorithmes : OrderedSet(Algorithme) = aSchemaTableAlgo.getAlgorithmes() ] 
+
 	[for (algorithme : Algorithme | algorithmes)]
+	Algorithm currentAlgorithm = new Algorithm([algorithme.chemin/],schemaTable);
+
 		// Ajout des l'entrées
 		[let inputs : OrderedSet(Integer) = algorithme.entrees]
 			[for (input : Integer | inputs)]
@@ -87,6 +89,8 @@ public class Model {
 				currentAlgorithm.addOutput([output/]);
 			[/for]
 		[/let]
+		schemaTable.addAlgorithm(currentAlgorithm);
+
 		
 		
 			
@@ -97,6 +101,8 @@ public class Model {
 		
 	
 		// Créer un affichage swing 
+		new GeneratedSwing(schemaTable);
+
 		
     }
 

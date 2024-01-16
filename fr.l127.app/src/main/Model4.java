@@ -13,7 +13,7 @@ import java.util.List;
  * - 
  */
 
-public class Model3 {
+public class Model4 {
 
 	static SchemaTable schemaTable; 
 
@@ -32,72 +32,76 @@ public class Model3 {
 		// Extraire les tables et les colonnes du métamodèle
 
 		// table courante : 0
-		currentTable = new Table();
+		currentTable = new Table(0);
 
 			// colonne courante : 0
 
-			currentColumn = new Column<String>();
+			currentColumn = new Column(0,String.class);
 
 			
 
-			currentTable.add(new Column());
+			currentTable.add(currentColumn);
 
 			// colonne courante : 1
 
-			currentColumn = new Column<String>();
+			currentColumn = new Column(1,String.class);
 
 			
 
-			currentTable.add(new Column());
+			currentTable.add(currentColumn);
 
 			// colonne courante : 2
 
-			currentColumn = new Column<Integer>();
+			currentColumn = new Column(2,Integer.class);
 
 			
 
-			currentTable.add(new Column());
+			currentTable.add(currentColumn);
 
 
 		schemaTable.add(currentTable);
 
 		// table courante : 1
-		currentTable = new Table();
+		currentTable = new Table(1);
 
 			// colonne courante : 3
 
-			currentColumn = new Column<String>();
+			currentColumn = new Column(3,String.class);
 
 			
 
-			currentTable.add(new Column());
+			currentTable.add(currentColumn);
 
 			// colonne courante : 4
 
-			currentColumn = new Column<String>();
+			currentColumn = new Column(4,String.class);
 
 			
 
-			currentTable.add(new Column());
+			currentTable.add(currentColumn);
 
 			// colonne courante : 5
 
-			currentColumn = new Column<String>();
+			currentColumn = new Column(5,String.class);
 
 			
 
-			currentTable.add(new Column());
+			currentTable.add(currentColumn);
 
 
 		schemaTable.add(currentTable);
 
 
-		Algorithm currentAlgorithm = new Algorithm();
+
+	Algorithm currentAlgorithm = new Algorithm("add.py",schemaTable);
+
 		// Ajout des l'entrées
 				currentAlgorithm.addInput(2);
 				currentAlgorithm.addInput(3);
 		// Ajout des sorties
 				currentAlgorithm.addOutput(5);
+		schemaTable.addAlgorithm(currentAlgorithm);
+
 		
 		
 			
@@ -106,6 +110,8 @@ public class Model3 {
 		
 	
 		// Créer un affichage swing 
+		new GeneratedSwing(schemaTable);
+
 		
     }
 

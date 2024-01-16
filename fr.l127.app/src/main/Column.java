@@ -84,6 +84,18 @@ public class Column {
 		return true;
     }
 
+    public boolean checkConstraintsOnSingleElement(Object element) {
+    	List<Object> subDatas = new ArrayList<>();
+    	subDatas.add(element);
+    	
+		for(Constraint c : constraints) {
+			if(!c.checkColumn(subDatas)) {
+				return false;
+			}
+		}
+		return true;	
+    }
+    
     public boolean checkTypes() {
         for (Object data : datas) {
             if (data != null && !dataType.isInstance(data)) {

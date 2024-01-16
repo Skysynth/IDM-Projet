@@ -4,8 +4,9 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:schemaTableAlgo="http://schemaTableAlgo"
-    xsi:schemaLocation="http://schemaTableAlgo ../../fr.l127.schemaTableAlgo/model/schemaTableAlgo.ecore"
+        xsi:schemaLocation="http://schemaTableAlgo ../../fr.l127.schemaTableAlgo/model/schemaTableAlgo.ecore"
     >
+    
   <table>
     <colonne
         xsi:type="schemaTableAlgo:ColonneSpeciale"/>
@@ -15,12 +16,24 @@
     <colonne
         xsi:type="schemaTableAlgo:ColonneNormal"
         id="2"
-        typeColonne="Nombre"/>
+        typeColonne="Nombre">
+      <contrainte
+          nom="positif"/>
+    </colonne>
+    <colonne
+        xsi:type="schemaTableAlgo:ColonneNormal"
+        id="3"
+        typeColonne="Nombre">
+      <contrainte
+          nom="superieur">
+        <args>1</args>
+      </contrainte>
+    </colonne>
   </table>
   <table id="1">
     <colonne
         xsi:type="schemaTableAlgo:ColonneSpeciale"
-        id="3"/>
+        id="6"/>
     <colonne
         xsi:type="schemaTableAlgo:ColonneNormal"
         id="4"/>
@@ -30,7 +43,7 @@
   </table>
   <catalogue>
     <algorithme
-        chemin="fichier">
+        chemin="algo">
       <entrees>2</entrees>
       <entrees>3</entrees>
       <sorties>5</sorties>

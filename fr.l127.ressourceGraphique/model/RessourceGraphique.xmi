@@ -6,7 +6,7 @@
     xmlns:ressourceGraphique="http://www.example.org/ressourceGraphique"
     xsi:schemaLocation = "http://www.example.org/ressourceGraphique ./ressourceGraphique.ecore"
     
-    nom="algo">
+    nom="test">
   <bloc xsi:type="ressourceGraphique:Resultat"
       entree="//@bloc.2"
       idColonne="7"/>
