@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ressourceGraphique:RessourceGraphique
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ressourceGraphique="http://www.example.org/ressourceGraphique"
+    xsi:schemaLocation="http://www.example.org/ressourceGraphique ./ressourceGraphique.ecore"
+    nom ="test2">
+  <bloc xsi:type="ressourceGraphique:Resultat"
+      entree="//@bloc.1"/>
+  <bloc xsi:type="ressourceGraphique:Minimun"
+      entree="//@bloc.2 //@bloc.3"/>
+  <bloc xsi:type="ressourceGraphique:RefColonne"/>
+  <bloc xsi:type="ressourceGraphique:RefColonne"
+      idColonne="1"/>
+</ressourceGraphique:RessourceGraphique>

@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ressourceGraphique:RessourceGraphique xmi:version="2.0"
-xmlns:xmi="http://www.omg.org/XMI"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns:ressourceGraphique="http://www.example.org/ressourceGraphique">
-  <bloc xsi:type="ressourceGraphique:Resultat" entree="//@bloc.1"/>
-  <bloc xsi:type="ressourceGraphique:Sinus" entree="//@bloc.12"/>
-  <bloc xsi:type="ressourceGraphique:Cosinus" entree="//@bloc.4"/>
-  <bloc xsi:type="ressourceGraphique:RacineCarree" entree="//@bloc.5"/>
-  <bloc xsi:type="ressourceGraphique:Negation" entree="//@bloc.10"/>
-  <bloc xsi:type="ressourceGraphique:Inverse" entree="//@bloc.11"/>
-  <bloc xsi:type="ressourceGraphique:Addition" entree="//@bloc.2 //@bloc.3"/>
-  <bloc xsi:type="ressourceGraphique:Minimun" entree="//@bloc.8 //@bloc.9"/>
+<ressourceGraphique:RessourceGraphique xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ressourceGraphique="http://www.example.org/ressourceGraphique" nom="test">
+  <bloc xsi:type="ressourceGraphique:RefColonne"/>
   <bloc xsi:type="ressourceGraphique:RefColonne" idColonne="1"/>
-  <bloc xsi:type="ressourceGraphique:Constante" valeur="4"/>
-  <bloc xsi:type="ressourceGraphique:Constante" valeur="2"/>
-  <bloc xsi:type="ressourceGraphique:RefColonne" idColonne="2"/>
-  <bloc xsi:type="ressourceGraphique:Multiplication" entree="//@bloc.6 //@bloc.7"/>
+  <bloc xsi:type="ressourceGraphique:Minimun" entree="//@bloc.1 //@bloc.0"/>
+  <bloc xsi:type="ressourceGraphique:Resultat" entree="//@bloc.2"/>
 </ressourceGraphique:RessourceGraphique>

@@ -31,6 +31,7 @@ public class Model {
 		Table currentTable;
 		Column currentColumn;	
 		Constraint currentConstraint;
+		Algorithm currentAlgorithm;
 		String['['/]] currentArgument;
 		
 		/* Fin zone A */
@@ -75,7 +76,7 @@ public class Model {
 [let algorithmes : OrderedSet(Algorithme) = aSchemaTableAlgo.getAlgorithmes() ] 
 
 	[for (algorithme : Algorithme | algorithmes)]
-	Algorithm currentAlgorithm = new Algorithm([algorithme.chemin/],schemaTable);
+	 currentAlgorithm = new Algorithm("[algorithme.chemin/]",schemaTable);
 
 		// Ajout des l'entrées
 		[let inputs : OrderedSet(Integer) = algorithme.entrees]

@@ -25,6 +25,7 @@ public class Model {
 		Table currentTable;
 		Column currentColumn;	
 		Constraint currentConstraint;
+		Algorithm currentAlgorithm;
 		String[] currentArgument;
 		
 		/* Fin zone A */
@@ -34,17 +35,9 @@ public class Model {
 		// table courante : 0
 		currentTable = new Table(0);
 
-			// colonne courante : 0
-
-			currentColumn = new Column(0,String.class);
-
-			
-
-			currentTable.add(currentColumn);
-
 			// colonne courante : 1
 
-			currentColumn = new Column(1,String.class);
+			currentColumn = new Column(1,Integer.class);
 
 			
 
@@ -78,23 +71,23 @@ public class Model {
 
 			currentTable.add(currentColumn);
 
+			// colonne courante : 0
+
+			currentColumn = new Column(0,Integer.class);
+
+			
+
+			currentTable.add(currentColumn);
+
 
 		schemaTable.add(currentTable);
 
 		// table courante : 1
 		currentTable = new Table(1);
 
-			// colonne courante : 6
-
-			currentColumn = new Column(6,Integer.class);
-
-			
-
-			currentTable.add(currentColumn);
-
 			// colonne courante : 4
 
-			currentColumn = new Column(4,String.class);
+			currentColumn = new Column(4,Integer.class);
 
 			
 
@@ -108,9 +101,9 @@ public class Model {
 
 			currentTable.add(currentColumn);
 
-			// colonne courante : 7
+			// colonne courante : 6
 
-			currentColumn = new Column(7,Integer.class);
+			currentColumn = new Column(6,Integer.class);
 
 			
 
@@ -121,15 +114,40 @@ public class Model {
 
 
 
-	Algorithm currentAlgorithm = new Algorithm("algo",schemaTable);
+	 currentAlgorithm = new Algorithm("test",schemaTable);
+
+		// Ajout des l'entrées
+				currentAlgorithm.addInput(0);
+				currentAlgorithm.addInput(1);
+		// Ajout des sorties
+				currentAlgorithm.addOutput(4);
+		schemaTable.addAlgorithm(currentAlgorithm);
+
+		
+		
+			
+		
+		
+	 currentAlgorithm = new Algorithm("test2",schemaTable);
 
 		// Ajout des l'entrées
 				currentAlgorithm.addInput(2);
-				currentAlgorithm.addInput(3);
 		// Ajout des sorties
 				currentAlgorithm.addOutput(5);
+		schemaTable.addAlgorithm(currentAlgorithm);
+
+		
+		
+			
+		
+		
+	 currentAlgorithm = new Algorithm("test3",schemaTable);
+
+		// Ajout des l'entrées
+				currentAlgorithm.addInput(4);
+				currentAlgorithm.addInput(5);
+		// Ajout des sorties
 				currentAlgorithm.addOutput(6);
-				currentAlgorithm.addOutput(7);
 		schemaTable.addAlgorithm(currentAlgorithm);
 
 		

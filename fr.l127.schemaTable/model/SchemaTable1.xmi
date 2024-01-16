@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemaTable:SchemaTable
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaTable="http://schemaTable"
+    xsi:schemaLocation="http://schemaTable schemaTable.ecore">
+    >
+  <table>
+    <colonne
+        xsi:type="schemaTable:ColonneNormal"/>
+    <colonne
+        xsi:type="schemaTable:ColonneNormal"
+        id="1"
+        typeColonne="Nombre"/>
+    <colonne
+        xsi:type="schemaTable:ColonneNormal"
+        id="2"
+        typeColonne="Nombre"/>
+    <colonne
+        xsi:type="schemaTable:ColonneNormal"
+        id="3"
+        typeColonne="Nombre"/>
+  </table>
+  <table id="1">
+    <colonne
+        xsi:type="schemaTable:ColonneNormal"
+        id="4"
+        typeColonne="Nombre"/>
+    <colonne
+        xsi:type="schemaTable:ColonneNormal"
+        id="5"
+        typeColonne="Nombre"/>
+    <colonne
+        xsi:type="schemaTable:ColonneNormal"
+        id="6"
+        typeColonne="Nombre"/>
+  </table>
+</schemaTable:SchemaTable>

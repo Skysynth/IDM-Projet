@@ -2,7 +2,9 @@
 <lA:Librairie
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:lA="http://www.l127.fr/LA">
+    xmlns:lA="http://www.l127.fr/LA"
+    xsi: schemaLocation = "http://www.l127.fr/LA ./LA.ecore >
+    
   <elements
       name="test"
       chemin="&quot;test&quot;">

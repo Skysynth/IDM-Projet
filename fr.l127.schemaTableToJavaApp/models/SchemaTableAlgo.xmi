@@ -3,15 +3,14 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaTableAlgo="http://schemaTableAlgo"
     xsi:schemaLocation="http://schemaTableAlgo ../../fr.l127.schemaTableAlgo/model/schemaTableAlgo.ecore"
-    
-    xmlns:schemaTableAlgo="http://schemaTableAlgo">
+    >
   <table>
     <colonne
-        xsi:type="schemaTableAlgo:ColonneSpeciale"/>
-    <colonne
         xsi:type="schemaTableAlgo:ColonneNormal"
-        id="1"/>
+        id="1"
+        typeColonne="Nombre"/>
     <colonne
         xsi:type="schemaTableAlgo:ColonneNormal"
         id="2"
@@ -28,32 +27,41 @@
         <args>1</args>
       </contrainte>
     </colonne>
+    <colonne
+        xsi:type="schemaTableAlgo:ColonneNormal"
+        typeColonne="Nombre"/>
   </table>
   <table id="1">
     <colonne
-        xsi:type="schemaTableAlgo:ColonneSpeciale"
-        id="6"
-        typeColonne="Nombre"/>
-    <colonne
         xsi:type="schemaTableAlgo:ColonneNormal"
-        id="4"/>
+        id="4"
+        typeColonne="Nombre"/>
     <colonne
         xsi:type="schemaTableAlgo:ColonneNormal"
         id="5"
         typeColonne="Nombre"/>
     <colonne
         xsi:type="schemaTableAlgo:ColonneNormal"
-        id="7"
+        id="6"
         typeColonne="Nombre"/>
   </table>
   <catalogue>
     <algorithme
-        chemin="algo">
+        chemin="test">
+      <entrees>0</entrees>
+      <entrees>1</entrees>
+      <sorties>4</sorties>
+    </algorithme>
+    <algorithme
+        chemin="test2">
       <entrees>2</entrees>
-      <entrees>3</entrees>
       <sorties>5</sorties>
+    </algorithme>
+    <algorithme
+        chemin="test3">
+      <entrees>4</entrees>
+      <entrees>5</entrees>
       <sorties>6</sorties>
-      <sorties>7</sorties>
     </algorithme>
   </catalogue>
 </schemaTableAlgo:SchemaTableAlgo>
