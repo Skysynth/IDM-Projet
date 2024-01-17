@@ -38,6 +38,17 @@ public class SchemaTable {
 		return null;
 	}
 	
+	public Table getTableContainingColumn(int id) {
+		for(Table table : tables) {
+			for(Column column : table.getColumns()) {
+				if(column.getId() == id) {
+					return table;
+				}
+			}
+		}
+		return null;
+	}
+	
 	public List<Algorithm> getAlgorithmsTakingColumnAsInput(Column c) {
 		
 		List<Algorithm> result = new ArrayList<Algorithm>();

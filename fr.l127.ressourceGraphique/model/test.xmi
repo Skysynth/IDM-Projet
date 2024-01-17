@@ -5,11 +5,23 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ressourceGraphique="http://www.example.org/ressourceGraphique"
     xsi:schemaLocation="http://www.example.org/ressourceGraphique ./ressourceGraphique.ecore"
-    
     nom="test">
   <bloc xsi:type="ressourceGraphique:Resultat"
       entree="//@bloc.1"/>
-  <bloc xsi:type="ressourceGraphique:Sinus"
-      entree="//@bloc.2"/>
+  <bloc xsi:type="ressourceGraphique:Addition"
+      entree="//@bloc.2 //@bloc.6"/>
+  <bloc xsi:type="ressourceGraphique:Soustraction"
+      entree="//@bloc.4 //@bloc.7"/>
   <bloc xsi:type="ressourceGraphique:RefColonne"/>
+  <bloc xsi:type="ressourceGraphique:Negation"
+      entree="//@bloc.3"/>
+  <bloc xsi:type="ressourceGraphique:RefColonne"
+      idColonne="1"/>
+  <bloc xsi:type="ressourceGraphique:RefColonne"
+      idColonne="2"/>
+  <bloc xsi:type="ressourceGraphique:FichierBinaire"
+      entree="//@bloc.5 //@bloc.8"
+      chemin="power"/>
+  <bloc xsi:type="ressourceGraphique:Constante"
+      valeur="2"/>
 </ressourceGraphique:RessourceGraphique>

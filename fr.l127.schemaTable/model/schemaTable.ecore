@@ -11,8 +11,8 @@
         eType="#//Colonne" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TypeColonne">
-    <eLiterals name="ChaineCaracteres"/>
-    <eLiterals name="Nombre" value="1"/>
+    <eLiterals name="ChaineCaracteres" value="1"/>
+    <eLiterals name="Nombre"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Colonne" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>

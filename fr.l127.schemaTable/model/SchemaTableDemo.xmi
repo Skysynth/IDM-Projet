@@ -5,14 +5,18 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:schemaTable="http://schemaTable"
     xsi:schemaLocation="http://schemaTable schemaTable.ecore">
-    >
-  <table>
+  <table id="1">
     <colonne
-        xsi:type="schemaTable:ColonneNormal"/>
+        xsi:type="schemaTable:ColonneSpeciale"/>
     <colonne
         xsi:type="schemaTable:ColonneNormal"
         id="1"
-        typeColonne="Nombre"/>
+        typeColonne="Nombre">
+      <contrainte
+          nom="superieur">
+        <args>4</args>
+      </contrainte>
+    </colonne>
     <colonne
         xsi:type="schemaTable:ColonneNormal"
         id="2"
@@ -21,19 +25,31 @@
         xsi:type="schemaTable:ColonneNormal"
         id="3"
         typeColonne="Nombre"/>
-  </table>
-  <table id="1">
     <colonne
         xsi:type="schemaTable:ColonneNormal"
         id="4"
         typeColonne="Nombre"/>
+  </table>
+  <table id="2">
     <colonne
-        xsi:type="schemaTable:ColonneNormal"
-        id="5"
-        typeColonne="Nombre"/>
+        xsi:type="schemaTable:ColonneSpeciale"
+        id="5">
+      <contrainte
+          nom="beginBy">
+        <args>a</args>
+      </contrainte>
+    </colonne>
     <colonne
         xsi:type="schemaTable:ColonneNormal"
         id="6"
+        typeColonne="Nombre"/>
+    <colonne
+        xsi:type="schemaTable:ColonneNormal"
+        id="7"
+        typeColonne="Nombre"/>
+    <colonne
+        xsi:type="schemaTable:ColonneNormal"
+        id="8"
         typeColonne="Nombre"/>
   </table>
 </schemaTable:SchemaTable>

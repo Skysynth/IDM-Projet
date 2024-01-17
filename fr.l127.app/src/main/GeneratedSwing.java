@@ -13,6 +13,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -135,6 +136,9 @@ public class GeneratedSwing extends JFrame {
         // Initialisation du tableau avec le modèle
         table = new JTable(tableModel);
         
+        // On empêche la réorganisation des colonnes
+        table.getTableHeader().setReorderingAllowed(false);
+
         // Configuration du renderer personnalisé
         table.setDefaultRenderer(Object.class, customCellRenderer);
         
@@ -270,8 +274,12 @@ public class GeneratedSwing extends JFrame {
 		        			targetColumn.updateData(row, convertedData);
 		        			
 		        		} else {
-		        			System.out.print("Erreur de type : ");
-		        			System.out.println(targetColumn.getDataType().getCanonicalName() + " était attendu");
+		        			if (convertedData == null) {
+		        				System.out.print("Erreur de type : ");
+		        				System.out.println(targetColumn.getDataType().getCanonicalName() + " était attendu");		        				
+		        			} else {
+		        				System.out.println("Contraintes non respectées !");
+		        			}
 		        			
 		        			// Désactiver temporairement la mise à jour
 		        			isUpdating = true;
@@ -296,21 +304,9 @@ public class GeneratedSwing extends JFrame {
 		        
 		    }
 		}
-		
-		private void highlightCell(int row, int column) {
-	        customCellRenderer.addHighlightedCell(row, column);
-	        table.repaint();
-
-	        Timer timer = new Timer(1000, e -> {
-	            customCellRenderer.clearHighlightedCells();
-	            table.repaint();
-	        });
-
-	        timer.setRepeats(false);
-	        timer.start();
-	    }
+	
 	}
-
+	
     class ActionButtons implements ActionListener {
 
 		@Override
@@ -452,7 +448,8 @@ public class GeneratedSwing extends JFrame {
 						csvInputPath = generateCsvForAlgorithmInput(algorithm, minSize);
 						
 						// Exécuter l'algorithme via Python
-						String csvOutputPath = executePythonAlgorithm(algorithm.getPath(), csvInputPath, algorithm.getPath().replaceAll(".py", "") + "-output.csv");
+						String csvOutputPath = "csv/" + algorithm.getPath().replaceAll(".py", "") + "-output.csv";
+						executePythonAlgorithm(algorithm.getPath(), csvInputPath, csvOutputPath);
 						
 						// Lire les résultats et mettre à jour les colonnes de sortie
 						List<List<String>> resultData = readCsvResults(csvOutputPath);
@@ -475,7 +472,7 @@ public class GeneratedSwing extends JFrame {
     }
     
     private String generateCsvForAlgorithmInput(Algorithm algorithm, int size) throws IOException {
-    	String csvFilePath = algorithm.getPath().replaceAll(".py", "") + "-input.csv"; // Chemin du fichier CSV à générer
+    	String csvFilePath = "csv/" + algorithm.getPath().replaceAll(".py", "") + "-input.csv"; // Chemin du fichier CSV à générer
     	
     	try (PrintWriter csvWriter = new PrintWriter(new File(csvFilePath))) {
     		
@@ -499,12 +496,21 @@ public class GeneratedSwing extends JFrame {
     	return csvFilePath;
     }
     
-    private String executePythonAlgorithm(String scriptPath, String csvInputPath, String csvOutputPath) throws IOException, InterruptedException {
+    private void executePythonAlgorithm(String scriptPath, String csvInputPath, String csvOutputPath) throws IOException, InterruptedException {
     	ProcessBuilder pb = new ProcessBuilder("python3", "lanceur_algo.py", scriptPath, csvInputPath, csvOutputPath);
-    	Process p = pb.start();
-    	p.waitFor(); // Attendre la fin de l'exécution du script
-    	
-    	return csvOutputPath;
+        
+    	// Rediriger également le flux d'erreur si nécessaire
+        pb.redirectErrorStream(true);
+
+        Process p = pb.start();
+
+        // Lecture du flux de sortie
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line); // Afficher chaque ligne de sortie
+            }
+        }
     }
     
     private List<List<String>> readCsvResults(String csvFilePath) throws IOException {
@@ -538,14 +544,36 @@ public class GeneratedSwing extends JFrame {
     
     private void updateOutputColumns(List<Column> outputColumns, List<List<String>> resultData) {
     	if (outputColumns.size() != resultData.size()) {
-    		throw new IllegalArgumentException("Le nombre de colonnes de sortie ne correspond pas aux résultats obtenus : " + outputColumns.size() + " | " + resultData.size());
+    		System.out.println("Le nombre de colonnes de sortie ne correspond pas aux résultats obtenus : " + outputColumns.size() + " | " + resultData.size());
+    		return;
     	}
     	
     	for (int i = 0; i < outputColumns.size(); i++) {
     		Column outputColumn = outputColumns.get(i);
+    		
+    		if (outputColumn == null) {
+    			System.out.println("Colonne de sortie inexistante");
+    			return;
+    		}
+    		
     		List<String> columnData = resultData.get(i);
     		
-    		outputColumn.setDatas(convertListStringToListTargetType(columnData, outputColumn.getDataType()));
+    		List<Object> outputData = convertListStringToListTargetType(columnData, outputColumn.getDataType());
+    		
+    		for (int j = 0; j < outputData.size(); j++) {
+    			Object o = outputData.get(j);
+    			
+    			if (o == null && tableDisplayed.hasColumn(outputColumn)) {
+    				
+    				int indexColumn = tableDisplayed.getIndexOfColumn(outputColumn);
+    				int indexRow = j;
+    				
+    				// Mettre la cellule en rouge temporairement
+        			highlightCell(indexRow, indexColumn);
+    			}
+    		}
+    		
+    		outputColumn.setDatas(outputData);
     		normalizeSizeOfRows(tableDisplayed);
     	}
     }
@@ -648,4 +676,17 @@ public class GeneratedSwing extends JFrame {
     	return false;
     }
    
+	private void highlightCell(int row, int column) {
+        customCellRenderer.addHighlightedCell(row, column);
+        table.repaint();
+
+        Timer timer = new Timer(1000, e -> {
+            customCellRenderer.clearHighlightedCells();
+            table.repaint();
+        });
+
+        timer.setRepeats(false);
+        timer.start();
+    }
+	
 }

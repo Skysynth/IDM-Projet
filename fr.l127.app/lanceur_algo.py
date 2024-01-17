@@ -25,6 +25,20 @@ def ecrire_csv(donnees, nom_fichier):
             writer.writerow([sous_liste[i] for sous_liste in liste_normalisee])
 
     
+# def lire_csv_et_executer_add(fonction, input_csv, output_csv):
+#     colonnes = []
+
+#     # Lecture du fichier CSV
+#     with open(input_csv, newline='') as csvfile:
+#         reader = csv.reader(csvfile)
+#         for row in reader:
+#             # Conversion des éléments de la ligne en entiers si possible
+#             colonnes.append([int(item) if item.isdigit() else item for item in row])
+#     # Exécution de la fonction add
+
+#     resultat = fonction(*colonnes)
+#     ecrire_csv(resultat, output_csv)
+            
 def lire_csv_et_executer_add(fonction, input_csv, output_csv):
     colonnes = []
 
@@ -32,12 +46,20 @@ def lire_csv_et_executer_add(fonction, input_csv, output_csv):
     with open(input_csv, newline='') as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
-            # Conversion des éléments de la ligne en entiers si possible
-            colonnes.append([int(item) if item.isdigit() else item for item in row])
-            print(colonnes)
+            nouvelle_ligne = []
+            for item in row:
+                try:
+                    # Tente de convertir l'élément en entier
+                    nouvelle_ligne.append(int(item))
+                except ValueError:
+                    # Laisse l'élément sous forme de chaîne si la conversion échoue
+                    nouvelle_ligne.append(item)
+            colonnes.append(nouvelle_ligne)
+    
     # Exécution de la fonction add
+            
     resultat = fonction(*colonnes)
-    print(resultat)
+    print("resultat = ", resultat)
     ecrire_csv(resultat, output_csv)
 
 
@@ -50,4 +72,4 @@ if __name__ == "__main__":
         fonction = globals()[script]         
         lire_csv_et_executer_add(fonction, input_csv, output_csv)
     else:
-        println("Veuillez spécifier un fichier CSV en argument.")
+        print("Usage : python3 lanceur_algo.py <script> <input_csv> <output_csv>")

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ressourceGraphique:RessourceGraphique xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ressourceGraphique="http://www.example.org/ressourceGraphique" nom="test2">
+  <bloc xsi:type="ressourceGraphique:Resultat" entree="//@bloc.2"/>
+  <bloc xsi:type="ressourceGraphique:Resultat" entree="//@bloc.5" idColonne="1"/>
+  <bloc xsi:type="ressourceGraphique:RefColonne"/>
+  <bloc xsi:type="ressourceGraphique:Multiplication" entree="//@bloc.2 //@bloc.4"/>
+  <bloc xsi:type="ressourceGraphique:Constante"/>
+  <bloc xsi:type="ressourceGraphique:Sinus" entree="//@bloc.3"/>
+</ressourceGraphique:RessourceGraphique>

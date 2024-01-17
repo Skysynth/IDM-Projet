@@ -31,6 +31,14 @@ rule colonneSpe2colonneSpe{
 		contrainte<-colonneIn.contrainte
 		)
 }
+
+rule contrainte2contrainte{
+	from contrainteIn : schemaTable!Contrainte
+	to contrainte : schemaTableAlgo!Contrainte (
+		nom<-contrainteIn.nom,
+		args <-contrainteIn.args
+	)
+}
 rule colonneNormal2colonneNormal{
 	from colonneIn : schemaTable!ColonneNormal
 	to colonne : schemaTableAlgo!ColonneNormal(

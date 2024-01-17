@@ -13,5 +13,9 @@ public class ConstraintsDefinition {
 	public static boolean superieur(int element, int borne) {
 		return element > borne;
 	}
+
+	
+	
+
 	
 }

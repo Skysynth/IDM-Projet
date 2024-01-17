@@ -44,6 +44,14 @@ public class Table{
         return rows;
     }
 	
+	public boolean hasColumn(Column c) {
+		return columns.contains(c);
+	}
+	
+	public int getIndexOfColumn(Column c) {
+		return columns.indexOf(c);
+	}
+	
 	public List<Column> getColumns() {
 		return columns;
 	}

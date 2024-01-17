@@ -2,12 +2,11 @@
 <lA:Librairie
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:lA="http://www.l127.fr/LA"
-    xsi: schemaLocation = "http://www.l127.fr/LA ./LA.ecore >
-    
+    xmlns:lA="http://www.l127.fr/LA"    
+    name="librairie">
   <elements
       name="test"
-      chemin="&quot;test&quot;">
+      chemin="test">
     <entrees/>
     <entrees
         idColonne="1"/>
@@ -20,16 +19,16 @@
     <entrees
         idColonne="2"/>
     <sorties
-        idColonne="5"/>
+        idColonne="3"/>
   </elements>
   <elements
-      name="test3"
-      chemin="add">
+      name="add"
+      chemin="test3">
     <entrees
         idColonne="4"/>
     <entrees
-        idColonne="5"/>
+        idColonne="3"/>
     <sorties
-        idColonne="6"/>
+        idColonne="5"/>
   </elements>
 </lA:Librairie>

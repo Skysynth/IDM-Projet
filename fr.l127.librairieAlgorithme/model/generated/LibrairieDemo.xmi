@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lA:Librairie
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:lA="http://www.l127.fr/LA"
+    name="librairie">
+  <elements
+      name="test"
+      chemin="test">
+    <entrees
+        idColonne="1"/>
+    <entrees
+        idColonne="2"/>
+    <entrees
+        idColonne="3"/>
+    <sorties
+        idColonne="4"/>
+  </elements>
+  <elements
+      name="test2"
+      chemin="test2">
+    <entrees
+        idColonne="1"/>
+    <sorties
+        idColonne="6"/>
+    <sorties
+        idColonne="7"/>
+  </elements>
+  <elements
+      name="test3"
+      chemin="add">
+    <entrees
+        idColonne="4"/>
+    <entrees
+        idColonne="7"/>
+    <entrees
+        idColonne="6"/>
+    <sorties
+        idColonne="8"/>
+  </elements>
+</lA:Librairie>
