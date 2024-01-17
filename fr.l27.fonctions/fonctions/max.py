@@ -8,5 +8,5 @@ def max(*colonnes):
         if len(copy[i]) == 1:
             copy[i] = copy[i] * nb_ligne
     for i in range(nb_ligne):
-        resultat[i] = max(copy_i[i] for copy_i in copy)
+        resultat[i] = __builtins__.max(copy_i[i] for copy_i in copy)
     return resultat

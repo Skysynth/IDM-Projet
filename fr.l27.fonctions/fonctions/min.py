@@ -7,5 +7,5 @@ def min(*colonnes):
         if len(copy[i]) == 1:
             copy[i] = copy[i] * nb_ligne
     for i in range(nb_ligne):
-        resultat[i] = min(copy_i[i] for copy_i in copy)
+        resultat[i] = __builtins__.min(copy_i[i] for copy_i in copy)
     return resultat
