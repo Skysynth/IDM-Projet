@@ -3,6 +3,8 @@
   <viewpoint:DAnalysis uid="_RZw28J5yEe6wo56aJYoRJw" selectedViews="_RfcBIJ5yEe6wo56aJYoRJw _p0WikK5BEe6mGo5AE4wwFg _p0gTkK5BEe6mGo5AE4wwFg _p5tjsK5BEe6mGo5AE4wwFg" version="15.2.0.202303281325">
     <semanticResources>schemaTable.ecore</semanticResources>
     <semanticResources>schemaTable.genmodel</semanticResources>
+    <semanticResources>../constraints.ocl</semanticResources>
+    <semanticResources>../ocl/constraints.ocl</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_RfcBIJ5yEe6wo56aJYoRJw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Rj8tsJ5yEe6wo56aJYoRJw" name="schemaTable" repPath="#_Rik0sJ5yEe6wo56aJYoRJw" changeId="1704730750386">
