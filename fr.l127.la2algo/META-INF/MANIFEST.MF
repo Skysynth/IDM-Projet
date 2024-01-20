@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: La2algo
-Bundle-SymbolicName: fr.l127.la2algo
-Bundle-Version: 1.0.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-17
-Automatic-Module-Name: fr.l127.la2algo

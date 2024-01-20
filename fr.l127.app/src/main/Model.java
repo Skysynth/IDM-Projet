@@ -32,8 +32,8 @@ public class Model {
 
 		// Extraire les tables et les colonnes du métamodèle
 
-		// table courante : 1
-		currentTable = new Table(1);
+		// table courante : 0
+		currentTable = new Table(0);
 
 			// colonne courante : 0
 
@@ -84,8 +84,8 @@ public class Model {
 
 		schemaTable.add(currentTable);
 
-		// table courante : 2
-		currentTable = new Table(2);
+		// table courante : 1
+		currentTable = new Table(1);
 
 			// colonne courante : 5
 

@@ -5,8 +5,17 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:schemaTable="http://schemaTable"
     xsi:schemaLocation="http://schemaTable schemaTable.ecore">
-  <table id="1">
+  <table>
     <colonne
-        xsi:type="schemaTable:ColonneNormal"/>
+        xsi:type="schemaTable:ColonneSpeciale"/>
+    <colonne
+        xsi:type="schemaTable:ColonneNormal"
+        id="1"
+        typeColonne="Nombre">
+      <contrainte
+          nom="superieur">
+        <args>4</args>
+      </contrainte>
+    </colonne>
   </table>
 </schemaTable:SchemaTable>

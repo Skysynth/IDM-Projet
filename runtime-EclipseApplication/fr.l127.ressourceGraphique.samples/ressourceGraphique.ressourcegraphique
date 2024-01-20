@@ -7,5 +7,6 @@
   <bloc xsi:type="ressourceGraphique:Negation" entree="//@bloc.1"/>
   <bloc xsi:type="ressourceGraphique:Constante" valeur="2"/>
   <bloc xsi:type="ressourceGraphique:FichierBinaire" entree="//@bloc.2 //@bloc.5" chemin="power"/>
-  <bloc xsi:type="ressourceGraphique:Addition" entree="//@bloc.4 //@bloc.3"/>
+  <bloc xsi:type="ressourceGraphique:Addition" entree="//@bloc.3 //@bloc.8"/>
+  <bloc xsi:type="ressourceGraphique:Soustraction" entree="//@bloc.4 //@bloc.6"/>
 </ressourceGraphique:RessourceGraphique>

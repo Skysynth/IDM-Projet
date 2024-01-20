@@ -5,6 +5,8 @@
     <semanticResources>schemaTable.genmodel</semanticResources>
     <semanticResources>../constraints.ocl</semanticResources>
     <semanticResources>../ocl/constraints.ocl</semanticResources>
+    <semanticResources>SchemaTableDemo.xmi</semanticResources>
+    <semanticResources>SchemaTable2.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_RfcBIJ5yEe6wo56aJYoRJw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_P4hUkLIkEe6AW7YAhJjBRw" name="schemaTable" repPath="#_P4gtgLIkEe6AW7YAhJjBRw" changeId="1705158047688">

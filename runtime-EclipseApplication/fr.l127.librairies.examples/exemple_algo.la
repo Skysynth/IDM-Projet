@@ -1,19 +1,18 @@
 librairies exemple {
-	algo test{
+	algo test {
 		entrees (1 2 3)
-		sorties(4)
+		sorties (4)
 		chemin "test"
-		
 	}
-	algo test2{
+	algo test2 {
 		entrees (1)
 		sorties (6 7)
 		chemin "test2"
-		
 	}
 	algo test3 {
 		entrees (4 6 7)
 		sorties (8)
 		chemin "add"
 	}
+	
 }
