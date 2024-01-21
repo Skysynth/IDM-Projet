@@ -11,10 +11,10 @@
       entree="//@bloc.1"/>
   <bloc xsi:type="ressourceGraphique:RefColonne"/>
   <bloc xsi:type="ressourceGraphique:Resultat"
-      entree="//@bloc.4"
+      entree="//@bloc.3"
       idColonne="1"/>
   <bloc xsi:type="ressourceGraphique:Negation"
-      entree="//@bloc.3"/>
+      entree="//@bloc.4"/>
   <bloc xsi:type="ressourceGraphique:Multiplication"
       entree="//@bloc.1 //@bloc.5"/>
   <bloc xsi:type="ressourceGraphique:Constante"/>
